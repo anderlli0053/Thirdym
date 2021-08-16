@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: bcbd5b39fd604794bb0b4f40125ad345
+timeCreated: 1509913861
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - hj: {instanceID: 0}
+  - target: {instanceID: 0}
+  - bleedoutParticle: {fileID: 1224442589504162, guid: 7a09dcbddcad390428ec0d6b32b95dc5,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

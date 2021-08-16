@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Map
+  - Water
+  - Bullet
+  - Pickupable
+  - Sword
+  - Door
+  - UIDetail
+  - UIBackground
+  - UIText
+  - OilBarrel
+  - Factions/CorrectionNine
+  - Factions/UsurpationForces
+  - Factions/CivilSecurity
+  - Factions/Falkonian
+  - Factions/Grubs
+  - Factions/Androids
+  - Factions/Humans
+  - Admix
+  - Bodypart
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - ControllerCollider
+  - CharacterParts
+  - CharacterWeapons
+  - EnemyCollider
+  - EnemyParts
+  - EnemyWeapons
+  - CharacterBullet
+  - EnemyBullet
+  - Map
+  - SpecialCollisions
+  - PostProcessing
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: GameText
+    uniqueID: 3013721757
+    locked: 0

@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 480ef30c405ed7b49bed7686a0d71ec6
+timeCreated: 1512325404
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - gripSound: {fileID: 8300000, guid: 332282d0bd8bde74ebad60e766d761bc, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

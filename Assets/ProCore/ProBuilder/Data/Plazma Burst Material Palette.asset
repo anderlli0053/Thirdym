@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -770389242, guid: 4df21bd079886d84699ca7be1316c7a7, type: 3}
+  m_Name: Plazma Burst Material Palette
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 2100000, guid: e7b6deaa62a201840a65345a552ab49a, type: 2}
+  - {fileID: 2100000, guid: 826cc08de82449e448ba8156391cf32a, type: 2}
+  - {fileID: 2100000, guid: a3c1f120908a9c34fa748c59c2f6bb44, type: 2}
+  - {fileID: 2100000, guid: 56ddf9aed0d867545b05f8d23d8fe15c, type: 2}
+  - {fileID: 2100000, guid: cb0b7ccaba7da2544beffa76e5fa9d25, type: 2}
+  - {fileID: 2100000, guid: 22d4b4b0c72c828489a06f34a91b1aea, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

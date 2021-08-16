@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: f56050529e950c947bcdcc54793cfeba
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - profile: {instanceID: 0}
+  - damageIndicator: {fileID: 2489321738901700669, guid: 5de52ddfb1e43b54b841675cea7c9c49,
+      type: 3}
+  - battleSuit: {instanceID: 0}
+  - blood_splat: {fileID: 1362980632775236, guid: a6e1bb3d294ccf448aa50f1a6b029969,
+      type: 3}
+  - blood_bleed: {fileID: 1882992891793642, guid: 61d2bf4c658bb804a85a6e3357a2e70a,
+      type: 3}
+  - blood_squirt: {fileID: 1224442589504162, guid: 7a09dcbddcad390428ec0d6b32b95dc5,
+      type: 3}
+  - forcedDeathSFX: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

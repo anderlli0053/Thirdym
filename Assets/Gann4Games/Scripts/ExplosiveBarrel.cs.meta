@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5cbda857ab7a83349b5a206d03651cbf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sfxCollideHard: {fileID: 8300000, guid: 1d85a7ef5e2f22f45902a734be9cf102, type: 3}
+  - sfxCollideMedium: {fileID: 8300000, guid: 82989a8ca0e142d44b4926803a3276a8, type: 3}
+  - sfxCollideSoft: {fileID: 8300000, guid: 1ab29133bfd733a409afdce81bbb5849, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

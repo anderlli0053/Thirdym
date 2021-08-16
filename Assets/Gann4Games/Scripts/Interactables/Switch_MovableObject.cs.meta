@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3646e61e958128145b874aa903b6431f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - passwordEditor: {instanceID: 0}
+  - output: {fileID: 243022521898448532, guid: c2402c3c0391c96459f25330c98b19e6, type: 2}
+  - useSFX: {fileID: 8300000, guid: 8de9e2b13b8e34849bb1d3c1f4b49d2e, type: 3}
+  - blockedSFX: {fileID: 8300000, guid: ed495270c43082340b2aa884a3d9eac5, type: 3}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: 787d39484286df64a9ffe784a7b9aab3, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: af2b197d0b63db04289209c1dc25e1a6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hoverSFX: {fileID: 8300000, guid: 07dbc9b6d122a354fba55ef5130fb0eb, type: 3}
+  - clickSFX: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
+  - releaseSFX: {fileID: 8300000, guid: c2400ca3cc0ae59428bce6d24510d872, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

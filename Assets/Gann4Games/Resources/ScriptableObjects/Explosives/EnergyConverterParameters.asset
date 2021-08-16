@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5b0454e3372c447a74cb2a6e828346, type: 3}
+  m_Name: EnergyConverterParameters
+  m_EditorClassIdentifier: 
+  health: 100
+  explosionRadius: 10
+  explosionDamage: 250
+  explosionForce: 200
+  explosionOriginOffset: {x: 0, y: 0, z: 0}
+  brokenObject: {fileID: 1372779260754304, guid: da78a69d4ecc5664d846e496ea858b7b,
+    type: 3}

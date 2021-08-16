@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5b0454e3372c447a74cb2a6e828346, type: 3}
+  m_Name: EnergyReactorParameters
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  explosionRadius: 20
+  explosionPower: 200
+  explosionOriginOffset: {x: 0, y: 12, z: 0}
+  explosionObject: {fileID: 1303371625557964, guid: c00d3ef046699e54fa3e366846c95e18,
+    type: 3}
+  brokenObject: {fileID: 1360837779991310, guid: a54eb44d45062834c92753dba4ccd073,
+    type: 3}
+  bloodObject: {fileID: 1362980632775236, guid: a6e1bb3d294ccf448aa50f1a6b029969,
+    type: 3}

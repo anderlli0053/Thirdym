@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56050529e950c947bcdcc54793cfeba, type: 3}
+  m_Name: PhoenixFalkok
+  m_EditorClassIdentifier: 
+  profile: {fileID: 0}
+  character_name: Phoenix Falkok
+  damageIndicator: {fileID: 2489321738901700669, guid: 5de52ddfb1e43b54b841675cea7c9c49,
+    type: 3}
+  battleSuit: {fileID: 6932356533415701230, guid: ba8f18e2e8f459d4c8dc45aefe90b25b,
+    type: 3}
+  skill: 0
+  maximumHealth: 1000
+  injuryLevel: 100
+  regeneration_rate: 100
+  bladeDamage: 50
+  blood_splat: {fileID: 1362980632775236, guid: a6e1bb3d294ccf448aa50f1a6b029969,
+    type: 3}
+  blood_bleed: {fileID: 1882992891793642, guid: 61d2bf4c658bb804a85a6e3357a2e70a,
+    type: 3}
+  blood_squirt: {fileID: 1224442589504162, guid: 7a09dcbddcad390428ec0d6b32b95dc5,
+    type: 3}
+  bloodColor: {r: 0.3537736, g: 0.51455706, b: 1, a: 1}
+  bladesColor: {r: 0, g: 2.9960785, b: 2.9960785, a: 1}
+  faction: Factions/Falkonian
+  enemyTags:
+  - Factions/CorrectionNine
+  - Factions/CivilSecurity
+  - Factions/Androids
+  allyTags:
+  - Factions/Falkonian
+  sfxCollideHard: {fileID: 8300000, guid: 43fa865b096a54d4ead08df1817aba95, type: 3}
+  sfxCollideMedium: {fileID: 8300000, guid: a629709fc5c005848814945bb7ca8b1a, type: 3}
+  sfxCollideSoft: {fileID: 8300000, guid: 90b28444bd3e5d648bba8b809df77020, type: 3}
+  enemyDownSFX: []
+  alertSFX:
+  - {fileID: 8300000, guid: bf2e867b152323f4ba42523970507ed4, type: 3}
+  painSFX:
+  - {fileID: 8300000, guid: 26408ee1f565c1645a46487bb0b0e220, type: 3}
+  - {fileID: 8300000, guid: 6c7881c667b95644590eb7047c4d7eee, type: 3}
+  - {fileID: 8300000, guid: e11081f8553ec9946a720bfd82e98e86, type: 3}
+  injuryStateSFX:
+  - {fileID: 8300000, guid: 26408ee1f565c1645a46487bb0b0e220, type: 3}
+  - {fileID: 8300000, guid: 6c7881c667b95644590eb7047c4d7eee, type: 3}
+  - {fileID: 8300000, guid: e11081f8553ec9946a720bfd82e98e86, type: 3}
+  deathSFX:
+  - {fileID: 8300000, guid: 3e15b10e0e9dae5408139f84dc8f9d02, type: 3}
+  - {fileID: 8300000, guid: a16a6be9e7355a242aaa09a9a5fc6e0a, type: 3}
+  - {fileID: 8300000, guid: 4226af0989121fc4f9dff19091566fb2, type: 3}
+  forcedDeathSFX: {fileID: 0}
+  author: 

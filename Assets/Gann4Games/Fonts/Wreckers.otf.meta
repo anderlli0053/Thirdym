@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 02f0db76859094249bea647292db4e78
+timeCreated: 1498619587
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Wreckers
+  fontNames:
+  - Wreckers
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

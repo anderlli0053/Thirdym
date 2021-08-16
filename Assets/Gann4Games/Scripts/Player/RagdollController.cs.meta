@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 4bdc0f5191f185a4880cde97fe330a28
+timeCreated: 1531684104
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - spawnParticle: {fileID: 1747376530275154, guid: 18acd054965d33f44903c7ed26f77751,
+      type: 2}
+  - healthIndicator: {fileID: 1248498015648534, guid: fe14582d635390a4f824359c54e9ec16,
+      type: 2}
+  - enviroment: {instanceID: 0}
+  - cameraControl: {instanceID: 0}
+  - HealthOperator: {instanceID: 0}
+  - body: {instanceID: 0}
+  - head: {instanceID: 0}
+  - anim: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

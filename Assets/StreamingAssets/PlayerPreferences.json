@@ -1,0 +1,19 @@
+{
+  "choosen_suit": 0,
+  "audio_master": 1.0,
+  "audio_environment": 1.0,
+  "audio_music": 1.0,
+  "audio_effects": 1.0,
+  "graphics_bloom": true,
+  "graphics_toneMapping": true,
+  "graphics_whiteBalance": false,
+  "weapons_pistolSlot": 2,
+  "weapons_automaticSlot": 4,
+  "weapons_shotgunSlot": 1,
+  "weapons_energySlot": 0,
+  "weapons_havePistol": true,
+  "weapons_haveAutomatic": true,
+  "weapons_haveShotgun": true,
+  "weapons_haveEnergyBased": false,
+  "weapons_haveDefibrilators": false
+}

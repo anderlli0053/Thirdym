@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0c0c3fe0caa8bc24faa407ceedf1e0e9
+timeCreated: 1514862059
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - healSFX: {fileID: 8300000, guid: f35c51c71ac3ec849b159f41c4ddb2ee, type: 3}
+  - shockSFX: {fileID: 8300000, guid: 37eac703a220e8a4ea97b41bf530ce63, type: 3}
+  - switchSFX: {fileID: 8300000, guid: df59554418ea7e742813b02a59fcd5c0, type: 3}
+  - electroParticle: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

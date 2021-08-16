@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: a3b85dfd8d902744992cad410d7a5b28
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bullet: {fileID: 1056222452386770, guid: fe6f82b7a9c3aa940832571f6239dfa8, type: 3}
+  - muzzleFlash: {fileID: 1523652767490950, guid: 1af83f415f1c11343941df442731e780,
+      type: 3}
+  - bulletMaterial: {fileID: 2100000, guid: 6ae6d65ec583efe4b936cb2c452f3468, type: 2}
+  - sfxShoot: {instanceID: 0}
+  - sfxPump: {instanceID: 0}
+  - solidImpact: {fileID: 5377293820116007728, guid: 6ff74986edb23a34a8a21c8524edbbde,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 373ac7cf33bcbc848bcaee00df268d98
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - canvasGroup: {instanceID: 0}
+  - label: {instanceID: 0}
+  - notificationSfx: {fileID: 8300000, guid: 55db2322dbe9b2e498b1f48cfec1c3cb, type: 3}
+  - soundSource: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
