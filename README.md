@@ -6,5 +6,5 @@
     <p>Visit <a href="http://gann4life.ga/thirdym">gann4life.ga/thirdym</a> for more details about Thirdym project.</p>
 </div>
 
-
-* Requires Unity 2021.1.16f
+## Requirements
+* Unity 2021.1.16f
