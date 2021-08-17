@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5115905891650674663}
   - component: {fileID: 636756141999314630}
   m_Layer: 0
-  m_Name: ExplosiveBarrel
+  m_Name: YellowBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 675170136691047002}
   - component: {fileID: 5668862151448908122}
   m_Layer: 0
-  m_Name: ExplosiveBarrel
+  m_Name: Barrel (Yellow)
   m_TagString: Pickupable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
