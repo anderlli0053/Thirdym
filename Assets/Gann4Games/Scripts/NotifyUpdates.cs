@@ -10,8 +10,15 @@ public class NotifyUpdates : MonoBehaviour
     string _lastVersion;
     private void Start() 
     {
-        if (!_gameVersionHandler.IsServerDown) UpdateCheck();  
-        else ServerDown();
+        switch(_gameVersionHandler.IsServerDown)
+        {
+            case false:
+                UpdateCheck();
+                break;
+            case true:
+                ServerDown();
+                break;
+        }
     }
     void UpdateCheck()
     {
