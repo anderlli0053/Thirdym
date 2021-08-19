@@ -12,8 +12,13 @@ public class ExplosiveObject : MonoBehaviour
     public GameObject defaultObject;
 
     BreakableObject _breakableObject;
+    Rigidbody _rigidbody;
+    Collider _collider;
     private void Awake()
     {
+        _rigidbody = GetComponent<Rigidbody>();
+        _collider = GetComponent<Collider>();
+
         _breakableObject = GetComponent<BreakableObject>();
         _breakableObject.health = preset.health;
         _breakableObject.OnDeath += StartExplosion;
@@ -23,33 +28,33 @@ public class ExplosiveObject : MonoBehaviour
     {
         Instantiate(args.brokenModel, transform.position, transform.rotation);
         defaultObject.SetActive(false);
-
+        Destroy(_rigidbody);
+        Destroy(_collider);
         Explode();
     }
+
     public void Explode()
     {
+        Debug.LogError("Exploding");
         Vector3 explosionCenter = transform.position + preset.explosionOriginOffset;
         Collider[] colliders = PhysicsTools.GetCollidersAt(explosionCenter, preset.explosionRadius);
         foreach (Collider hit in colliders)
         {
             Rigidbody otherRigidbody = hit.GetComponent<Rigidbody>();
             CharacterBodypart otherBodypart = hit.GetComponent<CharacterBodypart>();
-
             if (otherRigidbody == null) continue;
 
+
             float distance = Vector3.Distance(otherRigidbody.transform.position, transform.position);
-            float explosionForce = ((preset.explosionDamage * preset.explosionForce * Time.deltaTime) / distance) / Time.timeScale;
+            if (distance > preset.explosionRadius) continue;
+
+            float explosionForce = preset.explosionForce / distance;
             otherRigidbody.AddExplosionForce(explosionForce, explosionCenter, preset.explosionRadius, 0, ForceMode.Impulse);
 
-            if (distance > preset.explosionRadius) return;
 
-            if (otherBodypart)
-            {
-                otherBodypart.character.HealthController.DealDamage(preset.explosionDamage / distance, Vector3.zero);
-
-                GameObject blood = otherBodypart.character.preset.BloodSplatFX();
-                blood.transform.position = hit.transform.position;
-            }
+            if (otherBodypart == null) continue;
+            otherBodypart.character.HealthController.DealDamage(preset.explosionDamage / distance, Vector3.zero);
+            
         }
         Destroy(gameObject);
     }
