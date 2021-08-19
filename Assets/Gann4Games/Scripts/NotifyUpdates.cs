@@ -10,6 +10,7 @@ public class NotifyUpdates : MonoBehaviour
     string _lastVersion;
     private void Start() 
     {
+        _gameVersionHandler = new Gann4Web();
         switch(_gameVersionHandler.IsServerDown)
         {
             case false:

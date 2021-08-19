@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Gann4Games.Thirdym.Gann4Web
 {
-    public abstract class Gann4Web
+    public class Gann4Web
     {
         public bool IsServerDown 
         {
@@ -25,10 +25,10 @@ namespace Gann4Games.Thirdym.Gann4Web
         readonly string _url = "http://gann4life.ga/json/data.json";
         WebClient _client;
 
-        abstract class CloudData { public Dictionary<string, Dictionary<string, string>> games = new Dictionary<string, Dictionary<string, string>>(); }
+        class CloudData { public Dictionary<string, Dictionary<string, string>> games = new Dictionary<string, Dictionary<string, string>>(); }
         string GetVersionString(string content)
         {
-            CloudData _data;
+            CloudData _data = new CloudData();
             _data = JsonConvert.DeserializeObject<CloudData>(content);
             return _data.games["thirdym"]["version"];
         }
