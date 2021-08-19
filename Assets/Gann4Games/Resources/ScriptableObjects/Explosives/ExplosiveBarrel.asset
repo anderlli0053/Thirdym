@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af5b0454e3372c447a74cb2a6e828346, type: 3}
-  m_Name: NormalBarrelTest
+  m_Name: ExplosiveBarrel
   m_EditorClassIdentifier: 
   health: 100
   explosionRadius: 10
   explosionDamage: 20
-  explosionForce: 250
+  explosionForce: 100
   explosionOriginOffset: {x: 0, y: 0, z: 0}
   brokenObject: {fileID: 1989096428224615586, guid: 10f93d5179cfdf64388bf684d961e7af,
     type: 3}
