@@ -8,12 +8,12 @@
   "graphics_toneMapping": true,
   "graphics_whiteBalance": false,
   "weapons_pistolSlot": 2,
-  "weapons_automaticSlot": 4,
+  "weapons_automaticSlot": 1,
   "weapons_shotgunSlot": 1,
   "weapons_energySlot": 0,
   "weapons_havePistol": true,
   "weapons_haveAutomatic": true,
-  "weapons_haveShotgun": true,
+  "weapons_haveShotgun": false,
   "weapons_haveEnergyBased": false,
   "weapons_haveDefibrilators": false
 }
