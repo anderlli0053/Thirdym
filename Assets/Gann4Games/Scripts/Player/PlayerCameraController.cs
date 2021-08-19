@@ -59,8 +59,13 @@ public class PlayerCameraController : MonoBehaviour
 
     public Vector3 CameraCenterPoint
     {
-        get{
-            if (Physics.Raycast(instance.activeCamera.transform.position, instance.activeCamera.transform.forward, out RaycastHit hit))
+        get
+        {
+            Vector3 startPosition = instance.activeCamera.transform.position;
+            Vector3 rayDirection = instance.activeCamera.transform.forward;
+            RaycastHit hit;
+            LayerMask mask = ~0;
+            if (Physics.Raycast(startPosition, rayDirection, out hit, Mathf.Infinity, mask, QueryTriggerInteraction.Ignore))
                 return hit.point;
             else
                 return Vector3.zero;
