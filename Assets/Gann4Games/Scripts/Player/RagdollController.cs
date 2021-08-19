@@ -84,12 +84,7 @@ public class RagdollController : MonoBehaviour {
             rootHinge.useSpring = true;
         }
 
-        /*if (RagdollState)
-            RagdollMode(false, true);*/
         RagdollMode(!isRagdollState, isRagdollState);
-
-        if (_character.HealthController.Unconcious)
-            isRagdollState = true;
 
         if (!_character.isNPC && !IngameMenuHandler.instance.paused)//If not using AI and is not paused
         {
@@ -278,7 +273,7 @@ public class RagdollController : MonoBehaviour {
         {
             if (LegsMotion[i] == null)
                 continue;
-            float springStrength = useAnimations ? 500 : 0;
+            float springStrength = useAnimations ? bodySpring : 0;
             float lerpValue = Mathf.Lerp(LegsMotion[i].spring.spring, springStrength, Time.deltaTime*transitionSpeed);
             LegsMotion[i].spring = PhysicsTools.SetHingeJointSpring(LegsMotion[i].spring, lerpValue);
         }

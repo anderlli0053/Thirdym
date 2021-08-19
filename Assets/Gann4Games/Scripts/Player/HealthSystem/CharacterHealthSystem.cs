@@ -64,8 +64,9 @@ public class CharacterHealthSystem : MonoBehaviour {
     
     private void Update()
     {
-        AnimateArms(!IsDead);
-        /*switch(playerLifeState)               Health system needs to be rewritten.
+        // Health system rewrite (newest)
+        _character.RagdollController.isRagdollState = IsDead;
+        switch (playerLifeState)
         {
             case HealthStatus.Alive:
                 break;
@@ -73,7 +74,10 @@ public class CharacterHealthSystem : MonoBehaviour {
                 break;
             case HealthStatus.Dead:
                 break;
-        } */
+        }
+
+
+        AnimateArms(!IsDead);
         if (!_character.isNPC)
         {
             MainHUDHandler.instance.mainAlpha = 1-(_health / _maxHealth);
@@ -108,7 +112,7 @@ public class CharacterHealthSystem : MonoBehaviour {
             {
                 if (!_character.isNPC)
                 {
-                    _character.RagdollController.RagdollMode(false, true);
+                    //_character.RagdollController.RagdollMode(false, true);
                     _character.GetComponent<BoxCollider>().enabled = false;
 
                     //arms.LeftShoulder[0].useSpring = false;
