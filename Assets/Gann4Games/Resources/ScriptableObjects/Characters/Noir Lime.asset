@@ -56,4 +56,4 @@ MonoBehaviour:
   deathSFX:
   - {fileID: 8300000, guid: 4f25e2d62d6e6c348b9745c8eef4ec4a, type: 3}
   forcedDeathSFX: {fileID: 0}
-  author: 
+  author: Gann4Life

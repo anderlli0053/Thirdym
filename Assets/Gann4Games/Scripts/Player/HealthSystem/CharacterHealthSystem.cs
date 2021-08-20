@@ -65,7 +65,7 @@ public class CharacterHealthSystem : MonoBehaviour {
     private void Update()
     {
         // Health system rewrite (newest)
-        _character.RagdollController.isRagdollState = IsDead;
+        _character.RagdollController.isRagdollState = !IsFullyAlive;
         switch (playerLifeState)
         {
             case HealthStatus.Alive:

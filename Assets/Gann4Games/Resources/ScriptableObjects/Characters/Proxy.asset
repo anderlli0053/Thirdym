@@ -59,4 +59,4 @@ MonoBehaviour:
   deathSFX:
   - {fileID: 8300000, guid: 4cd780c580deadb46ae53a217a6aa8b8, type: 3}
   forcedDeathSFX: {fileID: 0}
-  author: 
+  author: Alberth

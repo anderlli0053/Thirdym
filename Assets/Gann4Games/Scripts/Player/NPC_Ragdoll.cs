@@ -47,11 +47,13 @@ namespace Gann4Games.Thirdym.NPC
             charactersOnScene = CharactersOnScene();
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Handles.Label(targetPoint, "(Vector3) Target");
             Gizmos.DrawLine(transform.position, targetPoint);
         }
+#endif
 
         private void OnDamageDealed(object sender, CharacterHealthSystem.OnDamageDealedArgs e)
         {
