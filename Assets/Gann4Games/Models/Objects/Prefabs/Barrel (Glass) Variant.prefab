@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &7741827085416307522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164120242838980024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9494ad9b7d40e484caed187326d48725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1954705880019801244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25,7 +37,7 @@ PrefabInstance:
     - target: {fileID: 5668862151448908068, guid: 98df4717d0959274dbf4b80c829532e7,
         type: 3}
       propertyPath: m_Name
-      value: Barrel (Glass)
+      value: Barrel (Glass) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5668862151448908127, guid: 98df4717d0959274dbf4b80c829532e7,
         type: 3}
@@ -90,3 +102,9 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98df4717d0959274dbf4b80c829532e7, type: 3}
+--- !u!1 &6164120242838980024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5668862151448908068, guid: 98df4717d0959274dbf4b80c829532e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1954705880019801244}
+  m_PrefabAsset: {fileID: 0}

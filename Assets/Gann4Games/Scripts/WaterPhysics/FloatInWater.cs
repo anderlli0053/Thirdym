@@ -4,34 +4,36 @@ using UnityEngine;
 
 public class FloatInWater : MonoBehaviour {
 
-    Rigidbody rb;
-    LiquidObject water_object;
+    Rigidbody _rigidbody;
+    LiquidObject _waterObject;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
     private void Update()
     {
-        if (water_object)
+        if (_waterObject)
         {
-            rb.useGravity = false;
-            rb.drag = water_object.liquidDrag;
-            rb.AddForce(water_object.buoyancyDirection*Time.deltaTime*100, ForceMode.Force);
+            Vector3 force = _waterObject.buoyancyDirection * Time.deltaTime * 100;
+
+            _rigidbody.AddForce(force, ForceMode.Force);
+            _rigidbody.drag = _waterObject.liquidDrag;
+            _rigidbody.useGravity = false;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Water")
-            water_object = other.GetComponent<LiquidObject>();
+            _waterObject = other.GetComponent<LiquidObject>();
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Water")
         {
-            rb.useGravity = true;
-            rb.drag = 0;
-            water_object = null;
+            _rigidbody.useGravity = true;
+            _rigidbody.drag = 0;
+            _waterObject = null;
         }
     }
 }
