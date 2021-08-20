@@ -23,7 +23,7 @@ MonoBehaviour:
   bulletSpread: 0
   bulletWidth: 0.25
   bulletLenght: 0.1
-  damage: 13
+  damage: 22
   repeatTime: 0.2
   muzzleDisableTime: 0.05
   bulletCount: 1
