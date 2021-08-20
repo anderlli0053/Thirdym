@@ -13,7 +13,7 @@
   "weapons_energySlot": 0,
   "weapons_havePistol": true,
   "weapons_haveAutomatic": true,
-  "weapons_haveShotgun": false,
+  "weapons_haveShotgun": true,
   "weapons_haveEnergyBased": false,
   "weapons_haveDefibrilators": false
 }
