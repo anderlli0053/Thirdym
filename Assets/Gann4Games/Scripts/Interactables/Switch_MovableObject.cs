@@ -199,13 +199,14 @@ namespace Gann4Games.Thirdym.Interactables
             }
             if (other.gameObject.HasTag("Player") && other.gameObject.layer == LayerMask.NameToLayer("ControllerCollider") && (mode == SwitchMode.Switch_Set || mode == SwitchMode.Switch_Toggle))
             {
+                char useKey = 'E';
                 switch (LanguagePrefs.Language)
                 {
                     case AvailableLanguages.English:
-                        NotificationHandler.Notify(string.Format("[{0}] Press F to use.", UnlockedText), 3, 1, false);
+                        NotificationHandler.Notify($"[{UnlockedText}] Press {useKey} to use.", 3, 1, false);
                         break;
                     case AvailableLanguages.Español:
-                        NotificationHandler.Notify(string.Format("[{0}] Presiona F para usar.", UnlockedText), 3, 1, false);
+                        NotificationHandler.Notify($"[{UnlockedText}] Presiona {useKey} para usar.", 3, 1, false);
                         break;
                 }
             }

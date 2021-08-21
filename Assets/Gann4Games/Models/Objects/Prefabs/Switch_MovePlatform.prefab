@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 114744587270339442}
   - component: {fileID: 114341787343622186}
   - component: {fileID: 82068412650830448}
-  - component: {fileID: 114044517180534418}
   m_Layer: 16
   m_Name: Button (8)
   m_TagString: Untagged
@@ -172,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -309,20 +309,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114044517180534418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132798471075320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1197294574288446
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +413,6 @@ GameObject:
   - component: {fileID: 114076679820117814}
   - component: {fileID: 114566015029698202}
   - component: {fileID: 82843926995362424}
-  - component: {fileID: 114155411688535358}
   m_Layer: 16
   m_Name: Button (3)
   m_TagString: Untagged
@@ -507,6 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -644,20 +630,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114155411688535358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207406929409826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1257664365390518
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +643,6 @@ GameObject:
   - component: {fileID: 114501780339247732}
   - component: {fileID: 114132477967251344}
   - component: {fileID: 82265600788567446}
-  - component: {fileID: 114521440111451424}
   m_Layer: 16
   m_Name: Button (9)
   m_TagString: Untagged
@@ -751,6 +722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -888,20 +860,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114521440111451424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257664365390518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1321473984390158
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +873,6 @@ GameObject:
   - component: {fileID: 114538175050387566}
   - component: {fileID: 114714659064420772}
   - component: {fileID: 82050125572468192}
-  - component: {fileID: 114505138058423248}
   m_Layer: 16
   m_Name: Button (7)
   m_TagString: Untagged
@@ -995,6 +952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1132,20 +1090,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114505138058423248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321473984390158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1334062489211900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1174,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &114528222227555962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,7 +1617,6 @@ GameObject:
   - component: {fileID: 114453297071071686}
   - component: {fileID: 114963516968149100}
   - component: {fileID: 82366655603550078}
-  - component: {fileID: 114373680042273026}
   m_Layer: 16
   m_Name: Button (5)
   m_TagString: Untagged
@@ -1752,6 +1696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1889,20 +1834,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114373680042273026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1429563608968542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1434021809839516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,7 +1847,6 @@ GameObject:
   - component: {fileID: 114979785064766096}
   - component: {fileID: 114450559275384662}
   - component: {fileID: 82496555608843616}
-  - component: {fileID: 114937755715750226}
   m_Layer: 16
   m_Name: Erase
   m_TagString: Untagged
@@ -1996,6 +1926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2133,20 +2064,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114937755715750226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434021809839516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1473649811420992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2235,6 @@ GameObject:
   - component: {fileID: 114466455926002862}
   - component: {fileID: 114542693870772218}
   - component: {fileID: 82667081558114414}
-  - component: {fileID: 114084404969059854}
   m_Layer: 16
   m_Name: Button (4)
   m_TagString: Untagged
@@ -2398,6 +2314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2535,20 +2452,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114084404969059854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505843622035336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1532190607664048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,7 +2646,6 @@ GameObject:
   - component: {fileID: 114444053447351878}
   - component: {fileID: 114377914620420950}
   - component: {fileID: 82686037259412936}
-  - component: {fileID: 114172035550306048}
   m_Layer: 16
   m_Name: Button (2)
   m_TagString: Untagged
@@ -2823,6 +2725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2960,20 +2863,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114172035550306048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586874757504328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1681539795667404
 GameObject:
   m_ObjectHideFlags: 0
@@ -3266,6 +3155,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3315,7 +3205,7 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 1}
   UnlockedText: Press 'F' to interact
-  LockedText: Locked, press F
+  LockedText: Locked, press E
   InvalidText: Password denied
   ValidText: Password accepted
   platforms:
@@ -3457,7 +3347,6 @@ GameObject:
   - component: {fileID: 114314848362467984}
   - component: {fileID: 114349116405382160}
   - component: {fileID: 82098973061568890}
-  - component: {fileID: 114741157490434014}
   m_Layer: 16
   m_Name: Button (1)
   m_TagString: Untagged
@@ -3537,6 +3426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3674,20 +3564,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114741157490434014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710901177479712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1756017292505672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,7 +3577,6 @@ GameObject:
   - component: {fileID: 114857210085245662}
   - component: {fileID: 114894984692107934}
   - component: {fileID: 82711193840833808}
-  - component: {fileID: 114408519370721608}
   m_Layer: 16
   m_Name: Apply
   m_TagString: Untagged
@@ -3781,6 +3656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3918,20 +3794,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114408519370721608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756017292505672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1858515948445468
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,7 +3886,6 @@ GameObject:
   - component: {fileID: 114695164199523738}
   - component: {fileID: 114461619616564396}
   - component: {fileID: 82441113835081448}
-  - component: {fileID: 114519577429613868}
   m_Layer: 16
   m_Name: Button (6)
   m_TagString: Untagged
@@ -4104,6 +3965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -4241,20 +4103,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114519577429613868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915370582085552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
 --- !u!1 &1990138252799962
 GameObject:
   m_ObjectHideFlags: 0
@@ -4268,7 +4116,6 @@ GameObject:
   - component: {fileID: 114890863614625574}
   - component: {fileID: 114382752063763870}
   - component: {fileID: 82254262760013418}
-  - component: {fileID: 114950213383034862}
   m_Layer: 16
   m_Name: Button
   m_TagString: Untagged
@@ -4348,6 +4195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 0
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -4485,17 +4333,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114950213383034862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990138252799962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056aa7e2a995ee841982d54b15bebd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Click: {fileID: 8300000, guid: ca1838d6d756c7345a7fb854128fa793, type: 3}
-  MouseOver: {fileID: 8300000, guid: 1ba716af64c389f408019db88648426a, type: 3}
