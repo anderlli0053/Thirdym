@@ -65,18 +65,19 @@ public class CharacterHealthSystem : MonoBehaviour {
     private void Update()
     {
         // Health system rewrite (newest)
+        
+        //switch (playerLifeState)
+        //{
+        //    case HealthStatus.Alive:
+        //        break;
+        //    case HealthStatus.Injuried:
+        //        break;
+        //    case HealthStatus.Dead:
+        //        break;
+        //}
+
+
         _character.RagdollController.isRagdollState = !IsFullyAlive;
-        switch (playerLifeState)
-        {
-            case HealthStatus.Alive:
-                break;
-            case HealthStatus.Injuried:
-                break;
-            case HealthStatus.Dead:
-                break;
-        }
-
-
         AnimateArms(!IsDead);
         if (!_character.isNPC)
         {
