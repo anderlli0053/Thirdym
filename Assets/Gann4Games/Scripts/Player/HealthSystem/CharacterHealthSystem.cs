@@ -39,11 +39,7 @@ public class CharacterHealthSystem : MonoBehaviour {
 
     private void Awake()
     {
-        #region Set parameters from customizator
         _character = GetComponent<CharacterCustomization>();
-        _maxHealth = _character.preset.maximumHealth;
-        _injuryLevel = _character.preset.injuryLevel;
-        #endregion
         _timer.SetTimeOut(3);
         bodyParts.AddRange(GetComponentsInChildren<CharacterBodypart>());
         /*foreach (PartCollision _partCollision in bodyParts)
@@ -51,6 +47,9 @@ public class CharacterHealthSystem : MonoBehaviour {
     }
     private void Start()
     {
+        _maxHealth = _character.preset.maximumHealth;
+        _injuryLevel = _character.preset.injuryLevel;
+
         if (Dead) _health = 0;
         else _health = _maxHealth;
 
