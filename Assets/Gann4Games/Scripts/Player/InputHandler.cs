@@ -13,7 +13,7 @@ public class InputHandler : MonoBehaviour
     public bool aiming => gameplayControls.Player.Aim.ReadValue<float>() > 0;
     public bool firing => gameplayControls.Player.Fire.ReadValue<float>() > 0;
     public bool ability => gameplayControls.Player.Ability.triggered;
-    public bool use => gameplayControls.Player.Use.triggered;
+    public bool use => gameplayControls.Player.Use.ReadValue<float>() > 0;
     public bool walking => gameplayControls.Player.Walk.ReadValue<float>()>0;
     public bool jumping => gameplayControls.Player.Jump.ReadValue<float>()>0;
     public bool ragdolling => gameplayControls.Player.Ragdoll.ReadValue<float>()>0;
