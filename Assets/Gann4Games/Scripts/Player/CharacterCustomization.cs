@@ -13,10 +13,12 @@ public class Bodyparts
     [Header("Left Arm")]
     public Transform leftShoulder;
     public Transform leftElbow;
+    public Transform leftHand;
     [Space]
     [Header("Right Arm")]
     public Transform rightShoulder;
     public Transform rightElbow;
+    public Transform rightHand;
     [Space]
     [Header("Left Leg")]
     public Transform leftLeg;

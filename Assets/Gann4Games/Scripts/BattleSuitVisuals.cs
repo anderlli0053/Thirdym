@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 [ExecuteInEditMode]
 public class BattleSuitVisuals : MonoBehaviour
@@ -10,13 +9,13 @@ public class BattleSuitVisuals : MonoBehaviour
     Transform[] getChildTransforms(Transform item)
     {
         // Create a list
-        List<Transform> element_list = new List<Transform>();
+        List<Transform> elementList = new List<Transform>();
 
         // Add each child object to the list
-        for (int i = 0; i < item.childCount; i++) element_list.Add(item.GetChild(i));
+        for (int i = 0; i < item.childCount; i++) elementList.Add(item.GetChild(i));
 
         // Return list as array
-        return element_list.ToArray();
+        return elementList.ToArray();
     }
     private void Update()
     {
@@ -41,6 +40,7 @@ public class BattleSuitVisuals : MonoBehaviour
 
                 if (bodypart.Contains("shoulder") || bodypart.Contains("arm")) limbs.leftShoulder = t;
                 if (bodypart.Contains("elbow") || bodypart.Contains("forearm")) limbs.leftElbow = t;
+                if (bodypart.Contains("hand")) limbs.leftHand = t;
             }
             else if (bodypart.Contains("right"))
             {
@@ -50,6 +50,7 @@ public class BattleSuitVisuals : MonoBehaviour
 
                 if (bodypart.Contains("shoulder") || bodypart.Contains("arm")) limbs.rightShoulder = t;
                 if (bodypart.Contains("elbow") || bodypart.Contains("forearm")) limbs.rightElbow = t;
+                if (bodypart.Contains("hand")) limbs.rightHand = t;
             }
         }
     }
