@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using Gann4Games.Thirdym.Enums;
 using Gann4Games.Thirdym.Localization; // Maybe another code smell ... ?
-
+using Gann4Games.Thirdym.ScriptableObjects;
+[RequireComponent(typeof(CollisionEvents))]
 public class PickupableGun : MonoBehaviour {
+    public SO_WeaponPreset weaponData;
+
     public Weapons GunType;
 
     public string gunName;
@@ -13,21 +16,49 @@ public class PickupableGun : MonoBehaviour {
 
     CharacterCustomization _character;
     AudioSource _auSource;
+
+    CollisionEvents _collisionEvents;
+
+    GameObject _weaponModel;
+    private void OnEnable()
+    {
+        _collisionEvents.OnCollideSoft += OnCollideSoft;
+        _collisionEvents.OnCollideMedium += OnCollideMedium;
+    }
+    private void OnDisable()
+    {
+        _collisionEvents.OnCollideSoft -= OnCollideSoft;
+        _collisionEvents.OnCollideMedium -= OnCollideMedium;
+    }
     private void Start()
     {
+        AddVisuals();
+        AddPhysics();
         _auSource = gameObject.AddComponent<AudioSource>();
         _auSource.spatialBlend = 1;
     }
-    private void OnCollisionEnter(Collision collision)
+    void AddVisuals()
     {
-        if(collision.relativeVelocity.magnitude > 4)
+        
+        if (_weaponModel == null)
         {
-            _auSource.PlayOneShot(collisionClip2);
+            _weaponModel = Instantiate(weaponData.rightWeaponModel, transform.position, transform.rotation);
+            _weaponModel.transform.SetParent(transform);
         }
-        else if (collision.relativeVelocity.magnitude > 2)
-        {
-            _auSource.PlayOneShot(collisionClip1);
-        }
+    }
+    void AddPhysics()
+    {
+        MeshCollider mesh = gameObject.AddComponent<MeshCollider>();
+        mesh.sharedMesh = _weaponModel.GetComponent<MeshFilter>().sharedMesh;
+        mesh.convex = true;
+    }
+    void OnCollideSoft(object sender, CollisionEvents.CollisionArgs args)
+    {
+        _auSource.PlayOneShot(collisionClip1);
+    }
+    void OnCollideMedium(object sender, CollisionEvents.CollisionArgs args)
+    {
+        _auSource.PlayOneShot(collisionClip2);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -47,6 +78,13 @@ public class PickupableGun : MonoBehaviour {
         {
             
             #region Pistols
+            if(_character.EquipmentController.pistol == null)
+            {
+                _character.EquipmentController.pistol = weaponData;
+                Transform rightHand = _character.baseBody.rightHand;
+                Instantiate(weaponData.rightWeaponModel, rightHand.position, rightHand.rotation);
+
+            }
             if (_character.EquipmentController.HavePistol == false)
             {
                 switch(GunType)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Gann4Games.Thirdym.Enums;
+using Gann4Games.Thirdym.ScriptableObjects;
 
 [System.Serializable]
 public class WeaOnBack
@@ -56,6 +57,19 @@ public class EquipmentSystem : MonoBehaviour {
     public WeaPrefabs Prefabs;
     
     public bool disarmed;
+
+    [Tooltip("Self descriptive")]
+    public SO_WeaponPreset melee;
+    [Tooltip("Self descriptive")]
+    public SO_WeaponPreset pistol;
+    [Tooltip("Any type of rifle")]
+    public SO_WeaponPreset rifle;
+    [Tooltip("Self descriptive")]
+    public SO_WeaponPreset shotgun;
+    [Tooltip("Weapons that are heavy")]
+    public SO_WeaponPreset heavy;
+    [Tooltip("Tools include the following: Defibrilator, electroshock, more coming soon")]
+    public SO_WeaponPreset tool;
 
     [Header("Pistols")]
     public bool HavePistol;
