@@ -238,8 +238,11 @@ namespace Gann4Games.Thirdym.NPC
             PickupableGun defibrilatorWorldWeapon = new PickupableGun();
             foreach (PickupableGun gun in guns)
             {
-                if (gun.GunType == Weapons.DefibrilatorElectroshock)
-                { defibrilatorWorldWeapon = gun; break; }
+                if (gun.weaponData.weaponType == WeaponType.Tool)
+                { 
+                    defibrilatorWorldWeapon = gun; 
+                    break; 
+                }
             }
             return defibrilatorWorldWeapon;
         }

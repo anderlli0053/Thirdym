@@ -36,6 +36,13 @@ public class CharacterArms : MonoBehaviour {
 
         return joints;
     }
+    public void SetArmsSpring(bool useSpring)
+    {
+        foreach(HingeJoint bodypart in GetUpperBodyParts())
+        {
+            bodypart.useSpring = useSpring;
+        }
+    }
     private void Start()
     {
         _character = GetComponent<CharacterCustomization>();
@@ -74,7 +81,7 @@ public class CharacterArms : MonoBehaviour {
                 anim.SetFloat("AimType", aimType);
                 if (!_character.isNPC)
                 {
-                    if (InputHandler.instance.aiming && equipment.currentWeapon != 0 && !equipment.disarmed)
+                    if (InputHandler.instance.aiming && !equipment.disarmed && !equipment.disarmed)
                     {
                         aimStatus = Mathf.Lerp(aimStatus, 1, Time.deltaTime * 10);
                         AimGun(true); // New aim system (improved aiming)
@@ -135,14 +142,12 @@ public class CharacterArms : MonoBehaviour {
         if (IngameMenuHandler.instance.paused) return;
         if (aim)
         {
-            Quaternion rot = Quaternion.identity;
-
-            if (_character.NPC) rot = _character.NPC.facerTransform.rotation;
-            else rot = Quaternion.LookRotation(_character.CameraController.CameraCenterPoint - equipment.IK.transform.position); //_character.CameraController.activeCamera.transform.rotation;
-
-            equipment.IK.transform.rotation = Quaternion.Lerp(equipment.IK.transform.rotation, Quaternion.Euler(rot.eulerAngles.x - 90, rot.eulerAngles.y, rot.eulerAngles.z - 90), Time.deltaTime * 10);
+            _character.baseBody.rightHand.LookAt(PlayerCameraController.instance.CameraCenterPoint);
+            _character.baseBody.rightHand.Rotate(-90, -90, 0);
         }
-        if(equipment.IK.GetComponent<Rigidbody>().freezeRotation == !aim)
-            equipment.IK.GetComponent<Rigidbody>().freezeRotation = aim;
+        else
+        {
+            _character.baseBody.rightHand.localRotation = Quaternion.Lerp(_character.baseBody.rightHand.localRotation, Quaternion.identity, Time.deltaTime*10);
+        }
     }
 }

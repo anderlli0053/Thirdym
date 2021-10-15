@@ -134,7 +134,7 @@ public class CharacterHealthSystem : MonoBehaviour {
                 {
                     Dead = true;
                     _character.PlayDeathSFX();
-                    _character.EquipmentController.DropAction();
+                    _character.EquipmentController.DropWeapon();
                     _character.EquipmentController.DisableBlades();
                     OnDeath.Invoke();
                 }

@@ -48,7 +48,7 @@ public class CheckGround : MonoBehaviour {
                         if (obj == null || objectList[i] == null) objectList.RemoveAt(i);
                         if (obj.HasTag("Pickupable") || obj.CompareTag("Pickupable"))
                         {
-                            _equipmentController.DropAction();
+                            _equipmentController.DropWeapon();
                             pickupableBody = objectList[i].GetComponent<Rigidbody>();
                             _draggingBody = true;
                             break;
@@ -57,7 +57,7 @@ public class CheckGround : MonoBehaviour {
                 }
                 else
                 {
-                    StartCoroutine(_equipmentController.Equip(0));
+                    //StartCoroutine(_equipmentController.Equip(0));
                     Destroy(_dragJoint);
                     objectList = null;
                     objectList = new List<GameObject>();

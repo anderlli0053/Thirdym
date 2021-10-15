@@ -21,6 +21,7 @@ public class InputHandler : MonoBehaviour
     public bool kicking => gameplayControls.Player.Kick.ReadValue<float>()>0;
     public bool cameraSwitch => gameplayControls.Player.CameraSwitch.triggered;
     public bool pause => gameplayControls.Player.Pause.triggered;
+    public bool dropWeapon => gameplayControls.Player.DropItem.triggered;
 
     private void Awake()
     {

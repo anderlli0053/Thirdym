@@ -30,15 +30,14 @@ namespace Gann4Games.Thirdym.Enums
         EnergyCSBNG,
         DefibrilatorElectroshock
     }
-    public enum WeaponCategory
+    public enum WeaponType
     {
+        Melee,
         Pistol, 
-        Automatic, 
+        Rifle, 
         Shotgun, 
-        EnergyBased, 
-        Explosives, 
-        Defibrilator, 
-        Melee
+        Heavy,
+        Tool
     }
     public enum VehicleType
     {

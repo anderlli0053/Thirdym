@@ -120,11 +120,11 @@ public class CharacterCustomization : MonoBehaviour
 
         if(suitVisuals.limbs.leftShoulder) suitVisuals.limbs.leftShoulder.parent = baseBody.leftShoulder;
         if(suitVisuals.limbs.leftElbow) suitVisuals.limbs.leftElbow.parent = baseBody.leftElbow;
-        //suitVisuals.limbs.leftHand.parent = baseBody.leftHand; Hands are not implemented yet.
+        if(suitVisuals.limbs.leftHand) suitVisuals.limbs.leftHand.parent = baseBody.leftHand;
 
         if(suitVisuals.limbs.rightShoulder) suitVisuals.limbs.rightShoulder.parent = baseBody.rightShoulder;
         if(suitVisuals.limbs.rightElbow) suitVisuals.limbs.rightElbow.parent = baseBody.rightElbow;
-        //suitVisuals.limbs.rightHand.parent = baseBody.rightHand; Hands are not implemented yet.
+        if(suitVisuals.limbs.rightHand) suitVisuals.limbs.rightHand.parent = baseBody.rightHand;
 
         if(suitVisuals.limbs.leftLeg) suitVisuals.limbs.leftLeg.parent = baseBody.leftLeg;
         if(suitVisuals.limbs.leftKnee) suitVisuals.limbs.leftKnee.parent = baseBody.leftKnee;

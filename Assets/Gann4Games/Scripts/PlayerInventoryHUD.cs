@@ -73,11 +73,11 @@ public class PlayerInventoryHUD : MonoBehaviour {
         _textDefibrilator.color = Color.Lerp(_textDefibrilator.color, _colorTextDefibrilator, lerp);
         _textBlades.color = Color.Lerp(_textBlades.color, _colorTextBlades, lerp);
     }
-    public static void SetWeapon(WeaponCategory category, EquipMode mode)
+    public static void SetWeapon(WeaponType category, EquipMode mode)
     {
         switch (category)
         {
-            case WeaponCategory.Pistol:
+            case WeaponType.Pistol:
                 if (mode == EquipMode.Drop) { 
                     instance._colorBackgroundPistol = instance.colorBackgroundEmpty; 
                     instance._colorTextPistol = instance.colorTextEmpty; 
@@ -92,7 +92,7 @@ public class PlayerInventoryHUD : MonoBehaviour {
                 }
                 break;
 
-            case WeaponCategory.Automatic:
+            case WeaponType.Rifle:
                 if (mode == EquipMode.Drop) { 
                     instance._colorBackgroundAutomatic = instance.colorBackgroundEmpty; 
                     instance._colorTextAutomatic = instance.colorTextEmpty; 
@@ -107,7 +107,7 @@ public class PlayerInventoryHUD : MonoBehaviour {
                 }
                 break;
 
-            case WeaponCategory.Shotgun:
+            case WeaponType.Shotgun:
                 if (mode == EquipMode.Drop) { 
                     instance._colorBackgroundShotgun = instance.colorBackgroundEmpty; 
                     instance._colorTextShotgun = instance.colorTextEmpty; 
@@ -122,7 +122,7 @@ public class PlayerInventoryHUD : MonoBehaviour {
                 }
                 break;
 
-            case WeaponCategory.EnergyBased:
+            case WeaponType.Heavy:
                 if (mode == EquipMode.Drop) {
                     instance._colorBackgroundEnergy = instance.colorBackgroundEmpty;
                     instance._colorTextEnergy = instance.colorTextEmpty;
@@ -137,22 +137,7 @@ public class PlayerInventoryHUD : MonoBehaviour {
                 }
                 break;
 
-            case WeaponCategory.Explosives:
-                if (mode == EquipMode.Drop) { 
-                    instance._colorBackgroundExplosive = instance.colorBackgroundEmpty; 
-                    instance._colorTextExplosive = instance.colorTextEmpty; 
-                }
-                else if (mode == EquipMode.Pickup) { 
-                    instance._colorBackgroundExplosive = instance.colorBackgroundHave; 
-                    instance._colorTextExplosive = instance.colorTextHave; 
-                }
-                else if (mode == EquipMode.Equip) { 
-                    instance._colorBackgroundExplosive = instance.colorBackgroundEquipped; 
-                    instance._colorTextExplosive = instance.colorTextEquipped; 
-                }
-                break;
-
-            case WeaponCategory.Melee:
+            case WeaponType.Melee:
                 if (mode == EquipMode.Drop) { 
                     instance._colorBackgroundBlades = instance.colorBackgroundEmpty; 
                     instance._colorTextBlades = instance.colorTextEmpty; 

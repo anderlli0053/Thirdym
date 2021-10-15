@@ -67,7 +67,7 @@ public class grabRigidbodies : MonoBehaviour {
         else if (LayerMask.LayerToName(rb.gameObject.layer) == "CharacterParts" || LayerMask.LayerToName(rb.gameObject.layer) == "ControllerCollider" || LayerMask.LayerToName(rb.gameObject.layer) == "EnemyParts" || LayerMask.LayerToName(rb.gameObject.layer) == "EnemyCollider")
             rbIndicator.text = beforeIndicate + " [Ragdoll] " + rbGrabbed.ToString();
         else if (rb.GetComponent<PickupableGun>())
-            rbIndicator.text = beforeIndicate + " [" + rb.GetComponent<PickupableGun>().GunType + "] " + rbGrabbed.ToString();
+            rbIndicator.text = beforeIndicate + " [" + rb.GetComponent<PickupableGun>().weaponData.weaponName + "] " + rbGrabbed.ToString();
         else if (rb.gameObject.layer == LayerMask.NameToLayer("CharacterWeapons"))
             rbIndicator.text = beforeIndicate + " [Weapon] " + rbGrabbed.ToString();
     }
