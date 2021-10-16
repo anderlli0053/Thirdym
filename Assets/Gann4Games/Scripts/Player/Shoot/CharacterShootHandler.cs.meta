@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 7a3fceab60e998448971369904cf4230
+timeCreated: 1516571228
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - user: {instanceID: 0}
+  - bullet: {fileID: 1056222452386770, guid: fe6f82b7a9c3aa940832571f6239dfa8, type: 2}
+  - flash: {fileID: 1523652767490950, guid: 1af83f415f1c11343941df442731e780, type: 2}
+  - bulletMaterial: {fileID: 2100000, guid: 6ae6d65ec583efe4b936cb2c452f3468, type: 2}
+  - sourceAudio: {instanceID: 0}
+  - shootClip: {fileID: 8300000, guid: 561205cb42e1c4c4b9adfc49dd0ed1f1, type: 3}
+  - pumpClip: {fileID: 8300000, guid: c38aa357b091c564ea7365305f089d4e, type: 3}
+  - playerImpact: {fileID: 1362980632775236, guid: a6e1bb3d294ccf448aa50f1a6b029969,
+      type: 2}
+  - solidImpact: {fileID: 1728935870465036, guid: 77babeaca68cd1e4ea73d943d4e8c2ad,
+      type: 2}
+  - playerUnderwaterImpact: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

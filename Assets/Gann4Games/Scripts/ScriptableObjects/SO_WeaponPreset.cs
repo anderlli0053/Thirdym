@@ -28,6 +28,7 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         public Vector3 ikAnchor;
         public bool ikIsTrigger = false;
         [Space]
+        // Must be replaced into an enum variable.
         [Tooltip("0 for all, 1 for pistols, 2 for swords.")]
         public int aimType;
         [Space]
@@ -42,18 +43,23 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         public float damage;
         [Header("Configuration")]
         public string weaponName = "unnamed_weapon";
-        public bool ricochet;
+        public bool useRicochet = true;
         public float ricochetMinAngle = .75f;
-        public float repeatTime;
         [Space]
+        [Tooltip("Bullet spawning in seconds.")]
+        public float repeatTime = 1;
+        public float bulletCount = 1;
         public float bulletSpread;
-        public float bulletCount;
+        [Space]
+        public bool useReload;
+        public float reloadStartDelay;
+        public float reloadDuration;
 
         [Header("Effects")]
         public SO_BulletPreset bulletType;
         [Space]
         public GameObject muzzleFlash;
-        public float muzzleFlashDisableTime;
+        public float muzzleFlashDisableTime = 0.05f;
 
         [Header("Sound Effects")]
         public AudioClip sfxShoot;

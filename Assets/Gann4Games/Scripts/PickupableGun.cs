@@ -62,7 +62,7 @@ public class PickupableGun : MonoBehaviour {
         }
 
         _character.StartCoroutine(_character.EquipmentController.Equip(weapon));
-        OnPickedUp();
+        OnPickup();
     }
     private void OnEnable()
     {
@@ -74,9 +74,8 @@ public class PickupableGun : MonoBehaviour {
         _collisionEvents.OnCollideSoft -= OnCollideSoft;
         _collisionEvents.OnCollideMedium -= OnCollideMedium;
     }
-    void OnPickedUp()
+    void OnPickup()
     {
-        Destroy(gameObject);
         if (!_character.isNPC)
         {
             switch (LanguagePrefs.Language)
@@ -89,6 +88,9 @@ public class PickupableGun : MonoBehaviour {
                     break;
             }
         }
+
+        _character.PlaySFX(pickupSFX);
+        Destroy(gameObject);
     }
 
     void AlreadyEquippedAlert(SO_WeaponPreset weapon)

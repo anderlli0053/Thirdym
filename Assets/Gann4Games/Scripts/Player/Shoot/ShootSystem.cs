@@ -1,59 +1,53 @@
 ﻿using UnityEngine;
 public class ShootSystem : MonoBehaviour {
-    public bool canShoot;
-
-    [SerializeField] ActionShoot[] shootScripts;
-
     RectTransform _crosshair;
     CharacterCustomization _character;
     Transform _user;
+
+    CharacterShootHandler _shootScript;
+
     private void Awake()
     {
+        _shootScript = GetComponentInChildren<CharacterShootHandler>();
         _character = GetComponent<CharacterCustomization>();
     }
     private void Start()
     {
-        canShoot = true;
         _user = transform;
-        shootScripts = transform.GetComponentsInChildren<ActionShoot>(true);
 
         if (!_character.isNPC) _crosshair = MainHUDHandler.instance.crosshair;
     }
     private void Update()
     {
+        bool isCharacterDead = _character.HealthController.IsDead;
+        bool isCharacterDisarmed = _character.EquipmentController.disarmed;
+        bool isCharacterNPC = _character.isNPC;
+        bool isGamePaused = IngameMenuHandler.instance.paused;
 
-        if (!_character.HealthController.IsDead && !IngameMenuHandler.instance.paused)
+        bool canShoot = !isCharacterDead && !isCharacterDisarmed && !isGamePaused && !isCharacterNPC;
+        if (canShoot && InputHandler.instance.firing && InputHandler.instance.aiming)
         {
-            foreach (ActionShoot shootScript in shootScripts)
+            _shootScript.StartShooting();
+            Vector3 hitPosition = _shootScript.HitPosition;
+            if (!_character.isNPC)
             {
-                if (InputHandler.instance.firing && !_character.isNPC)
-                    shootScript.StartShooting();
-            }
-            for (int i = 0; i < shootScripts.Length; i++)
-            {
-                if (shootScripts[i].gameObject.activeInHierarchy)
+                if (_character.CameraController.enabled)
                 {
-                    Vector3 hitPosition = shootScripts[i].HitPosition;
-                    Debug.DrawLine(shootScripts[i].transform.position, hitPosition);
-                    if (!_character.isNPC)
+                    _crosshair.anchoredPosition = Vector2.Lerp(_crosshair.anchoredPosition,
+                        CanvasToWorld.WorldToCanvasPosition(_crosshair.parent.GetComponent<RectTransform>(), _character.CameraController.activeCamera, hitPosition),
+                        Time.deltaTime * 10);
+                }
+                else
+                {
+                    Camera[] newActiveCamera = FindObjectsOfType<Camera>();
+                    for (int c = 0; c < newActiveCamera.Length; c++)
                     {
-                        if (_character.CameraController.enabled)
-                            _crosshair.anchoredPosition = Vector2.Lerp(_crosshair.anchoredPosition,
-                                CanvasToWorld.WorldToCanvasPosition(_crosshair.parent.GetComponent<RectTransform>(), _character.CameraController.activeCamera, hitPosition),
-                                Time.deltaTime * 10);
-                        else
+                        if (newActiveCamera[c].isActiveAndEnabled)
                         {
-                            Camera[] newActiveCamera = FindObjectsOfType<Camera>();
-                            for(int c = 0; c < newActiveCamera.Length; c++)
-                            {
-                                if(newActiveCamera[c].isActiveAndEnabled)
-                                {
-                                    _crosshair.anchoredPosition = Vector2.Lerp(
-                                        _crosshair.anchoredPosition,
-                                        CanvasToWorld.WorldToCanvasPosition(_crosshair.parent.GetComponent<RectTransform>(), newActiveCamera[c], hitPosition), 
-                                        Time.deltaTime*10);
-                                }
-                            }
+                            _crosshair.anchoredPosition = Vector2.Lerp(
+                                _crosshair.anchoredPosition,
+                                CanvasToWorld.WorldToCanvasPosition(_crosshair.parent.GetComponent<RectTransform>(), newActiveCamera[c], hitPosition),
+                                Time.deltaTime * 10);
                         }
                     }
                 }
@@ -63,7 +57,6 @@ public class ShootSystem : MonoBehaviour {
     public void Shoot()
     {
         if (!_character.isNPC && IngameMenuHandler.instance.paused) return;
-        foreach (ActionShoot shootscripts in shootScripts)
-            shootscripts.StartShooting();
+        _shootScript.StartShooting();
     }
 }

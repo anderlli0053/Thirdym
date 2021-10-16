@@ -2836,9 +2836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IK: {fileID: 671393127950843940}
   dropPosition: {fileID: 4013779525127334}
-  startWeapon: {fileID: 0}
-  disarmed: 0
   currentWeapon: {fileID: 0}
+  startWeapon: {fileID: 0}
   melee: {fileID: 0}
   pistol: {fileID: 0}
   rifle: {fileID: 0}
@@ -2860,8 +2859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e63060d8a33a24ea9695be86c6842f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canShoot: 0
-  shootScripts: []
 --- !u!114 &114135096206375756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4747,6 +4744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4183285923195772}
+  - component: {fileID: 5715243255282560216}
   m_Layer: 9
   m_Name: Right_Hand
   m_TagString: Untagged
@@ -4769,6 +4767,18 @@ Transform:
   m_Father: {fileID: 4630477460406540}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5715243255282560216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692325908583428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3fceab60e998448971369904cf4230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1699094658503312
 GameObject:
   m_ObjectHideFlags: 0

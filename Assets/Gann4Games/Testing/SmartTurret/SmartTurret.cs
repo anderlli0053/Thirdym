@@ -13,7 +13,7 @@ public class SmartTurret : MonoBehaviour {
     }
 
     ShootSystem shootSystem;
-    ActionShoot shootScript;
+    CharacterShootHandler shootScript;
     public TurretStatus Status;
     public ConfigurableJoint horizontalJoint, verticalJoint;
     RagdollController[] ragdolls;
@@ -55,7 +55,7 @@ public class SmartTurret : MonoBehaviour {
     {
         ragdolls = FindObjectsOfType<RagdollController>();
         shootSystem = GetComponent<ShootSystem>();
-        shootScript = GetComponentInChildren<ActionShoot>();
+        shootScript = GetComponentInChildren<CharacterShootHandler>();
     }
     private void Update()
     {

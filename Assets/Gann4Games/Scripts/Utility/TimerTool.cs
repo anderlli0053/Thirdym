@@ -11,6 +11,7 @@ namespace Gann4Games.Thirdym.Utility
             if(!IsTimeOut())
                 currentTime += Time.deltaTime;
         }
+        public float GeTimeOut => _timeOut;
         public void ResetTime() => currentTime = 0; 
         public void SetTimeOut(float newTimeOut) => _timeOut = newTimeOut;
         public bool IsTimeOut() => currentTime > _timeOut;
