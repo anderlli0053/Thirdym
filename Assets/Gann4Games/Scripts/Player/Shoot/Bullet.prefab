@@ -47,12 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: {fileID: 0}
-  preset: {fileID: 0}
+  weapon: {fileID: 0}
   energyImpact: {fileID: 1029821682098910, guid: a83dbd321853fff46ae6b7334c8441c9,
     type: 3}
   bulletHole: {fileID: 658904016168375738, guid: 93f1a63da91f06c4c930b3bb02b514fb,
     type: 3}
-  bulletSpeed: 4000
+  bulletSpeed: 2500
 --- !u!96 &96591128211052794
 TrailRenderer:
   serializedVersion: 2

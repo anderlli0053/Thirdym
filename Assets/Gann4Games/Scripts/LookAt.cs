@@ -11,11 +11,11 @@ public class LookAt : MonoBehaviour
     [Tooltip("Required only if 'FollowTarget' is set")]
     public Transform target;
 
-    CharacterCustomization customizator;
+    CharacterCustomization _character;
 
     void Start()
     {
-        customizator = PlayerCameraController.instance.character;
+        _character = PlayerCameraController.instance.character;
     }
     private void Update()
     {
@@ -23,10 +23,9 @@ public class LookAt : MonoBehaviour
             transform.LookAt(target);
         else if (UseMode == LookAtUse.CameraCenter)
         {
-            if (!customizator.HealthController.IsDead)
+            if (!_character.HealthController.IsDead)
             {
-                Transform camera = PlayerCameraController.instance.activeCamera.transform;
-                transform.LookAt(camera.position + camera.forward * 100);
+                transform.LookAt(PlayerCameraController.instance.CameraCenterPoint);
             }
         }
     }

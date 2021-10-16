@@ -92,9 +92,11 @@ public class CharacterCustomization : MonoBehaviour
 
         if(baseBody.leftShoulder) Gizmos.DrawLine(baseBody.body.position, baseBody.leftShoulder.position);
         if(baseBody.leftElbow) Gizmos.DrawLine(baseBody.leftShoulder.position, baseBody.leftElbow.position);
+        if (baseBody.leftHand) Gizmos.DrawLine(baseBody.leftElbow.position, baseBody.leftHand.position);
 
         if(baseBody.rightShoulder) Gizmos.DrawLine(baseBody.body.position, baseBody.rightShoulder.position);
         if(baseBody.rightElbow) Gizmos.DrawLine(baseBody.rightShoulder.position, baseBody.rightElbow.position);
+        if (baseBody.rightHand) Gizmos.DrawLine(baseBody.rightElbow.position, baseBody.rightHand.position);
 
         if(baseBody.leftLeg) Gizmos.DrawLine(baseBody.body.position, baseBody.leftLeg.position);
         if(baseBody.leftKnee) Gizmos.DrawLine(baseBody.leftLeg.position, baseBody.leftKnee.position);

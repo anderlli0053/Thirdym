@@ -119,7 +119,7 @@ public class CharacterHealthSystem : MonoBehaviour {
                     //arms.LeftShoulder[1].useSpring = false;
                     //arms.LeftBicep.useSpring = false;
                     //arms.LeftElbow.useSpring = false;
-                    _character.EquipmentController.IK.spring = 0;
+                    ///_character.EquipmentController.leftHandIK.spring = 0;
                     //arms.RightShoulder[0].useSpring = false;
                     //arms.RightShoulder[1].useSpring = false;
                     //arms.RightBicep.useSpring = false;

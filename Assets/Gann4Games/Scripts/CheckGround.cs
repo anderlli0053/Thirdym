@@ -36,7 +36,7 @@ public class CheckGround : MonoBehaviour {
                 _dragJoint.zMotion = ConfigurableJointMotion.Locked;
                 _dragJoint.autoConfigureConnectedAnchor = false;
                 _dragJoint.connectedAnchor = Vector3.zero;
-                _dragJoint.connectedBody = _equipmentController.IK.GetComponent<Rigidbody>();
+                //_dragJoint.connectedBody = _equipmentController.leftHandIK.GetComponent<Rigidbody>();
             }
             if (InputHandler.instance.gameplayControls.Player.Use.triggered)
             {

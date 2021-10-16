@@ -22,15 +22,9 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         public Vector3 rightPositionOffset;
         public Vector3 rightRotationOffset = new Vector3(-90, 0, 0);
         [Space]
-        [Tooltip("Spring to be assigned in the left hand, for extra weapon support, and also visuals.")]
-        public float ikSpring = 12000;
-        [Tooltip("Position in which the hand will be placed relative to the gun")]
-        public Vector3 ikAnchor;
-        public bool ikIsTrigger = false;
-        [Space]
         // Must be replaced into an enum variable.
-        [Tooltip("0 for all, 1 for pistols, 2 for swords.")]
-        public int aimType;
+        [Tooltip("0 for long weapons (shouldn't be used. It's obsolete.), 1 for small weapons, 2 for swords.")]
+        public int aimType = 1;
         [Space]
         public bool leftShoulderSpring;
         public bool leftElbowSpring;
@@ -45,6 +39,7 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         public string weaponName = "unnamed_weapon";
         public bool useRicochet = true;
         public float ricochetMinAngle = .75f;
+        public Vector3 shootPoint;
         [Space]
         [Tooltip("Bullet spawning in seconds.")]
         public float repeatTime = 1;

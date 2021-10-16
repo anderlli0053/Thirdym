@@ -37,7 +37,7 @@ public class CharacterShootHandler : MonoBehaviour {
     private void Start()
     {
         _anim = _character.Animator;
-        _handRigidbody = _character.EquipmentController.IK.GetComponent<Rigidbody>();
+        _handRigidbody = _character.baseBody.rightHand.GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -64,7 +64,7 @@ public class CharacterShootHandler : MonoBehaviour {
     void Shoot()
     {
         _character.SoundSource.PlayOneShot(_weapon.sfxShoot);
-        _handRigidbody.AddForce(transform.right * -(500 * (_weapon.damage / 10)));
+        _character.baseBody.rightElbow.GetComponent<Rigidbody>().AddForce(PlayerCameraController.instance.activeCamera.transform.forward * -(500 * (_weapon.damage / 10)));
 
         CreateBullets();
             
@@ -73,9 +73,11 @@ public class CharacterShootHandler : MonoBehaviour {
     }
     void CreateBullets()
     {
+        Vector3 shootPosition = transform.position + transform.TransformDirection(_weapon.shootPoint);
+
         for (int i = 0; i < _weapon.bulletCount; i++)
         {
-            GameObject _bulletPrefab = Instantiate(_weapon.bulletType.bullet, transform.position + (transform.right * 1 / 4), transform.rotation, null);
+            GameObject _bulletPrefab = Instantiate(_weapon.bulletType.bullet, shootPosition, transform.rotation, null);
             _bulletPrefab.transform.Rotate(Random.Range(-_weapon.bulletSpread, _weapon.bulletSpread), Random.Range(-_weapon.bulletSpread, _weapon.bulletSpread), 0);
 
             Bullet _bulletComponent = _bulletPrefab.GetComponent<Bullet>();

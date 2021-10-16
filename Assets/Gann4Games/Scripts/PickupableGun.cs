@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Gann4Games.Thirdym.Localization; // Maybe another code smell ... ?
 using Gann4Games.Thirdym.ScriptableObjects;
+using UnityEditor;
 
 [RequireComponent(typeof(CollisionEvents))]
 [RequireComponent(typeof(Rigidbody))]
@@ -17,8 +18,6 @@ public class PickupableGun : MonoBehaviour {
 
     CollisionEvents _collisionEvents;
 
-    GameObject _weaponModel;
-
     private void Awake()
     {
         _collisionEvents = GetComponent<CollisionEvents>();
@@ -27,6 +26,19 @@ public class PickupableGun : MonoBehaviour {
     {
         _auSource = gameObject.AddComponent<AudioSource>();
         _auSource.spatialBlend = 1;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Vector3 shootPoint = transform.position + transform.TransformDirection(weaponData.shootPoint);
+
+        Gizmos.color = Color.red * new Color(1, 1, 1, 0.5f);
+        Gizmos.DrawSphere(shootPoint, 0.025f);
+        Handles.Label(shootPoint, "Shoot source");
+
+        Gizmos.color = Color.green * new Color(1, 1, 1, 0.5f);
+        Gizmos.DrawSphere(transform.position, 0.025f);
+        Handles.Label(transform.position, "Right Hand Position (origin)");
     }
     void OnCollideSoft(object sender, CollisionEvents.CollisionArgs args)
     {

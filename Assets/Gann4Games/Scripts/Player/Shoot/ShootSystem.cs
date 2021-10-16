@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 public class ShootSystem : MonoBehaviour {
-    RectTransform _crosshair;
     CharacterCustomization _character;
     Transform _user;
 
@@ -14,8 +13,6 @@ public class ShootSystem : MonoBehaviour {
     private void Start()
     {
         _user = transform;
-
-        if (!_character.isNPC) _crosshair = MainHUDHandler.instance.crosshair;
     }
     private void Update()
     {
@@ -28,30 +25,6 @@ public class ShootSystem : MonoBehaviour {
         if (canShoot && InputHandler.instance.firing && InputHandler.instance.aiming)
         {
             _shootScript.StartShooting();
-            Vector3 hitPosition = _shootScript.HitPosition;
-            if (!_character.isNPC)
-            {
-                if (_character.CameraController.enabled)
-                {
-                    _crosshair.anchoredPosition = Vector2.Lerp(_crosshair.anchoredPosition,
-                        CanvasToWorld.WorldToCanvasPosition(_crosshair.parent.GetComponent<RectTransform>(), _character.CameraController.activeCamera, hitPosition),
-                        Time.deltaTime * 10);
-                }
-                else
-                {
-                    Camera[] newActiveCamera = FindObjectsOfType<Camera>();
-                    for (int c = 0; c < newActiveCamera.Length; c++)
-                    {
-                        if (newActiveCamera[c].isActiveAndEnabled)
-                        {
-                            _crosshair.anchoredPosition = Vector2.Lerp(
-                                _crosshair.anchoredPosition,
-                                CanvasToWorld.WorldToCanvasPosition(_crosshair.parent.GetComponent<RectTransform>(), newActiveCamera[c], hitPosition),
-                                Time.deltaTime * 10);
-                        }
-                    }
-                }
-            }
         }
     }
     public void Shoot()
