@@ -21,9 +21,6 @@ MonoBehaviour:
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: -90, y: 0, z: 0}
-  ikSpring: 12000
-  ikAnchor: {x: 0, y: 0, z: 0}
-  ikIsTrigger: 0
   aimType: 1
   leftShoulderSpring: 1
   leftElbowSpring: 1
@@ -34,6 +31,7 @@ MonoBehaviour:
   weaponName: Alien Pistol
   useRicochet: 1
   ricochetMinAngle: 0.75
+  shootPoint: {x: 0.18, y: 0, z: 0}
   repeatTime: 0.5
   bulletCount: 1
   bulletSpread: 0

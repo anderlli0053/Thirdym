@@ -54,14 +54,13 @@ public class EquipmentSystem : MonoBehaviour {
     private void Start()
     {
         _character = GetComponent<CharacterCustomization>();
+        RefreshInventoryHUD();
     }
 
     private void Update()
     {
         if(InputHandler.instance.dropWeapon && !disarmed)
-        {
             DropEquippedWeapon();
-        }
 
         if (InputHandler.instance.gameplayControls.Player.gun_blades.triggered && haveMelee)
             EquipWeapon(melee);
@@ -76,7 +75,30 @@ public class EquipmentSystem : MonoBehaviour {
         else if (InputHandler.instance.gameplayControls.Player.gun_explosive.triggered && haveTool)
             EquipWeapon(tool);
     }
+    void RefreshInventoryHUD()
+    {
+        if (_character.isNPC) return;
 
+        if (haveMelee) PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Melee, EquipMode.Stored);
+        else PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Melee, EquipMode.None);
+
+        if (havePistol) PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Pistol, EquipMode.Stored);
+        else PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Pistol, EquipMode.None);
+
+        if (haveRifle) PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Rifle, EquipMode.Stored);
+        else PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Rifle, EquipMode.None);
+
+        if (haveShotgun) PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Shotgun, EquipMode.Stored);
+        else PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Shotgun, EquipMode.None);
+
+        if (haveHeavy) PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Heavy, EquipMode.Stored);
+        else PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Heavy, EquipMode.None);
+
+        if (haveTool) PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Tool, EquipMode.Stored);
+        else PlayerInventoryHUD.DisplayWeaponAs(WeaponType.Tool, EquipMode.None);
+
+        if (!disarmed) PlayerInventoryHUD.DisplayWeaponAs(currentWeapon.weaponType, EquipMode.Equipped);
+    }
     public bool HasWeapon(WeaponType weapon)
     {
         switch(weapon)
@@ -125,7 +147,7 @@ public class EquipmentSystem : MonoBehaviour {
     }
     void StoreWeaponOnInventory(SO_WeaponPreset weapon)
     {
-        if (_character.isPlayer) PlayerInventoryHUD.DisplayWeaponAs(weapon.weaponType, EquipMode.Stored);
+        RefreshInventoryHUD();
         switch (weapon.weaponType)
         {
             case WeaponType.Melee:
@@ -183,16 +205,15 @@ public class EquipmentSystem : MonoBehaviour {
         // Spawn new items
         StoreWeaponOnInventory(weapon);
         DisplayWeaponOnHands(weapon);
+        RefreshInventoryHUD();
         currentWeapon = weapon;
-        
-        // HUD Display
-        if(_character.isPlayer) PlayerInventoryHUD.DisplayWeaponAs(weapon.weaponType, EquipMode.Equipped);
+
     }
     void DropWeapon(SO_WeaponPreset weapon)
     {
         if (weapon == null) return;
 
-        if (_character.isPlayer) PlayerInventoryHUD.DisplayWeaponAs(weapon.weaponType, EquipMode.None);
+        RefreshInventoryHUD();
 
         switch (weapon.weaponType)
         {
