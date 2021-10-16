@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
+  m_Name: Heavy RayGun
+  m_EditorClassIdentifier: 
+  dropPrefab: {fileID: 0}
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  rightWeaponModel: {fileID: 0}
+  rightPositionOffset: {x: 0, y: 0, z: 0}
+  rightRotationOffset: {x: 0, y: 0, z: 0}
+  aimType: 1
+  leftShoulderSpring: 0
+  leftElbowSpring: 0
+  rightShoulderSpring: 1
+  rightElbowSpring: 1
+  weaponType: 0
+  damage: 0
+  weaponName: unnamed_weapon
+  useRicochet: 1
+  ricochetMinAngle: 0.75
+  shootPoint: {x: 0, y: 0, z: 0}
+  repeatTime: 1
+  bulletCount: 1
+  bulletSpread: 0
+  useReload: 0
+  reloadStartDelay: 0
+  reloadDuration: 0
+  bulletType: {fileID: 0}
+  muzzleFlash: {fileID: 0}
+  muzzleFlashDisableTime: 0.05
+  sfxShoot: {fileID: 0}
+  sfxReload: {fileID: 0}

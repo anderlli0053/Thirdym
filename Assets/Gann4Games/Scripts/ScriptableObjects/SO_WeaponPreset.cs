@@ -20,14 +20,14 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         [Tooltip("The model that will be placed in the right hand.")]
         public GameObject rightWeaponModel;
         public Vector3 rightPositionOffset;
-        public Vector3 rightRotationOffset = new Vector3(-90, 0, 0);
+        public Vector3 rightRotationOffset;
         [Space]
         // Must be replaced into an enum variable.
         [Tooltip("0 for long weapons (shouldn't be used. It's obsolete.), 1 for small weapons, 2 for swords.")]
         public int aimType = 1;
         [Space]
-        public bool leftShoulderSpring;
-        public bool leftElbowSpring;
+        public bool leftShoulderSpring = true;
+        public bool leftElbowSpring = true;
         public bool rightShoulderSpring = true;
         public bool rightElbowSpring = true;
 

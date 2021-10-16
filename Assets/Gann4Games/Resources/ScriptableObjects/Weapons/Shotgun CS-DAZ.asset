@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
+  m_Name: Shotgun CS-DAZ
+  m_EditorClassIdentifier: 
+  dropPrefab: {fileID: 6181783311461373853, guid: 6df9b9a558d04f144995ed0f876bc629,
+    type: 3}
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  rightWeaponModel: {fileID: 919132149155446097, guid: acdbc06100a08224c898b34f2450bc67,
+    type: 3}
+  rightPositionOffset: {x: 0, y: 0, z: 0}
+  rightRotationOffset: {x: 0, y: 0, z: 0}
+  aimType: 0
+  leftShoulderSpring: 1
+  leftElbowSpring: 1
+  rightShoulderSpring: 1
+  rightElbowSpring: 1
+  weaponType: 3
+  damage: 20
+  weaponName: CS-DAZ
+  useRicochet: 1
+  ricochetMinAngle: 0.75
+  shootPoint: {x: 0.39, y: 0, z: 0.04}
+  repeatTime: 1
+  bulletCount: 4
+  bulletSpread: 5
+  useReload: 1
+  reloadStartDelay: 0.6
+  reloadDuration: 0.25
+  bulletType: {fileID: 11400000, guid: f4f18b2edda2451438e4ef4288c44dad, type: 2}
+  muzzleFlash: {fileID: 0}
+  muzzleFlashDisableTime: 0.05
+  sfxShoot: {fileID: 8300000, guid: e50c789e31831e14eab6197fa1c2d096, type: 3}
+  sfxReload: {fileID: 8300000, guid: 6b715961f660f7740bf8a0a3927b9680, type: 3}

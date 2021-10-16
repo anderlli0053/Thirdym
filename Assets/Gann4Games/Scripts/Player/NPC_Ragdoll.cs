@@ -231,12 +231,12 @@ namespace Gann4Games.Thirdym.NPC
         }
         public bool HasActiveTarget => target != null;
         public bool HasArrived => navmeshAgent.remainingDistance <= navmeshAgent.stoppingDistance;
-        public PickupableGun[] FindGuns() => FindObjectsOfType<PickupableGun>();
-        public PickupableGun FindDefibrilator()
+        public PickupableWeapon[] FindGuns() => FindObjectsOfType<PickupableWeapon>();
+        public PickupableWeapon FindDefibrilator()
         {
-            PickupableGun[] guns = GameObject.FindObjectsOfType<PickupableGun>();
-            PickupableGun defibrilatorWorldWeapon = new PickupableGun();
-            foreach (PickupableGun gun in guns)
+            PickupableWeapon[] guns = GameObject.FindObjectsOfType<PickupableWeapon>();
+            PickupableWeapon defibrilatorWorldWeapon = new PickupableWeapon();
+            foreach (PickupableWeapon gun in guns)
             {
                 if (gun.weaponData.weaponType == WeaponType.Tool)
                 { 
