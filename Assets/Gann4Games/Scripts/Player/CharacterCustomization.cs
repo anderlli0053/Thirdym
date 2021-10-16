@@ -35,6 +35,7 @@ public class CharacterCustomization : MonoBehaviour
 
     public bool isNPC;
     public bool usePlayerPrefs = false;
+    public bool isPlayer => !isNPC;
 
     [SerializeField] Animator ragdollAnimator;
 

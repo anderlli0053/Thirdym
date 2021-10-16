@@ -1,5 +1,12 @@
 namespace Gann4Games.Thirdym.Enums
 {
+    public enum EquipMode
+    {
+        None, 
+        Stored, 
+        Equipped
+    }
+
     public enum CharacterSkills 
     { 
         None, 

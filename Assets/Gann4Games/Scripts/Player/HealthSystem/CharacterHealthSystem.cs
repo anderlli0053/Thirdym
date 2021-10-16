@@ -27,7 +27,7 @@ public class CharacterHealthSystem : MonoBehaviour {
     [SerializeField] UnityEvent OnDeath;
     [SerializeField] UnityEvent OnResurrect;
 
-    readonly TimerTool _timer = new TimerTool();
+    TimerTool _timer = new TimerTool();
 
     float _health;
     float _maxHealth;
@@ -108,22 +108,11 @@ public class CharacterHealthSystem : MonoBehaviour {
                 OnInjury.Invoke();
             }
             Unconcious = true;
-            if (IsDead)//Value_CurrentHealth <= 0)
+            if (IsDead)
             {
                 if (!_character.isNPC)
                 {
-                    //_character.RagdollController.RagdollMode(false, true);
                     _character.GetComponent<BoxCollider>().enabled = false;
-
-                    //arms.LeftShoulder[0].useSpring = false;
-                    //arms.LeftShoulder[1].useSpring = false;
-                    //arms.LeftBicep.useSpring = false;
-                    //arms.LeftElbow.useSpring = false;
-                    ///_character.EquipmentController.leftHandIK.spring = 0;
-                    //arms.RightShoulder[0].useSpring = false;
-                    //arms.RightShoulder[1].useSpring = false;
-                    //arms.RightBicep.useSpring = false;
-                    //arms.RightElbow.useSpring = false;
                 }
                 else
                 {
@@ -134,8 +123,7 @@ public class CharacterHealthSystem : MonoBehaviour {
                 {
                     Dead = true;
                     _character.PlayDeathSFX();
-                    _character.EquipmentController.DropWeapon();
-                    _character.EquipmentController.DisableBlades();
+                    _character.EquipmentController.DropAllWeapons();
                     OnDeath.Invoke();
                 }
             }

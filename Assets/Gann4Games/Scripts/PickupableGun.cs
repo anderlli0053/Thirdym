@@ -67,13 +67,13 @@ public class PickupableGun : MonoBehaviour {
 
     public void EquipWeapon(SO_WeaponPreset weapon)
     {
-        if (_character.EquipmentController.HasWeapon(weapon))
+        if (_character.EquipmentController.HasWeapon(weapon.weaponType))
         {
             AlreadyEquippedAlert(weapon);
             return;
         }
 
-        _character.StartCoroutine(_character.EquipmentController.Equip(weapon));
+        _character.EquipmentController.EquipWeapon(weapon);
         OnPickup();
     }
     private void OnEnable()

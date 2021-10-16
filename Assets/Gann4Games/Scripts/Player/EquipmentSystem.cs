@@ -60,13 +60,26 @@ public class EquipmentSystem : MonoBehaviour {
     {
         if(InputHandler.instance.dropWeapon && !disarmed)
         {
-            DropWeapon();
+            DropEquippedWeapon();
         }
+
+        if (InputHandler.instance.gameplayControls.Player.gun_blades.triggered && haveMelee)
+            EquipWeapon(melee);
+        else if (InputHandler.instance.gameplayControls.Player.gun_pistol.triggered && havePistol)
+            EquipWeapon(pistol);
+        else if (InputHandler.instance.gameplayControls.Player.gun_rifle.triggered && haveRifle)
+            EquipWeapon(rifle);
+        else if (InputHandler.instance.gameplayControls.Player.gun_shotgun.triggered && haveShotgun)
+            EquipWeapon(shotgun);
+        else if (InputHandler.instance.gameplayControls.Player.gun_energy.triggered && haveHeavy)
+            EquipWeapon(heavy);
+        else if (InputHandler.instance.gameplayControls.Player.gun_explosive.triggered && haveTool)
+            EquipWeapon(tool);
     }
 
-    public bool HasWeapon(SO_WeaponPreset weapon)
+    public bool HasWeapon(WeaponType weapon)
     {
-        switch(weapon.weaponType)
+        switch(weapon)
         {
             case WeaponType.Melee:
                 return haveMelee;
@@ -89,36 +102,31 @@ public class EquipmentSystem : MonoBehaviour {
                 return false;
         }
     }
-    public IEnumerator Equip(SO_WeaponPreset weapon)
+    public void EquipWeapon(SO_WeaponPreset weapon)
     {
-        yield return null;
-        _character.Animator.SetBool("ChangingGun", true);
+        StartCoroutine(Equip(weapon));
+    }
+    public void DropAllWeapons()
+    {
+        DropEquippedWeapon();
+        DropWeapon(melee);
+        DropWeapon(pistol);
+        DropWeapon(rifle);
+        DropWeapon(shotgun);
+        DropWeapon(heavy);
+        DropWeapon(tool);
+    }
+    public void DropEquippedWeapon()
+    {
         _character.ArmController.SetArmsSpring(true);
 
-        yield return new WaitForSeconds(0.5f);
-
-        _character.ArmController.aimType = weapon.aimType;
-        _character.ArmController.LeftShoulder[0].useSpring = weapon.leftShoulderSpring;
-        _character.ArmController.LeftShoulder[1].useSpring = weapon.leftShoulderSpring;
-        _character.ArmController.LeftBicep.useSpring = weapon.leftShoulderSpring;
-        _character.ArmController.LeftElbow.useSpring = weapon.leftElbowSpring;
-        _character.ArmController.RightShoulder[0].useSpring = weapon.rightShoulderSpring;
-        _character.ArmController.RightShoulder[1].useSpring = weapon.rightShoulderSpring;
-        _character.ArmController.RightBicep.useSpring = weapon.rightShoulderSpring;
-        _character.ArmController.RightElbow.useSpring = weapon.rightElbowSpring;
-
-        #region Weapon spawning (hands)
+        DropWeapon(currentWeapon);
         ClearHands();
-        _leftHandWeapon = CreateObjectAt(weapon.leftWeaponModel, _character.baseBody.leftHand, weapon.leftPositionOffset, weapon.leftRotationOffset);
-        _rightHandWeapon = CreateObjectAt(weapon.rightWeaponModel, _character.baseBody.rightHand, weapon.rightPositionOffset, weapon.rightRotationOffset);
-        #endregion
-
-        _character.Animator.SetBool("ChangingGun", false);
-
-        //StartCoroutine(ShowOnBack(weapon));
-        //StartCoroutine(SaveGuns());
-        currentWeapon = weapon;
-        switch(weapon.weaponType)
+    }
+    void StoreWeaponOnInventory(SO_WeaponPreset weapon)
+    {
+        if (_character.isPlayer) PlayerInventoryHUD.DisplayWeaponAs(weapon.weaponType, EquipMode.Stored);
+        switch (weapon.weaponType)
         {
             case WeaponType.Melee:
 
@@ -126,7 +134,6 @@ public class EquipmentSystem : MonoBehaviour {
                 //CreateObjectAt(weapon.rightWeaponModel, _character.baseBody.rightHand);
 
                 _bladesEnabled = true;
-                //leftHandIK.GetComponent<SphereCollider>().isTrigger = true;
 
                 foreach (GameObject blade in PSIBlades)
                     blade.SetActive(_bladesEnabled);
@@ -134,7 +141,6 @@ public class EquipmentSystem : MonoBehaviour {
                 break;
 
             case WeaponType.Pistol:
-                print("Using pistol");
                 pistol = weapon;
                 break;
 
@@ -153,35 +159,46 @@ public class EquipmentSystem : MonoBehaviour {
             case WeaponType.Tool:
                 tool = weapon;
                 break;
-
         }
     }
+    IEnumerator Equip(SO_WeaponPreset weapon)
+    {
+        yield return null;
+        #region Arm parameters
+        _character.ArmController.aimType = weapon.aimType;
+        _character.ArmController.LeftShoulder[0].useSpring = weapon.leftShoulderSpring;
+        _character.ArmController.LeftShoulder[1].useSpring = weapon.leftShoulderSpring;
+        _character.ArmController.LeftBicep.useSpring = weapon.leftShoulderSpring;
+        _character.ArmController.LeftElbow.useSpring = weapon.leftElbowSpring;
+        _character.ArmController.RightShoulder[0].useSpring = weapon.rightShoulderSpring;
+        _character.ArmController.RightShoulder[1].useSpring = weapon.rightShoulderSpring;
+        _character.ArmController.RightBicep.useSpring = weapon.rightShoulderSpring;
+        _character.ArmController.RightElbow.useSpring = weapon.rightElbowSpring;
+        #endregion
 
-    GameObject CreateObjectAt(GameObject prefab, Transform placeTransform, Vector3 positionOffset, Vector3 rotationOffset)
-    {
-        if (prefab == null) return null;
-        return Instantiate(prefab, placeTransform.position + positionOffset, placeTransform.rotation * Quaternion.Euler(rotationOffset), placeTransform);
-    }
-    public void ClearHands()
-    {
-        if (_leftHandWeapon != null)
-        {
-            Destroy(_leftHandWeapon);
-            _leftHandWeapon = null;
-        }
-        if (_rightHandWeapon != null)
-        {
-            Destroy(_rightHandWeapon);
-            _rightHandWeapon = null;
-        }
+        _character.Animator.SetBool("ChangingGun", true);
+        yield return new WaitForSeconds(0.5f);
+        _character.Animator.SetBool("ChangingGun", false);
 
-        currentWeapon = null;
+        // Spawn new items
+        StoreWeaponOnInventory(weapon);
+        DisplayWeaponOnHands(weapon);
+        currentWeapon = weapon;
+        
+        // HUD Display
+        if(_character.isPlayer) PlayerInventoryHUD.DisplayWeaponAs(weapon.weaponType, EquipMode.Equipped);
     }
-    public void DropWeapon()
+    void DropWeapon(SO_WeaponPreset weapon)
     {
-        _character.ArmController.SetArmsSpring(true);
-        switch (currentWeapon.weaponType)
+        if (weapon == null) return;
+
+        if (_character.isPlayer) PlayerInventoryHUD.DisplayWeaponAs(weapon.weaponType, EquipMode.None);
+
+        switch (weapon.weaponType)
         {
+            case WeaponType.Melee:
+                melee = null;
+                break;
             case WeaponType.Pistol:
                 pistol = null;
                 break;
@@ -203,7 +220,7 @@ public class EquipmentSystem : MonoBehaviour {
                 break;
         }
 
-        GameObject prefab = Instantiate(currentWeapon.dropPrefab);
+        GameObject prefab = Instantiate(weapon.dropPrefab);
         prefab.transform.position = dropPosition.position;
         prefab.transform.rotation = dropPosition.rotation;
 
@@ -211,13 +228,37 @@ public class EquipmentSystem : MonoBehaviour {
             prefab.GetComponent<Rigidbody>().AddForce(transform.forward * 500);
         else
             prefab.GetComponent<Rigidbody>().AddForce(GetComponent<PlayerCameraController>().activeCamera.transform.forward * 500);
-
-        ClearHands();
     }
-    public void DisableBlades()
+    void ClearHands()
+    {
+        if (_leftHandWeapon != null)
+        {
+            Destroy(_leftHandWeapon);
+            _leftHandWeapon = null;
+        }
+        if (_rightHandWeapon != null)
+        {
+            Destroy(_rightHandWeapon);
+            _rightHandWeapon = null;
+        }
+
+        currentWeapon = null;
+    }
+    void DisplayWeaponOnHands(SO_WeaponPreset weapon)
+    {
+        ClearHands();
+        _leftHandWeapon = CreateObjectAt(weapon.leftWeaponModel, _character.baseBody.leftHand, weapon.leftPositionOffset, weapon.leftRotationOffset);
+        _rightHandWeapon = CreateObjectAt(weapon.rightWeaponModel, _character.baseBody.rightHand, weapon.rightPositionOffset, weapon.rightRotationOffset);
+    }
+    void DisableBlades()
     {
         _bladesEnabled = false;
         foreach(GameObject blade in PSIBlades)
             blade.SetActive(_bladesEnabled);
+    }
+    GameObject CreateObjectAt(GameObject prefab, Transform placeTransform, Vector3 positionOffset, Vector3 rotationOffset)
+    {
+        if (prefab == null) return null;
+        return Instantiate(prefab, placeTransform.position + positionOffset, placeTransform.rotation * Quaternion.Euler(rotationOffset), placeTransform);
     }
 }

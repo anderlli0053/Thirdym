@@ -48,7 +48,7 @@ public class CheckGround : MonoBehaviour {
                         if (obj == null || objectList[i] == null) objectList.RemoveAt(i);
                         if (obj.HasTag("Pickupable") || obj.CompareTag("Pickupable"))
                         {
-                            _equipmentController.DropWeapon();
+                            _equipmentController.DropEquippedWeapon();
                             pickupableBody = objectList[i].GetComponent<Rigidbody>();
                             _draggingBody = true;
                             break;
