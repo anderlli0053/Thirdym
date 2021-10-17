@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class CharacterArms : MonoBehaviour {
     [HideInInspector]
-    public Animator anim;
-    public float aimStatus; //Value 0 is not aiming, value 1 is aiming.
-    public float aimType; //Value 0 for all, value 1 for pistols.
+    Animator _anim;
     //public HingeJoint[] armsMotion;
     public HingeJoint[] LeftShoulder, RightShoulder;
     public HingeJoint LeftBicep, RightBicep, LeftElbow, RightElbow;
@@ -46,7 +44,7 @@ public class CharacterArms : MonoBehaviour {
     private void Start()
     {
         _character = GetComponent<CharacterCustomization>();
-        anim = _character.Animator;
+        _anim = _character.Animator;
         equipment = GetComponent<EquipmentSystem>();
         healthOp = GetComponent<CharacterHealthSystem>();
     }
@@ -66,8 +64,9 @@ public class CharacterArms : MonoBehaviour {
                 hj[i].useSpring = false;
             Destroy(this, 0.1f);
         }
-        if (anim)
+        if (_anim)
         {
+            _anim.SetBool("Disarmed", equipment.disarmed);
             if (!healthOp.IsDead)
             {
                 foreach (HingeJoint neckJoint in Neck)
@@ -76,58 +75,23 @@ public class CharacterArms : MonoBehaviour {
                     neckJoint.useSpring = true;
                 }
                 #region Arms controll
-                anim.SetBool("Disarmed", equipment.disarmed);
-                anim.SetFloat("AimStatus", aimStatus);
-                anim.SetFloat("AimType", aimType);
+
                 if (!_character.isNPC)
                 {
-                    if (InputHandler.instance.aiming && !equipment.disarmed && !equipment.disarmed)
-                    {
-                        aimStatus = Mathf.Lerp(aimStatus, 1, Time.deltaTime * 10);
-                        AimGun(true); // New aim system (improved aiming)
-                    }
-                    else
-                    {
-                        aimStatus = Mathf.Lerp(aimStatus, 0, Time.deltaTime * 10);
-                        AimGun(false);
-                    }
+                    bool isCharacterFiring = InputHandler.instance.firing;
+                    bool isCharacterAiming = InputHandler.instance.aiming;
+                    bool isCharacterDisarmed = equipment.disarmed;
+                    bool aimGun = isCharacterAiming && !isCharacterDisarmed;
 
-                    //
-                    if (equipment.disarmed)
-                    {
-                        if (InputHandler.instance.firing || InputHandler.instance.aiming)
-                            anim.SetBool("ArmsForward", true);
-                        else
-                            anim.SetBool("ArmsForward", false);
-
-                        if (InputHandler.instance.firing && InputHandler.instance.aiming)
-                            anim.SetFloat("Arm", 0);
-                        else if (InputHandler.instance.firing)
-                            anim.SetFloat("Arm", -1);
-                        else if (InputHandler.instance.aiming)
-                            anim.SetFloat("Arm", 1);
-                        else
-                        {
-                            if(anim.GetFloat("Arm") != 0)
-                                anim.SetFloat("Arm", 0);
-                        }
-                    }
-                    else
-                    {
-                        if (InputHandler.instance.firing)
-                            anim.SetFloat("Arm", -1);
-                        else if (!InputHandler.instance.firing)
-                            anim.SetFloat("Arm", 0);
-                    }
-                }
-                else
-                {
-                    aimStatus = 1;
+                    AimGun(aimGun);
+                    _anim.SetBool("WeaponAiming", isCharacterAiming);
+                    _anim.SetBool("WeaponAction", isCharacterFiring);
                 }
                 #endregion
             }
-            else {
-                if(anim.GetFloat("Arm") != 0) anim.SetFloat("Arm", 0); // Stop swords movements
+            else 
+            {
+                if(_anim.GetFloat("Arm") != 0) _anim.SetFloat("Arm", 0); // Stop swords movements
                 foreach (HingeJoint neckJoint in Neck)
                 {
                     if (!neckJoint) return;
@@ -140,14 +104,23 @@ public class CharacterArms : MonoBehaviour {
     public void AimGun(bool aim)
     {
         if (IngameMenuHandler.instance.paused) return;
-        if (aim)
+
+        bool isReloading = _anim.GetBool("WeaponReload");
+
+        if (!isReloading)
         {
-            _character.baseBody.rightHand.LookAt(PlayerCameraController.instance.CameraCenterPoint);
-            _character.baseBody.rightHand.Rotate(-90, -90, 0);
+            if (aim) RightHandLookAt(PlayerCameraController.instance.CameraCenterPoint);
+            else RightHandToDefaultPosition();
         }
         else
         {
-            _character.baseBody.rightHand.localRotation = Quaternion.Lerp(_character.baseBody.rightHand.localRotation, Quaternion.identity, Time.deltaTime*10);
+            RightHandLookAt(_character.baseBody.leftHand.position);
         }
     }
+    void RightHandLookAt(Vector3 position)
+    {
+        _character.baseBody.rightHand.LookAt(position);
+        _character.baseBody.rightHand.Rotate(-90, -90, 0);
+    }
+    void RightHandToDefaultPosition() => _character.baseBody.rightHand.localRotation = Quaternion.Lerp(_character.baseBody.rightHand.localRotation, Quaternion.identity, Time.deltaTime * 10);
 }

@@ -60,7 +60,9 @@ public class LootCrate : MonoBehaviour {
         Instantiate(args.brokenModel, transform.position, transform.rotation);
         for (int i = 0; i < lootContent.Count; i++)
         {
-            for (int am = 0; am < lootContent[i].count; am++)
+            if (lootContent[i].item == null) continue;
+
+            for (int amount = 0; amount < lootContent[i].count; amount++)
                 Instantiate(lootContent[i].item, transform.position, transform.rotation);
         }
         Destroy(gameObject);

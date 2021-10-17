@@ -18,16 +18,22 @@ public class ShootSystem : MonoBehaviour {
     {
         bool isCharacterDead = _character.HealthController.IsDead;
         bool isCharacterDisarmed = _character.EquipmentController.disarmed;
-        bool isCharacterNPC = _character.isNPC;
+        bool isCharacterAPlayer = _character.isPlayer;
         bool isGamePaused = IngameMenuHandler.instance.paused;
+        bool isCharacterFiring = InputHandler.instance.firing;
+        bool isCharacterAiming = InputHandler.instance.aiming;
+        bool canShoot = !isCharacterDead && !isCharacterDisarmed && !isGamePaused && isCharacterAPlayer;
 
-        bool canShoot = !isCharacterDead && !isCharacterDisarmed && !isGamePaused && !isCharacterNPC;
-        if (canShoot && InputHandler.instance.firing && InputHandler.instance.aiming)
+        if (canShoot && isCharacterFiring && isCharacterAiming)
         {
             _shootScript.StartShooting();
         }
     }
-    public void Shoot()
+
+    /// <summary>
+    /// The function is executed only if the character is a NPC
+    /// </summary>
+    public void ShootAsNPC()
     {
         if (!_character.isNPC && IngameMenuHandler.instance.paused) return;
         _shootScript.StartShooting();

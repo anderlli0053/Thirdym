@@ -3,7 +3,16 @@ guid: 88265089f50dd344ba8e3e5052944bfc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dropPrefab: {instanceID: 0}
+  - animationOverride: {fileID: 22100000, guid: 54081442e71a29c4bb6f105250dddbed,
+      type: 2}
+  - leftWeaponModel: {instanceID: 0}
+  - rightWeaponModel: {instanceID: 0}
+  - bulletType: {instanceID: 0}
+  - muzzleFlash: {instanceID: 0}
+  - sfxShoot: {instanceID: 0}
+  - sfxReload: {fileID: 8300000, guid: c38aa357b091c564ea7365305f089d4e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -144,10 +144,11 @@ public class EquipmentSystem : MonoBehaviour {
 
         DropWeapon(currentWeapon);
         ClearHands();
+
+        RefreshInventoryHUD();
     }
     void StoreWeaponOnInventory(SO_WeaponPreset weapon)
     {
-        RefreshInventoryHUD();
         switch (weapon.weaponType)
         {
             case WeaponType.Melee:
@@ -182,12 +183,14 @@ public class EquipmentSystem : MonoBehaviour {
                 tool = weapon;
                 break;
         }
+        RefreshInventoryHUD();
     }
     IEnumerator Equip(SO_WeaponPreset weapon)
     {
         yield return null;
+
         #region Arm parameters
-        _character.ArmController.aimType = weapon.aimType;
+
         _character.ArmController.LeftShoulder[0].useSpring = weapon.leftShoulderSpring;
         _character.ArmController.LeftShoulder[1].useSpring = weapon.leftShoulderSpring;
         _character.ArmController.LeftBicep.useSpring = weapon.leftShoulderSpring;
@@ -196,24 +199,23 @@ public class EquipmentSystem : MonoBehaviour {
         _character.ArmController.RightShoulder[1].useSpring = weapon.rightShoulderSpring;
         _character.ArmController.RightBicep.useSpring = weapon.rightShoulderSpring;
         _character.ArmController.RightElbow.useSpring = weapon.rightElbowSpring;
+
         #endregion
-
-        _character.Animator.SetBool("ChangingGun", true);
-        yield return new WaitForSeconds(0.5f);
-        _character.Animator.SetBool("ChangingGun", false);
-
-        // Spawn new items
+        
+        _character.Animator.SetTrigger("WeaponSwap");
+        _character.SetAnimationOverride(weapon.animationOverride);
         StoreWeaponOnInventory(weapon);
+
+        yield return new WaitForSeconds(0.5f);
+
         DisplayWeaponOnHands(weapon);
-        RefreshInventoryHUD();
         currentWeapon = weapon;
 
+        RefreshInventoryHUD();
     }
     void DropWeapon(SO_WeaponPreset weapon)
     {
         if (weapon == null) return;
-
-        RefreshInventoryHUD();
 
         switch (weapon.weaponType)
         {
@@ -249,6 +251,8 @@ public class EquipmentSystem : MonoBehaviour {
             prefab.GetComponent<Rigidbody>().AddForce(transform.forward * 500);
         else
             prefab.GetComponent<Rigidbody>().AddForce(GetComponent<PlayerCameraController>().activeCamera.transform.forward * 500);
+
+        RefreshInventoryHUD();
     }
     void ClearHands()
     {

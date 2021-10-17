@@ -65,7 +65,7 @@ public class SmartTurret : MonoBehaviour {
             horizontalJoint.targetRotation = JLookAtRaycast(hit);
             verticalJoint.targetRotation = JLookAtRaycast(hit);
             if (hit.transform.GetComponent<CharacterBodypart>())
-                shootSystem.Shoot();
+                shootSystem.ShootAsNPC();
             Debug.DrawLine(shootScript.transform.position, hit.point);
         }
     }

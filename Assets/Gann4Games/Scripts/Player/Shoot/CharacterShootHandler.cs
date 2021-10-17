@@ -5,8 +5,8 @@ using Gann4Games.Thirdym.ScriptableObjects;
 
 public class CharacterShootHandler : MonoBehaviour {
 
-
-    Animator _anim;
+    
+    Animator _weaponAnimator;
     Rigidbody _handRigidbody;
     TimerTool _timer = new TimerTool();
 
@@ -36,7 +36,7 @@ public class CharacterShootHandler : MonoBehaviour {
     }
     private void Start()
     {
-        _anim = _character.Animator;
+        _weaponAnimator = _character.Animator;
         _handRigidbody = _character.baseBody.rightHand.GetComponent<Rigidbody>();
     }
     private void Update()
@@ -57,7 +57,7 @@ public class CharacterShootHandler : MonoBehaviour {
         if (_timer.IsTimeOut() && _weapon != null)
         {
             _timer.ResetTime();
-            _anim.SetBool("Shoot", false);
+            _weaponAnimator?.SetBool("Shoot", false);
             Shoot();
         }
     }
@@ -68,8 +68,8 @@ public class CharacterShootHandler : MonoBehaviour {
 
         CreateBullets();
             
-        if (_weapon.useReload) StartCoroutine(PumpGun());
-        _anim?.SetBool("Shoot", true);
+        if (_weapon.useReload) StartCoroutine(ReloadWeapon());
+        _weaponAnimator?.SetBool("Shoot", true);
     }
     void CreateBullets()
     {
@@ -85,15 +85,15 @@ public class CharacterShootHandler : MonoBehaviour {
             _bulletComponent.weapon = _weapon;
         }
     }
-    IEnumerator PumpGun()
+    IEnumerator ReloadWeapon()
     {
         yield return new WaitForSeconds(_weapon.reloadStartDelay);
-        _anim?.SetBool("Pump", true);
-        _character.Animator.SetBool("Pump", true);
+        _character.Animator.SetBool("WeaponReload", true);
         _character.SoundSource.PlayOneShot(_weapon.sfxReload);
+        _weaponAnimator?.SetBool("WeaponReload", true);
 
         yield return new WaitForSeconds(_weapon.reloadDuration);
-        _anim?.SetBool("Pump", false);
-        _character.Animator.SetBool("Pump", false);
+        _character.Animator.SetBool("WeaponReload", false);
+        _weaponAnimator?.SetBool("WeaponReload", false);
     }
 }

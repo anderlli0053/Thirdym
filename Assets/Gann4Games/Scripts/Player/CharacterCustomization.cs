@@ -146,31 +146,20 @@ public class CharacterCustomization : MonoBehaviour
         if (char_poser) char_poser.PoseCharacter();
     }
 
-    #region Sounds
-    public void PlaySFX(AudioClip sfx)
+    public void SetAnimationOverride(AnimatorOverrideController animatorOverride)
     {
-        _audioPlayer.PlayOneShot(sfx);
+        if (animatorOverride == null) return;
+        ragdollAnimator.runtimeAnimatorController = animatorOverride;
     }
-    public void PlayEnemyDownSFX()
-    {
-        PlaySFX(AudioTools.GetRandomClip(preset.enemyDownSFX));
-    }
-    public void PlayAlertSFX()
-    {
-        PlaySFX(AudioTools.GetRandomClip(preset.alertSFX));
-    }
-    public void PlayPainSFX()
-    {
-        PlaySFX(AudioTools.GetRandomClip(preset.painSFX));
-    }
-    public void PlayInjurySFX()
-    {
-        PlaySFX(AudioTools.GetRandomClip(preset.injuryStateSFX));
-    }
+
+    public void PlaySFX(AudioClip sfx) => _audioPlayer.PlayOneShot(sfx);
+    public void PlayEnemyDownSFX() => PlaySFX(AudioTools.GetRandomClip(preset.enemyDownSFX));
+    public void PlayAlertSFX() => PlaySFX(AudioTools.GetRandomClip(preset.alertSFX));
+    public void PlayPainSFX() => PlaySFX(AudioTools.GetRandomClip(preset.painSFX));
+    public void PlayInjurySFX() => PlaySFX(AudioTools.GetRandomClip(preset.injuryStateSFX));
     public void PlayDeathSFX()
     {
         PlaySFX(preset.forcedDeathSFX);
         PlaySFX(AudioTools.GetRandomClip(preset.deathSFX));
     }
-    #endregion
 }

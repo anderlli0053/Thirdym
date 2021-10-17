@@ -134,7 +134,7 @@ namespace Gann4Games.Thirdym.NPC
             HeadLookAt(new Vector3(navPosition.x, facerTransform.position.y, navPosition.z));
         }
         public void HeadLookAt(Vector3 point2face) => facerTransform.LookAt(point2face);
-        public void Attack() => character.ShootSystem.Shoot();
+        public void Attack() => character.ShootSystem.ShootAsNPC();
         /// <summary>
         /// Fires a raycast towards the current target and checks for any specified list of tags
         /// </summary>

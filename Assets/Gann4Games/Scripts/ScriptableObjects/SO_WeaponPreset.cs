@@ -11,6 +11,7 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         [Header("Visuals")]
         [Tooltip("The object that the player will drop.")]
         public GameObject dropPrefab;
+        public AnimatorOverrideController animationOverride;
         [Space]
         [Tooltip("The model that will be placed in the left hand.")]
         public GameObject leftWeaponModel;
@@ -21,10 +22,6 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         public GameObject rightWeaponModel;
         public Vector3 rightPositionOffset;
         public Vector3 rightRotationOffset;
-        [Space]
-        // Must be replaced into an enum variable.
-        [Tooltip("0 for long weapons (shouldn't be used. It's obsolete.), 1 for small weapons, 2 for swords.")]
-        public int aimType = 1;
         [Space]
         public bool leftShoulderSpring = true;
         public bool leftElbowSpring = true;
