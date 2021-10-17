@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropPrefab: {fileID: 3557475383247219646, guid: 5a3e86b1c55312546978c05f59c74a9e,
     type: 3}
+  animationOverride: {fileID: 22100000, guid: 54081442e71a29c4bb6f105250dddbed, type: 2}
   leftWeaponModel: {fileID: 0}
   leftPositionOffset: {x: 0, y: 0, z: 0}
   leftRotationOffset: {x: 0, y: 0, z: 0}
@@ -21,7 +22,6 @@ MonoBehaviour:
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: -90, y: 0, z: 0}
-  aimType: 1
   leftShoulderSpring: 1
   leftElbowSpring: 1
   rightShoulderSpring: 1
