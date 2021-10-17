@@ -5,7 +5,8 @@ using UnityEditor;
 
 [RequireComponent(typeof(CollisionEvents))]
 [RequireComponent(typeof(Rigidbody))]
-public class PickupableWeapon : MonoBehaviour {
+public class PickupableWeapon : MonoBehaviour 
+{
     public SO_WeaponPreset weaponData;
 
     [SerializeField] AudioClip pickupSFX;
