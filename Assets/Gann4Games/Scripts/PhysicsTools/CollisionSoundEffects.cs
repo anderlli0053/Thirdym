@@ -7,25 +7,28 @@ namespace Gann4Games.Thirdym.PhysicsTools
     public class CollisionSoundEffects : MonoBehaviour
     {
         AudioSource _audioSource;
-
-        [SerializeField] CollisionEvents collisionHandler;
+        CollisionEvents _collisionHandler;
 
         [SerializeField] AudioClip collisionSoftSFX;
         [SerializeField] AudioClip collisionMediumSFX;
         [SerializeField] AudioClip collisionHardSFX;
 
-        private void Awake() => _audioSource = GetComponent<AudioSource>();
+        private void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+            _collisionHandler = GetComponent<CollisionEvents>();
+        }
         private void OnEnable()
         {
-            collisionHandler.OnCollideSoft += OnCollideSoft;
-            collisionHandler.OnCollideMedium += OnCollideMedium;
-            collisionHandler.OnCollideHard += OnCollideHard;
+            _collisionHandler.OnCollideSoft += OnCollideSoft;
+            _collisionHandler.OnCollideMedium += OnCollideMedium;
+            _collisionHandler.OnCollideHard += OnCollideHard;
         }
         private void OnDisable()
         {
-            collisionHandler.OnCollideSoft -= OnCollideSoft;
-            collisionHandler.OnCollideMedium -= OnCollideMedium;
-            collisionHandler.OnCollideHard -= OnCollideHard;
+            _collisionHandler.OnCollideSoft -= OnCollideSoft;
+            _collisionHandler.OnCollideMedium -= OnCollideMedium;
+            _collisionHandler.OnCollideHard -= OnCollideHard;
         }
 
         void OnCollideSoft(object sender, CollisionEvents.CollisionArgs args) => _audioSource.PlayOneShot(collisionSoftSFX);

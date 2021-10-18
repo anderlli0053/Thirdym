@@ -13,26 +13,14 @@ public class LootCrate : MonoBehaviour {
         public int count = 1;
     }
 
-    [Header("Sound effects")]
-    [SerializeField] AudioClip sfxCollideHard, sfxCollideMedium, sfxCollideSoft;
-
     [Header("Object spawning")]
     [SerializeField] List<ObjectToSpawn> lootContent;
 
     Rigidbody[] _rigidbodies;
-    AudioSource _audio;
-    CollisionEvents _colliderEvents;
     BreakableObject _breakableObject;
     private void Awake()
     {
-        _audio = GetComponent<AudioSource>();
-        _colliderEvents = GetComponent<CollisionEvents>();
         _breakableObject = GetComponent<BreakableObject>();
-
-        _colliderEvents.OnCollideHard += CollideHard;
-        _colliderEvents.OnCollideMedium += CollideMedium;
-        _colliderEvents.OnCollideSoft += CollideSoft;
-        _breakableObject.OnDeath += BreakCrate;
     }
     private void Start()
     {
@@ -46,19 +34,22 @@ public class LootCrate : MonoBehaviour {
             }
         }
     }
-    private void OnDestroy()
+    private void OnEnable()
     {
-        _colliderEvents.OnCollideHard -= CollideHard;
-        _colliderEvents.OnCollideMedium -= CollideMedium;
-        _colliderEvents.OnCollideSoft -= CollideSoft;
+        _breakableObject.OnDeath += BreakCrate;
+    }
+    private void OnDisable()
+    {
         _breakableObject.OnDeath -= BreakCrate;
     }
-    void CollideHard(object sender, CollisionEvents.CollisionArgs args) => _audio.PlayOneShot(sfxCollideHard);
-    void CollideMedium(object sender, CollisionEvents.CollisionArgs args) => _audio.PlayOneShot(sfxCollideMedium);
-    void CollideSoft(object sender, CollisionEvents.CollisionArgs args) => _audio.PlayOneShot(sfxCollideSoft);
     public void BreakCrate(object sender, BreakableObject.BreakableObjectArgs args)
     {
         Instantiate(args.brokenModel, transform.position, transform.rotation);
+        SpawnLoot();
+        Destroy(gameObject);
+    }
+    void SpawnLoot()
+    {
         for (int i = 0; i < lootContent.Count; i++)
         {
             if (lootContent[i].item == null) continue;
@@ -66,6 +57,5 @@ public class LootCrate : MonoBehaviour {
             for (int amount = 0; amount < lootContent[i].count; amount++)
                 Instantiate(lootContent[i].item, transform.position, transform.rotation);
         }
-        Destroy(gameObject);
     }
 }

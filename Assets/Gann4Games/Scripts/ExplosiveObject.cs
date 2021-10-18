@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using Gann4Games.Thirdym.ScriptableObjects;
 using Gann4Games.Thirdym.Utility;
+using Gann4Games.Thirdym.Events;
 
 [RequireComponent(typeof(BreakableObject))]
 public class ExplosiveObject : MonoBehaviour

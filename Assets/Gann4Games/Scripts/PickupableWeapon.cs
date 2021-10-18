@@ -29,7 +29,7 @@ public class PickupableWeapon : MonoBehaviour
         _auSource.spatialBlend = 1;
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Vector3 shootPoint = transform.position + transform.TransformDirection(weaponData.shootPoint);
 
@@ -107,10 +107,10 @@ public class PickupableWeapon : MonoBehaviour
             switch (LanguagePrefs.Language)
             {
                 case AvailableLanguages.English:
-                    NotificationHandler.Notify("You already have a " + weaponData.weaponType.ToString(), 2, 2, false);
+                    NotificationHandler.Notify("You already have a weapon of type " + weaponData.weaponType.ToString() + ".", 2, 2, false);
                     break;
                 case AvailableLanguages.Español:
-                    NotificationHandler.Notify("Ya tienes " + weaponData.weaponType.ToString(), 2, 2, false);
+                    NotificationHandler.Notify("Ya tienes un arma de tipo " + weaponData.weaponType.ToString() + ".", 2, 2, false);
                     break;
             }
         }

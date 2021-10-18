@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Gann4Games.Thirdym.Interfaces;
+using Gann4Games.Thirdym.Events;
 public class CharacterBlade : MonoBehaviour {
 
     public CharacterCustomization character;
