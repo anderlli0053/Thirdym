@@ -42,11 +42,11 @@ namespace Gann4Games.Thirdym.NPC
                         _timer.ResetTime();
                         character.NPC.Attack();
                     }
-                    character.ArmController.AimGun(true);
+                    character.ArmController.AimWeapon(true);
                 }
                 else
                 {
-                    character.ArmController.AimGun(false);
+                    character.ArmController.AimWeapon(false);
                     return idleState;
                 }
             }

@@ -15,6 +15,7 @@ MonoBehaviour:
   dropPrefab: {fileID: 499736502844477934, guid: 0f36298ced599464fa2c28eca5a9ba35,
     type: 3}
   animationOverride: {fileID: 22100000, guid: 54081442e71a29c4bb6f105250dddbed, type: 2}
+  supportedByLeftHand: 0
   leftWeaponModel: {fileID: 0}
   leftPositionOffset: {x: 0, y: 0, z: 0}
   leftRotationOffset: {x: 0, y: 0, z: 0}

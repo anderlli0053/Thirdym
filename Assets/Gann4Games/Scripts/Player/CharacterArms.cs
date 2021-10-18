@@ -83,7 +83,7 @@ public class CharacterArms : MonoBehaviour {
                     bool isCharacterDisarmed = equipment.disarmed;
                     bool aimGun = isCharacterAiming && !isCharacterDisarmed;
 
-                    AimGun(aimGun);
+                    AimWeapon(aimGun);
                     _anim.SetBool("WeaponAiming", isCharacterAiming);
                     _anim.SetBool("WeaponAction", isCharacterFiring);
                 }
@@ -101,20 +101,24 @@ public class CharacterArms : MonoBehaviour {
         }
     }
 
-    public void AimGun(bool aim)
+    public void AimWeapon(bool aiming)
     {
         if (IngameMenuHandler.instance.paused) return;
 
+        bool supportedByLeftHand = _character.EquipmentController.currentWeapon.supportedByLeftHand;
         bool isReloading = _anim.GetBool("WeaponReload");
 
-        if (!isReloading)
+        if(aiming)
         {
-            if (aim) RightHandLookAt(PlayerCameraController.instance.CameraCenterPoint);
-            else RightHandToDefaultPosition();
+            RightHandLookAtScreenCenter();
+        }
+        else if ((isReloading || supportedByLeftHand) && !aiming)
+        {
+            RightHandLookAtLeftHand();
         }
         else
         {
-            RightHandLookAt(_character.baseBody.leftHand.position);
+            RightHandToDefaultPosition();
         }
     }
     void RightHandLookAt(Vector3 position)
@@ -122,5 +126,7 @@ public class CharacterArms : MonoBehaviour {
         _character.baseBody.rightHand.LookAt(position);
         _character.baseBody.rightHand.Rotate(-90, -90, 0);
     }
+    void RightHandLookAtLeftHand() => RightHandLookAt(_character.baseBody.leftHand.position);
+    void RightHandLookAtScreenCenter() => RightHandLookAt(PlayerCameraController.instance.CameraCenterPoint);
     void RightHandToDefaultPosition() => _character.baseBody.rightHand.localRotation = Quaternion.Lerp(_character.baseBody.rightHand.localRotation, Quaternion.identity, Time.deltaTime * 10);
 }

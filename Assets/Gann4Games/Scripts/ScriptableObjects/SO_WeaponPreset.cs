@@ -12,6 +12,8 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         [Tooltip("The object that the player will drop.")]
         public GameObject dropPrefab;
         public AnimatorOverrideController animationOverride;
+        [Tooltip("Usually long weapons are held with both hands.")]
+        public bool supportedByLeftHand = true;
         [Space]
         [Tooltip("The model that will be placed in the left hand.")]
         public GameObject leftWeaponModel;
