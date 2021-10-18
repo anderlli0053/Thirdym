@@ -2523,7 +2523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780cbda6c181fb2478c2e2bdac1ce5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSensitivity: {x: 4, y: 4}
+  cameraSensitivity: {x: 0.1, y: 0.1}
 --- !u!114 &114799129114398726
 MonoBehaviour:
   m_ObjectHideFlags: 0

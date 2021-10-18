@@ -7,7 +7,7 @@ public class InputHandler : MonoBehaviour
 
     [SerializeField] Vector2 cameraSensitivity = Vector2.one*4;
 
-    public Vector2 cameraAxis => gameplayControls.Player.Camera.ReadValue<Vector2>() * Time.deltaTime*cameraSensitivity;
+    public Vector2 cameraAxis => gameplayControls.Player.Camera.ReadValue<Vector2>() * cameraSensitivity;
     public Vector2 movementAxis => gameplayControls.Player.Movement.ReadValue<Vector2>();
 
     public bool aiming => gameplayControls.Player.Aim.ReadValue<float>() > 0;
