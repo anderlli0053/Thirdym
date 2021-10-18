@@ -2,6 +2,7 @@
 using Gann4Games.Thirdym.Localization; // Maybe another code smell ... ?
 using Gann4Games.Thirdym.ScriptableObjects;
 using UnityEditor;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(CollisionEvents))]
 [RequireComponent(typeof(Rigidbody))]
@@ -9,9 +10,9 @@ public class PickupableWeapon : MonoBehaviour
 {
     public SO_WeaponPreset weaponData;
 
-    [SerializeField] AudioClip pickupSFX;
-    [SerializeField] AudioClip collisionClip2;
-    [SerializeField] AudioClip collisionClip1;
+    public AudioClip onPickupSFX;
+    public AudioClip collisionSoftSFX;
+    public AudioClip collisionMediumSFX;
 
     CharacterCustomization _character;
     AudioSource _auSource;
@@ -42,11 +43,11 @@ public class PickupableWeapon : MonoBehaviour
     }
     void OnCollideSoft(object sender, CollisionEvents.CollisionArgs args)
     {
-        _auSource.PlayOneShot(collisionClip1);
+        _auSource.PlayOneShot(collisionSoftSFX);
     }
     void OnCollideMedium(object sender, CollisionEvents.CollisionArgs args)
     {
-        _auSource.PlayOneShot(collisionClip2);
+        _auSource.PlayOneShot(collisionMediumSFX);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -101,7 +102,7 @@ public class PickupableWeapon : MonoBehaviour
             }
         }
 
-        _character.PlaySFX(pickupSFX);
+        _character.PlaySFX(onPickupSFX);
         Destroy(gameObject);
     }
 
