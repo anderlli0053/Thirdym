@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Gann4Games.Thirdym.Events;
 
 [RequireComponent(typeof(BreakableObject))]
 [RequireComponent(typeof(CollisionEvents))]

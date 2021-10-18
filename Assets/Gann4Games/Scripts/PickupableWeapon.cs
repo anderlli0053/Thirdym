@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using Gann4Games.Thirdym.Localization; // Maybe another code smell ... ?
 using Gann4Games.Thirdym.ScriptableObjects;
-using UnityEditor;
-using UnityEngine.Serialization;
+using Gann4Games.Thirdym.Events;
 
 [RequireComponent(typeof(CollisionEvents))]
 [RequireComponent(typeof(Rigidbody))]
@@ -55,12 +55,6 @@ public class PickupableWeapon : MonoBehaviour
 
         if (_character)
         {
-            if (_character.isNPC)
-            {
-                //character.NPC.lookingForGuns = false;
-                //character.NPC.lookingForPlayer = true;
-                throw new System.NotImplementedException(message: "NPCs can't pick weapons yet.");
-            }
             EquipWeapon(weaponData);
         }
         
@@ -89,7 +83,7 @@ public class PickupableWeapon : MonoBehaviour
     }
     void OnPickup()
     {
-        if (!_character.isNPC)
+        if (_character.isPlayer)
         {
             switch (LanguagePrefs.Language)
             {
@@ -108,7 +102,7 @@ public class PickupableWeapon : MonoBehaviour
 
     void AlreadyEquippedAlert(SO_WeaponPreset weapon)
     {
-        if (!_character.isNPC)
+        if (_character.isPlayer)
         {
             switch (LanguagePrefs.Language)
             {
