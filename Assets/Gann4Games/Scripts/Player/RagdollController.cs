@@ -130,7 +130,7 @@ public class RagdollController : MonoBehaviour {
                         StartCoroutine(Jump());
                     bodyDamp = 10;
 
-                    _character.Animator.SetBool("FlexLegs", InputHandler.instance.crouching);
+                    _character.Animator.SetBool("Crouch", InputHandler.instance.crouching);
                     _character.Animator.SetBool("Kicking", InputHandler.instance.kicking);
 
                     if (axisMovement != Vector3.zero && !InputHandler.instance.aiming && !isRagdollState)
@@ -139,7 +139,7 @@ public class RagdollController : MonoBehaviour {
                         {
                             axisMovement = -axisMovement;
                             _character.Animator.SetFloat("Y", -.5f * axisMovement.magnitude);
-                            _character.Animator.SetBool("FlexLegs", true);
+                            _character.Animator.SetBool("Crouch", true);
                             bodyRotation = 0; //15;
 
                             //arms.RightShoulder[0].useSpring = false;

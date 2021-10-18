@@ -74,9 +74,9 @@ public class CharacterArms : MonoBehaviour {
                     if (!neckJoint) return;
                     neckJoint.useSpring = true;
                 }
-                #region Arms controll
 
-                if (!_character.isNPC)
+                // High precision aiming
+                if (_character.isPlayer)
                 {
                     bool isCharacterFiring = InputHandler.instance.firing;
                     bool isCharacterAiming = InputHandler.instance.aiming;
@@ -87,11 +87,9 @@ public class CharacterArms : MonoBehaviour {
                     _anim.SetBool("WeaponAiming", isCharacterAiming);
                     _anim.SetBool("WeaponAction", isCharacterFiring);
                 }
-                #endregion
             }
             else 
             {
-                if(_anim.GetFloat("Arm") != 0) _anim.SetFloat("Arm", 0); // Stop swords movements
                 foreach (HingeJoint neckJoint in Neck)
                 {
                     if (!neckJoint) return;
