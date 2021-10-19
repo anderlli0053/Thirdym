@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.92.0 commit date:2021-02-24, commit time:16:25, hash:02948a2cab44</authoring_tool>
+    </contributor>
+    <created>2021-04-29T00:08:24</created>
+    <modified>2021-04-29T00:08:24</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="lootcrate-effect">
+      <profile_COMMON>
+        <newparam sid="WoodenCrate_png-surface">
+          <surface type="2D">
+            <init_from>WoodenCrate_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="WoodenCrate_png-sampler">
+          <sampler2D>
+            <source>WoodenCrate_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="WoodenCrate_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="lootcrate_mid-effect">
+      <profile_COMMON>
+        <newparam sid="WoodenCrate_png-surface">
+          <surface type="2D">
+            <init_from>WoodenCrate_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="WoodenCrate_png-sampler">
+          <sampler2D>
+            <source>WoodenCrate_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="WoodenCrate_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="lootcrate_edge-effect">
+      <profile_COMMON>
+        <newparam sid="WoodenCrate_png-surface">
+          <surface type="2D">
+            <init_from>WoodenCrate_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="WoodenCrate_png-sampler">
+          <sampler2D>
+            <source>WoodenCrate_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="WoodenCrate_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="WoodenCrate_png" name="WoodenCrate_png">
+      <init_from>WoodenCrate.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="lootcrate-material" name="lootcrate">
+      <instance_effect url="#lootcrate-effect"/>
+    </material>
+    <material id="lootcrate_mid-material" name="lootcrate_mid">
+      <instance_effect url="#lootcrate_mid-effect"/>
+    </material>
+    <material id="lootcrate_edge-material" name="lootcrate_edge">
+      <instance_effect url="#lootcrate_edge-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Cube-mesh" name="Cube">
+      <mesh>
+        <source id="Cube-mesh-positions">
+          <float_array id="Cube-mesh-positions-array" count="18">1 -1.05 1 1 -1.05 -1 -1 -1.05 -1 1 -1 1 1 -1 -1 -1 -1 -1</float_array>
+          <technique_common>
+            <accessor source="#Cube-mesh-positions-array" count="6" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube-mesh-normals">
+          <float_array id="Cube-mesh-normals-array" count="15">0 -1 0 0 1 0 1 0 0 0 0 -1 -0.7071068 0 0.7071068</float_array>
+          <technique_common>
+            <accessor source="#Cube-mesh-normals-array" count="5" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube-mesh-map-0">
+          <float_array id="Cube-mesh-map-0-array" count="48">0.1380661 0.1325139 0.6279286 0.1310686 0.1343493 0.7475441 0.1380661 0.1325139 0.1343493 0.7475441 0.6279286 0.1310686 0.1380661 0.1325139 0.6279286 0.1310686 0.6279286 0.1310686 0.1343493 0.7475441 0.1380661 0.1325139 0.1380661 0.1325139 0.6279286 0.1310686 0.1343493 0.7475441 0.1343493 0.7475441 0.1380661 0.1325139 0.1380661 0.1325139 0.6279286 0.1310686 0.1343493 0.7475441 0.1343493 0.7475441 0.1380661 0.1325139 0.6279286 0.1310686 0.6279286 0.1310686 0.1343493 0.7475441</float_array>
+          <technique_common>
+            <accessor source="#Cube-mesh-map-0-array" count="24" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cube-mesh-vertices">
+          <input semantic="POSITION" source="#Cube-mesh-positions"/>
+        </vertices>
+        <triangles material="lootcrate-material" count="8">
+          <input semantic="VERTEX" source="#Cube-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cube-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Cube-mesh-map-0" offset="2" set="0"/>
+          <p>1 0 0 0 0 1 2 0 2 4 1 3 5 1 4 3 1 5 1 2 6 3 2 7 0 2 8 2 3 9 4 3 10 1 3 11 0 4 12 5 4 13 2 4 14 1 2 15 4 2 16 3 2 17 2 3 18 5 3 19 4 3 20 0 4 21 3 4 22 5 4 23</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Cube_011-mesh" name="Cube.011">
+      <mesh>
+        <source id="Cube_011-mesh-positions">
+          <float_array id="Cube_011-mesh-positions-array" count="24">-0.9545946 -1.07 -1.166726 -1.166727 -1.07 -0.9545938 -0.9545946 -1.020244 -1.166726 -1.166727 -1.020244 -0.9545938 0.1060659 -1.020244 -0.106066 -0.1060659 -1.020244 0.1060661 0.1060659 -1.07 -0.1060661 -0.1060659 -1.07 0.1060661</float_array>
+          <technique_common>
+            <accessor source="#Cube_011-mesh-positions-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube_011-mesh-normals">
+          <float_array id="Cube_011-mesh-normals-array" count="36">-0.7071076 0 -0.7071061 0.7071074 0 0.7071062 0 -1 -2.6491e-7 -0.7071055 0 0.7071081 0.7071071 0 -0.7071065 0 1 0 -0.7071073 0 -0.7071063 0.7071077 -1.69415e-6 0.707106 0 -1 5.29819e-7 -0.7071071 0 0.7071065 0.7071055 1.93608e-6 -0.7071081 0 1 -2.64909e-7</float_array>
+          <technique_common>
+            <accessor source="#Cube_011-mesh-normals-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube_011-mesh-map-0">
+          <float_array id="Cube_011-mesh-map-0-array" count="72">0.7134286 0.1820272 0.8444816 0.2580331 0.8169581 0.2855567 0.1957748 0.6996781 0.271782 0.8307331 0.1682511 0.7272024 0.2993059 0.8032091 0.7134286 0.1820272 0.8169581 0.2855567 0.04973876 0.9023828 0.001857995 0.001857399 0.0497381 0.00185734 0.1097739 0.9023827 0.1576539 0.001857399 0.1576539 0.9023827 0.04973876 0.9023828 0.1097724 0.00185734 0.1097739 0.9023827 0.7134286 0.1820272 0.7409523 0.1545038 0.8444816 0.2580331 0.1957748 0.6996781 0.2993059 0.8032091 0.271782 0.8307331 0.2993059 0.8032091 0.1957748 0.6996781 0.7134286 0.1820272 0.04973876 0.9023828 0.00185734 0.9023828 0.001857995 0.001857399 0.1097739 0.9023827 0.1097724 0.00185734 0.1576539 0.001857399 0.04973876 0.9023828 0.0497381 0.00185734 0.1097724 0.00185734</float_array>
+          <technique_common>
+            <accessor source="#Cube_011-mesh-map-0-array" count="36" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cube_011-mesh-vertices">
+          <input semantic="POSITION" source="#Cube_011-mesh-positions"/>
+        </vertices>
+        <triangles material="lootcrate_mid-material" count="12">
+          <input semantic="VERTEX" source="#Cube_011-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cube_011-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Cube_011-mesh-map-0" offset="2" set="0"/>
+          <p>1 0 0 2 0 1 0 0 2 7 1 3 4 1 4 5 1 5 6 2 6 1 2 7 0 2 8 3 3 9 7 3 10 5 3 11 2 4 12 6 4 13 0 4 14 3 5 15 4 5 16 2 5 17 1 6 18 3 6 19 2 6 20 7 7 21 6 7 22 4 7 23 6 8 24 7 8 25 1 8 26 3 9 27 1 9 28 7 9 29 2 10 30 4 10 31 6 10 32 3 11 33 5 11 34 4 11 35</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Cube_006-mesh" name="Cube.006">
+      <mesh>
+        <source id="Cube_006-mesh-positions">
+          <float_array id="Cube_006-mesh-positions-array" count="24">-1 -1 1 -1.144337 -1.144337 1.144337 1 -1 1 1.144337 -1.144337 1.144337 0.9471687 -1.072169 0.9471687 -0.9471687 -1.072169 0.9471687 -0.9471687 -0.9471687 1.072169 0.9471687 -0.9471687 1.072169</float_array>
+          <technique_common>
+            <accessor source="#Cube_006-mesh-positions-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube_006-mesh-normals">
+          <float_array id="Cube_006-mesh-normals-array" count="36">0 0.5906917 -0.8068974 0 -0.9390711 -0.343723 0 0.8068975 -0.5906916 0 0.3437236 0.9390709 -0.2505592 -0.684551 0.684551 0.2505592 -0.684551 0.684551 0 0.5906921 -0.8068971 0 -0.9390709 -0.3437238 0 0.8068972 -0.5906918 0 0.3437231 0.9390711 -0.6947466 0.5085898 -0.5085901 0.6947464 0.5085899 -0.5085899</float_array>
+          <technique_common>
+            <accessor source="#Cube_006-mesh-normals-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube_006-mesh-map-0">
+          <float_array id="Cube_006-mesh-map-0-array" count="72">0.1848261 0.08791089 0.2237404 0.9350759 0.1848261 0.9120897 0.08521676 0.9120897 -0.006133317 0.002126872 0.08521676 0.08791089 0.2626533 0.9120904 0.223739 0.06492531 0.2626533 0.08791154 0.002126872 0.08791029 0.09347707 0.9978731 0.002126991 0.9120892 0.2669071 0.1038384 0.3401075 0.1274406 0.2962211 0.1382369 0.3401075 0.153287 0.2669071 0.1768893 0.2962211 0.1424907 0.1848261 0.08791089 0.223739 0.06492531 0.2237404 0.9350759 0.08521676 0.9120897 -0.006132245 0.9978731 -0.006133317 0.002126872 0.2626533 0.9120904 0.2237404 0.9350759 0.223739 0.06492531 0.002126872 0.08791029 0.09347599 0.002126872 0.09347707 0.9978731 0.2669071 0.1038384 0.3401075 0.002126872 0.3401075 0.1274406 0.3401075 0.153287 0.3401075 0.2786008 0.2669071 0.1768893</float_array>
+          <technique_common>
+            <accessor source="#Cube_006-mesh-map-0-array" count="36" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cube_006-mesh-vertices">
+          <input semantic="POSITION" source="#Cube_006-mesh-positions"/>
+        </vertices>
+        <triangles material="lootcrate_edge-material" count="12">
+          <input semantic="VERTEX" source="#Cube_006-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cube_006-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Cube_006-mesh-map-0" offset="2" set="0"/>
+          <p>5 0 0 2 0 1 4 0 2 4 1 3 1 1 4 5 1 5 7 2 6 0 2 7 6 2 8 6 3 9 3 3 10 7 3 11 5 4 12 6 4 13 0 4 14 7 5 15 4 5 16 2 5 17 5 6 18 0 6 19 2 6 20 4 7 21 3 7 22 1 7 23 7 8 24 2 8 25 0 8 26 6 9 27 1 9 28 3 9 29 5 10 30 1 10 31 6 10 32 7 11 33 3 11 34 4 11 35</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="box_face" name="box_face" type="NODE">
+        <matrix sid="transform">7.54979e-8 0 1 0 0 1 0 0 -1 0 7.54979e-8 1 0 0 0 1</matrix>
+        <instance_geometry url="#Cube-mesh" name="box_face">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="lootcrate-material" target="#lootcrate-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node id="box_middle0" name="box_middle0" type="NODE">
+        <matrix sid="transform">7.54979e-8 0 1 0 0 1 0 0 -1 0 7.54979e-8 1 0 0 0 1</matrix>
+        <instance_geometry url="#Cube_011-mesh" name="box_middle0">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="lootcrate_mid-material" target="#lootcrate_mid-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node id="box_edge" name="box_edge" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 1</matrix>
+        <instance_geometry url="#Cube_006-mesh" name="box_edge">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="lootcrate_edge-material" target="#lootcrate_edge-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
