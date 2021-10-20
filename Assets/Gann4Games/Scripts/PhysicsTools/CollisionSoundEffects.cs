@@ -1,7 +1,7 @@
 using UnityEngine;
 using Gann4Games.Thirdym.Events;
 
-namespace Gann4Games.Thirdym.PhysicsTools
+namespace Gann4Games.Thirdym.Utility
 {
     [RequireComponent(typeof(CollisionEvents))]
     public class CollisionSoundEffects : MonoBehaviour

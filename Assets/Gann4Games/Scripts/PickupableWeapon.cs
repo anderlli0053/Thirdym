@@ -29,7 +29,7 @@ public class PickupableWeapon : MonoBehaviour
         _auSource.spatialBlend = 1;
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Vector3 shootPoint = transform.position + transform.TransformDirection(weaponData.shootPoint);
 

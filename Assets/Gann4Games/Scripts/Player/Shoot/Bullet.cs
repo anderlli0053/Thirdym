@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour {
         _trailRenderer.endWidth = weapon.bulletType.bulletWidth;
         _trailRenderer.time = weapon.bulletType.bulletLenght;
         _trailRenderer.material = weapon.bulletType.bulletMaterial;
-        _trailRenderer.textureMode = weapon.bulletType.texMode;
+        _trailRenderer.textureMode = weapon.bulletType.textureMode;
     }
 
     private void FireBullet(Vector3 direction)
@@ -45,11 +45,14 @@ public class Bullet : MonoBehaviour {
 
     private void OnCollisionEnter(Collision other)
     {
-        var damageableObject = other.gameObject.GetComponent<IDamageable>();
-        damageableObject?.DealDamage(weapon.damage, DamageType.Bullet, user.position);
+        if (weapon.useRicochet) Ricochet();
+        else DoImpact();
 
-        CharacterBodypart bodypart = other.gameObject.GetComponent<CharacterBodypart>();
-        if(bodypart) Destroy(gameObject);
+        var damageableObject = other.gameObject.GetComponent<IDamageable>();
+        if (damageableObject != null)
+        {
+            damageableObject.DealDamage(weapon.damage, DamageType.Bullet, user.position);
+        }
 
         HingeJointTarget ragdollJoint = other.gameObject.GetComponent<HingeJointTarget>();
         if (ragdollJoint)
@@ -66,16 +69,12 @@ public class Bullet : MonoBehaviour {
             other.transform.GetComponent<Rigidbody>().AddForce(transform.forward * (50 * weapon.damage));
         }
         else
-            CreateParticle(weapon.bulletType.solidImpact, transform.position, transform.rotation, null);
+            CreateParticle(weapon.bulletType.onHitPrefab, transform.position, transform.rotation);
 
         if (other.transform.gameObject.HasTag("Energy"))
         {
             CreateParticle(energyImpact, transform.position, transform.rotation, other.transform);
         }
-
-        // Ricochet
-        if (weapon.useRicochet) Ricochet();
-        else Destroy(gameObject);
     }
     void Ricochet()
     {
@@ -105,11 +104,15 @@ public class Bullet : MonoBehaviour {
 
         newBulletHole.transform.localScale = Vector3.one*(weapon.bulletType.bulletWidth/2);
     }
-    public void CreateParticle(GameObject prefab, Vector3 startPos, Quaternion startRot, Transform parent)
+    public void CreateParticle(GameObject prefab, Vector3 startPos, Quaternion startRot, Transform parent = null)
     {
-        GameObject particle = Instantiate(prefab, startPos, startRot, null);
-        particle.transform.SetParent(parent);
+        GameObject particle = Instantiate(prefab, startPos, startRot, parent);
         particle.GetComponent<ParticleSystem>().Play();
+    }
+    public void DoImpact()
+    {
+        CreateParticle(weapon.bulletType.onHitPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
     public void Deflect()
     {

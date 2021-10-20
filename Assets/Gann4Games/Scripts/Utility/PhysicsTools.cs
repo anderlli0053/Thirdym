@@ -12,7 +12,7 @@ namespace Gann4Games.Thirdym.Utility
         }
         public static Collider[] GetCollidersAt(Vector3 position, float radius)
         {
-            return UnityEngine.Physics.OverlapSphere(position, radius);
+            return Physics.OverlapSphere(position, radius);
         }
     }
 }

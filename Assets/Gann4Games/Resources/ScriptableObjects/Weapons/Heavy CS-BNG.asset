@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
+  m_Name: Heavy CS-BNG
+  m_EditorClassIdentifier: 
+  dropPrefab: {fileID: 8693100340991465055, guid: b7df4e978a4da104b95f350ccf354c21,
+    type: 3}
+  animationOverride: {fileID: 22100000, guid: 54081442e71a29c4bb6f105250dddbed, type: 2}
+  supportedByLeftHand: 1
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  rightWeaponModel: {fileID: 919132149155446097, guid: a0d2b0456642c4e4d95ae4c9fc2a25e9,
+    type: 3}
+  rightPositionOffset: {x: 0, y: 0, z: 0}
+  rightRotationOffset: {x: 0, y: 0, z: 0}
+  leftShoulderSpring: 1
+  leftElbowSpring: 1
+  rightShoulderSpring: 1
+  rightElbowSpring: 1
+  weaponType: 4
+  damage: 25
+  weaponName: CS-BNG
+  useRicochet: 0
+  ricochetMinAngle: 0.75
+  shootPoint: {x: 0.33, y: 0, z: 0.06}
+  repeatTime: 1
+  bulletCount: 1
+  bulletSpread: 0
+  useReload: 0
+  reloadStartDelay: 0
+  reloadDuration: 0
+  bulletType: {fileID: 11400000, guid: 6cc346b8134a49e438e40457631916df, type: 2}
+  muzzleFlash: {fileID: 0}
+  muzzleFlashDisableTime: 0.05
+  sfxShoot: {fileID: 8300000, guid: a7eae409c27cc58459c57beda7520a0f, type: 3}
+  sfxReload: {fileID: 8300000, guid: c38aa357b091c564ea7365305f089d4e, type: 3}

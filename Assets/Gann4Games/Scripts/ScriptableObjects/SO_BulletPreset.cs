@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Gann4Games.Thirdym.ScriptableObjects
 {
@@ -7,12 +8,12 @@ namespace Gann4Games.Thirdym.ScriptableObjects
     {
         [Header("Spawn parameters")]
         public GameObject bullet;
-        public GameObject solidImpact;
+        public GameObject onHitPrefab;
 
         [Header("Visual parameters")]
         public Color bulletColor = Color.white;
         public Material bulletMaterial;
-        public LineTextureMode texMode;
+        [FormerlySerializedAs("texMode")] public LineTextureMode textureMode;
         [Space]
         public float bulletWidth = 0.25f;
         public float bulletLenght = 0.1f;
