@@ -33,6 +33,8 @@ namespace Gann4Games.Thirdym.ScriptableObjects
 
         [Header("Stats")]
         public WeaponType weaponType;
+        [Tooltip("This setting allows the weapon to push back the player when shooting.")]
+        public bool useRecoil = true;
         public float damage;
         [Header("Configuration")]
         public string weaponName = "unnamed_weapon";
@@ -44,8 +46,12 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         public float repeatTime = 1;
         public float bulletCount = 1;
         public float bulletSpread;
+        [Tooltip("When the bullet will be destroyed (in seconds) after it has been spawned")]
+        public float bulletStopTime = 3;
         [Space]
         public bool useReload;
+        [Tooltip("Usually used for melee weapons. If disabled, reloads will not interrupt aiming forward.")]
+        public bool reloadingInterruptsAiming = true;
         public float reloadStartDelay;
         public float reloadDuration;
 

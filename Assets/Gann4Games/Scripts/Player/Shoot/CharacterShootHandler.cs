@@ -64,7 +64,8 @@ public class CharacterShootHandler : MonoBehaviour {
     void Shoot()
     {
         _character.SoundSource.PlayOneShot(_weapon.sfxShoot);
-        _character.baseBody.rightElbow.GetComponent<Rigidbody>().AddForce(PlayerCameraController.instance.activeCamera.transform.forward * -(500 * (_weapon.damage / 10)));
+        if(_character.EquipmentController.currentWeapon.useRecoil)
+            _character.baseBody.rightElbow.GetComponent<Rigidbody>().AddForce(PlayerCameraController.instance.activeCamera.transform.forward * -(500 * (_weapon.damage / 10)));
 
         CreateBullets();
             

@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour {
         ApplyVisuals();
 
         FireBullet(transform.right);
-        Destroy(gameObject, 3);
+        Destroy(gameObject, weapon.bulletStopTime);
     }
     void ApplyVisuals()
     {

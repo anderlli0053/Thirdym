@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
+  m_Name: Melee MilitaryKnife
+  m_EditorClassIdentifier: 
+  dropPrefab: {fileID: 3040534797571657392, guid: 9907972b1a834d64ab51e0b7dac282ac,
+    type: 3}
+  animationOverride: {fileID: 22100000, guid: e8e7c5b23657a8d448b905b976395655, type: 2}
+  supportedByLeftHand: 0
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  rightWeaponModel: {fileID: 919132149155446097, guid: d15b4da9bdba0454390918154f44aa9c,
+    type: 3}
+  rightPositionOffset: {x: 0, y: 0, z: 0}
+  rightRotationOffset: {x: 0, y: 0, z: 0}
+  leftShoulderSpring: 1
+  leftElbowSpring: 1
+  rightShoulderSpring: 1
+  rightElbowSpring: 1
+  weaponType: 0
+  useRecoil: 0
+  damage: 50
+  weaponName: unnamed_weapon
+  useRicochet: 0
+  ricochetMinAngle: 0.75
+  shootPoint: {x: 0.3, y: 0, z: 0}
+  repeatTime: 0.5
+  bulletCount: 1
+  bulletSpread: 0
+  bulletStopTime: 0.02
+  useReload: 1
+  reloadingInterruptsAiming: 0
+  reloadStartDelay: 0.2
+  reloadDuration: 0.2
+  bulletType: {fileID: 11400000, guid: 856eb5b22f40f6d43ab3c9d83873634b, type: 2}
+  muzzleFlash: {fileID: 0}
+  muzzleFlashDisableTime: 0.05
+  sfxShoot: {fileID: 8300000, guid: f5c91c64b7ee9f24097c7b65b77aa483, type: 3}
+  sfxReload: {fileID: 0}

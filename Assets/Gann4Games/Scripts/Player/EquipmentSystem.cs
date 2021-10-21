@@ -11,7 +11,6 @@ public class EquipmentSystem : MonoBehaviour {
     GameObject _rightHandWeapon;
 
     bool UsePlayerPrefs => _character.usePlayerPrefs;
-    bool _bladesEnabled;
 
     bool hasMelee => melee != null;
     bool hasPistol => pistol != null;
@@ -42,13 +41,11 @@ public class EquipmentSystem : MonoBehaviour {
     [Tooltip("Self descriptive")]
     public SO_WeaponPreset shotgun;
 
-    [Tooltip("Weapons that are heavy")]
+    [Tooltip("Weapons that are heavy, mostly based on energy")]
     public SO_WeaponPreset heavy;
 
     [Tooltip("Tools include the following: Defibrilator, electroshock, more coming soon")]
     public SO_WeaponPreset tool;
-
-    public GameObject[] PSIBlades;
     
 
     private void Start()
@@ -124,10 +121,7 @@ public class EquipmentSystem : MonoBehaviour {
                 return false;
         }
     }
-    public void EquipWeapon(SO_WeaponPreset weapon)
-    {
-        StartCoroutine(Equip(weapon));
-    }
+    public void EquipWeapon(SO_WeaponPreset weapon) => StartCoroutine(Equip(weapon));
     public void DropAllWeapons()
     {
         DropEquippedWeapon();
@@ -152,14 +146,7 @@ public class EquipmentSystem : MonoBehaviour {
         switch (weapon.weaponType)
         {
             case WeaponType.Melee:
-
-                //CreateObjectAt(weapon.leftWeaponModel, _character.baseBody.leftHand);
-                //CreateObjectAt(weapon.rightWeaponModel, _character.baseBody.rightHand);
-
-                _bladesEnabled = true;
-
-                foreach (GameObject blade in PSIBlades)
-                    blade.SetActive(_bladesEnabled);
+                melee = weapon;
 
                 break;
 
@@ -274,12 +261,6 @@ public class EquipmentSystem : MonoBehaviour {
         ClearHands();
         _leftHandWeapon = CreateObjectAt(weapon.leftWeaponModel, _character.baseBody.leftHand, weapon.leftPositionOffset, weapon.leftRotationOffset);
         _rightHandWeapon = CreateObjectAt(weapon.rightWeaponModel, _character.baseBody.rightHand, weapon.rightPositionOffset, weapon.rightRotationOffset);
-    }
-    void DisableBlades()
-    {
-        _bladesEnabled = false;
-        foreach(GameObject blade in PSIBlades)
-            blade.SetActive(_bladesEnabled);
     }
     GameObject CreateObjectAt(GameObject prefab, Transform placeTransform, Vector3 positionOffset, Vector3 rotationOffset)
     {
