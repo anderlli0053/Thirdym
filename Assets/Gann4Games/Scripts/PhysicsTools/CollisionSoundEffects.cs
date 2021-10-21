@@ -4,6 +4,7 @@ using Gann4Games.Thirdym.Events;
 namespace Gann4Games.Thirdym.Utility
 {
     [RequireComponent(typeof(CollisionEvents))]
+    [RequireComponent(typeof(AudioSource))]
     public class CollisionSoundEffects : MonoBehaviour
     {
         AudioSource _audioSource;

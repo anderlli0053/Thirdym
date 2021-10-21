@@ -11,34 +11,30 @@ namespace Gann4Games.EditorTools
         {
             PickupableWeapon weapon = (PickupableWeapon)target;
 
-// Creating new fields
-            #region Scriptable Object field
-            EditorGUILayout.BeginHorizontal();
-            
-            // ScriptableObject field
-            var weaponDataField = EditorGUILayout.ObjectField("Weapon data", weapon.weaponData, typeof(SO_WeaponPreset), false) as SO_WeaponPreset;
-            
-            // Button "create" field
-            if(GUILayout.Button("Create"))
-                weaponDataField = ScriptableObjectTools.CreateWeapon(new SO_WeaponPreset(), target.name) as SO_WeaponPreset;
+            base.OnInspectorGUI();
 
-            // Override original field
-            weapon.weaponData = weaponDataField;
+            if (weapon.weaponData == null)
+            {
+                // Message box
+                EditorGUILayout.HelpBox(new GUIContent().text = "'Weapon data' field can't be empty!", MessageType.Warning);
 
-            EditorGUILayout.EndHorizontal();
+                // "Create data" button
+                if(GUILayout.Button("Create data"))
+                    weapon.weaponData = ScriptableObjectTools.CreateWeapon(new SO_WeaponPreset(), target.name) as SO_WeaponPreset; ;
+            }
+            else
+            {
+                EditorGUILayout.Space();
 
-            // Message box
-            if (weaponDataField == null) EditorGUILayout.HelpBox(new GUIContent().text = "'Weapon data' field can't be empty!", MessageType.Warning);
-            #endregion
-
-// Overriding original fields
-            EditorGUILayout.Space();
-            weapon.onPickupSFX = EditorGUILayout.ObjectField("On Pickup SFX", weapon.onPickupSFX, typeof(AudioClip), false) as AudioClip;
-            weapon.collisionSoftSFX = EditorGUILayout.ObjectField("Collision Soft SFX", weapon.collisionSoftSFX, typeof(AudioClip), false) as AudioClip;
-            weapon.collisionMediumSFX = EditorGUILayout.ObjectField("Collision Medium SFX", weapon.collisionMediumSFX, typeof(AudioClip), false) as AudioClip;
-
-// Drawing original inspector
-            //base.OnInspectorGUI();
+                EditorGUILayout.BeginHorizontal();
+                //
+                if(GUILayout.Button("Open weapon data"))
+                    ScriptableObjectTools.ShowAssetInProjectWindow(weapon.weaponData);
+                if (GUILayout.Button("Open bullet data"))
+                    ScriptableObjectTools.ShowAssetInProjectWindow(weapon.weaponData.bulletType);
+                //
+                EditorGUILayout.EndHorizontal();
+            }
         }
     }
 }

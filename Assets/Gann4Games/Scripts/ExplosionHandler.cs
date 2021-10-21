@@ -7,7 +7,7 @@ namespace Gann4Games.Thirdym.Core
 {
     public class ExplosionHandler : MonoBehaviour
     {
-        [HideInInspector] public SO_ExplosionPreset explosiveData;
+        public SO_ExplosionPreset explosiveData;
 
         public bool explodeOnStart;
         public bool explodeOnImpact;
@@ -44,6 +44,7 @@ namespace Gann4Games.Thirdym.Core
             if (explodeOnImpact)
                 Explode();
         }
+
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
@@ -53,7 +54,7 @@ namespace Gann4Games.Thirdym.Core
             Gizmos.color = new Color(intensity, 0, 0);
             Gizmos.DrawWireSphere(transform.position + explosiveData.explosionOriginOffset, explosiveData.explosionRadius);
 
-            Handles.Label(transform.position, $"Intensity: {explosiveData.explosionForce}");
+            Handles.Label(transform.position+Vector3.up, $"Intensity: {explosiveData.explosionForce}");
         }
 #endif
 

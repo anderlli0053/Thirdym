@@ -12,22 +12,26 @@ namespace Gann4Games.EditorTools
         /// <returns>The file that was created as an object</returns>
         public static object Create(Object scriptableObjectClass, string filename, string folder="")
         {
-        // Set the file name
+            // Set the file name
             string fullFilename = filename + ".asset";
 
-        // Set the path
+            // Set the path
             string path = "Assets/Gann4Games/Resources/ScriptableObjects/" + folder + "/" + fullFilename;
 
-        // Create asset file
+            // Create asset file
             AssetDatabase.CreateAsset(scriptableObjectClass, path);
 
-        // Show file in project window
-            EditorUtility.FocusProjectWindow();
-            
-        // Select file to display its information in inspector
-            Selection.activeObject = scriptableObjectClass;
+            ShowAssetInProjectWindow(scriptableObjectClass);
 
             return scriptableObjectClass as ScriptableObject;
+        }
+        public static void ShowAssetInProjectWindow(Object assetFile)
+        {
+            // Focus in project window
+            EditorUtility.FocusProjectWindow();
+
+            // Select the file to display its information in inspector
+            Selection.activeObject = assetFile;
         }
         public static object CreateWeapon(SO_WeaponPreset weapon, string filename) => Create(weapon, filename, "Weapons");
     }

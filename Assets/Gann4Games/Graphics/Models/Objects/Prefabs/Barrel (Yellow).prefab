@@ -98,7 +98,9 @@ GameObject:
   - component: {fileID: 16149549120977905}
   - component: {fileID: 7943469222590708606}
   - component: {fileID: 675170136691047002}
+  - component: {fileID: 4869307610357065852}
   - component: {fileID: 5668862151448908122}
+  - component: {fileID: 379428058151859800}
   m_Layer: 0
   m_Name: Barrel (Yellow)
   m_TagString: Untagged
@@ -275,7 +277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f358a00d5085a4cb9c5049bac0495e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preset: {fileID: 11400000, guid: daa46d61cb5eaae43ae9b97fce176265, type: 2}
   defaultObject: {fileID: 1766120011274448824}
 --- !u!114 &675170136691047002
 MonoBehaviour:
@@ -289,9 +290,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbda857ab7a83349b5a206d03651cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxCollideHard: {fileID: 8300000, guid: 1d85a7ef5e2f22f45902a734be9cf102, type: 3}
-  sfxCollideMedium: {fileID: 8300000, guid: 82989a8ca0e142d44b4926803a3276a8, type: 3}
-  sfxCollideSoft: {fileID: 8300000, guid: 1ab29133bfd733a409afdce81bbb5849, type: 3}
+--- !u!114 &4869307610357065852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668862151448908068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1ce0f18f49fd846834a97335b50d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionSoftSFX: {fileID: 8300000, guid: 1d85a7ef5e2f22f45902a734be9cf102, type: 3}
+  collisionMediumSFX: {fileID: 8300000, guid: 82989a8ca0e142d44b4926803a3276a8, type: 3}
+  collisionHardSFX: {fileID: 8300000, guid: 1ab29133bfd733a409afdce81bbb5849, type: 3}
 --- !u!114 &5668862151448908122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,3 +320,18 @@ MonoBehaviour:
   collisionSoftMagnitude: 3
   collisionMediumMagnitude: 6
   collisionHardMagnitude: 12
+--- !u!114 &379428058151859800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668862151448908068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ba17708b49d1a41a0516fea7f74ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosiveData: {fileID: 11400000, guid: daa46d61cb5eaae43ae9b97fce176265, type: 2}
+  explodeOnStart: 0
+  explodeOnImpact: 0

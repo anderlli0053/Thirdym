@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEditor;
-using Gann4Games.Thirdym.ScriptableObjects;
 using Gann4Games.Thirdym.Core;
 using Gann4Games.Thirdym.Events;
 
@@ -12,14 +10,9 @@ public class ExplosiveObject : MonoBehaviour
     public GameObject defaultObject;
 
     BreakableObject _breakableObject;
-    Rigidbody _rigidbody;
-    Collider _collider;
     ExplosionHandler _explosionHandler;
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _collider = GetComponent<Collider>();
-
         _explosionHandler = GetComponent<ExplosionHandler>();
 
         _breakableObject = GetComponent<BreakableObject>();
