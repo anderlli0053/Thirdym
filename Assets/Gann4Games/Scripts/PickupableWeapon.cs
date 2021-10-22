@@ -31,7 +31,7 @@ public class PickupableWeapon : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Vector3 shootPoint = transform.position + transform.TransformDirection(weaponData.shootPoint);
+        Vector3 shootPoint = transform.position + transform.TransformDirection(weaponData.bulletFireSource);
 
         Gizmos.color = Color.red * new Color(1, 1, 1, 0.5f);
         Gizmos.DrawSphere(shootPoint, 0.025f);

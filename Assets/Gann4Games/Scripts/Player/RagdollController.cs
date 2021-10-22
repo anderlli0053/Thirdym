@@ -66,10 +66,10 @@ public class RagdollController : MonoBehaviour {
     void Update () {
 
 
-        axisMovement = new Vector3(InputHandler.instance.movementAxis.x, 0, InputHandler.instance.movementAxis.y); // Player movement
+        axisMovement = new Vector3(PlayerInputHandler.instance.movementAxis.x, 0, PlayerInputHandler.instance.movementAxis.y); // Player movement
 
         _character.Animator.SetBool("Grounded", enviroment.IsGrounded || enviroment.IsSwimming);
-        if (InputHandler.instance.firing)
+        if (PlayerInputHandler.instance.firing)
             _character.Animator.SetFloat("Z_Velocity", 2);
         else
             _character.Animator.SetFloat("Z_Velocity", -ZVelocity);
@@ -81,7 +81,7 @@ public class RagdollController : MonoBehaviour {
             hingeSpring.damper = bodyDamp;
             hingeSpring.targetPosition = bodyRotation;
             rootHinge.spring = hingeSpring;
-            rootHinge.useSpring = true;
+            rootHinge.useSpring = _character.HealthController.IsFullyAlive;
         }
 
         RagdollMode(!isRagdollState, isRagdollState);
@@ -101,7 +101,7 @@ public class RagdollController : MonoBehaviour {
                         //RagdollMode(false, true);
                     }
                 }
-                if (InputHandler.instance.ragdolling) //Be a ragdoll
+                if (PlayerInputHandler.instance.ragdolling) //Be a ragdoll
                 {
                     isRagdollState = true;
                     RagdollInput();
@@ -110,11 +110,11 @@ public class RagdollController : MonoBehaviour {
                 else if (_character.HealthController.IsFullyAlive && _character.HealthController.Unconcious == false)
                 {
                     isRagdollState = false;
-                    if (InputHandler.instance.ragdolling)
+                    if (PlayerInputHandler.instance.ragdolling)
                         RagdollMode(true, false);
                     MouseInput();
                 }
-                if (InputHandler.instance.jumping) // Wall jumping
+                if (PlayerInputHandler.instance.jumping) // Wall jumping
                 {
                     if (wallJumpTime <= 0) PerfomWalljump();
                     else wallJumpTime -= Time.deltaTime;
@@ -126,14 +126,14 @@ public class RagdollController : MonoBehaviour {
 
                 if (enviroment.IsGrounded)
                 {
-                    if (InputHandler.instance.gameplayControls.Player.Jump.triggered && !InputHandler.instance.ragdolling && !jumping) // Basic jump
+                    if (PlayerInputHandler.instance.gameplayControls.Player.Jump.triggered && !PlayerInputHandler.instance.ragdolling && !jumping) // Basic jump
                         StartCoroutine(Jump());
                     bodyDamp = 10;
 
-                    _character.Animator.SetBool("Crouch", InputHandler.instance.crouching);
-                    _character.Animator.SetBool("Kicking", InputHandler.instance.kicking);
+                    _character.Animator.SetBool("Crouch", PlayerInputHandler.instance.crouching);
+                    _character.Animator.SetBool("Kicking", PlayerInputHandler.instance.kicking);
 
-                    if (axisMovement != Vector3.zero && !InputHandler.instance.aiming && !isRagdollState)
+                    if (axisMovement != Vector3.zero && !PlayerInputHandler.instance.aiming && !isRagdollState)
                     {
                         if (enviroment.IsDraggingBody)
                         {
@@ -149,13 +149,13 @@ public class RagdollController : MonoBehaviour {
                         }
                         else
                         {
-                            _character.Animator.SetFloat("Y", InputHandler.instance.walking
+                            _character.Animator.SetFloat("Y", PlayerInputHandler.instance.walking
                                 ?
                                 .25f * axisMovement.magnitude // Animation speed multiplied by left gamepad stick
                                 :
                                 .5f * axisMovement.magnitude
                                 );
-                            bodyRotation = InputHandler.instance.walking ? 0 : -15 * axisMovement.magnitude; // Radial movement
+                            bodyRotation = PlayerInputHandler.instance.walking ? 0 : -15 * axisMovement.magnitude; // Radial movement
                         }
 
                         if (_character.Animator.GetFloat("X") != 0)
@@ -164,20 +164,20 @@ public class RagdollController : MonoBehaviour {
 
                         SimpleBalance();
                     }
-                    else if (InputHandler.instance.aiming)
+                    else if (PlayerInputHandler.instance.aiming)
                     {
                         Vector3 camDir = _character.CameraController.activeCamera.transform.forward;
                         camDir.y = 0;
                         guide.forward = Vector3.Lerp(guide.forward, camDir, Time.deltaTime * 10);
 
-                        _character.Animator.SetFloat("Y", (InputHandler.instance.walking && axisMovement.z > 0)
+                        _character.Animator.SetFloat("Y", (PlayerInputHandler.instance.walking && axisMovement.z > 0)
                             ?
                             (axisMovement.z / 2) / 2 * axisMovement.magnitude
                             :
                             axisMovement.z / 2 * axisMovement.magnitude
                             );
                         _character.Animator.SetFloat("X", axisMovement.x / 2);
-                        bodyRotation = InputHandler.instance.walking ? 0 : 15 * (-axisMovement.z); // Forward and backwards movement
+                        bodyRotation = PlayerInputHandler.instance.walking ? 0 : 15 * (-axisMovement.z); // Forward and backwards movement
 
                         SimpleBalance();
                     }
@@ -282,7 +282,7 @@ public class RagdollController : MonoBehaviour {
     void RagdollInput()
     {
         bodySpring = 100;
-        bodyRotation = -InputHandler.instance.movementAxis.y* 90;
+        bodyRotation = -PlayerInputHandler.instance.movementAxis.y* 90;
     }
     public void AirInput()
     {
@@ -297,19 +297,19 @@ public class RagdollController : MonoBehaviour {
             bodyRotation = ZVelocity;
             bodySpring = 500;
         }
-        if (InputHandler.instance.movementAxis.y > 0)
+        if (PlayerInputHandler.instance.movementAxis.y > 0)
         {
             HeadRB.AddForce(rootBalancer[0].transform.forward * 500 * Time.deltaTime);
             HeadRB.AddForce(HeadRB.transform.forward * 1000 * Time.deltaTime);
         }
-        if (InputHandler.instance.movementAxis.y < 0)
+        if (PlayerInputHandler.instance.movementAxis.y < 0)
         {
             HeadRB.AddForce(rootBalancer[0].transform.forward * -500 * Time.deltaTime);
             HeadRB.AddForce(HeadRB.transform.forward * -1000 * Time.deltaTime);
         }
-        if (InputHandler.instance.movementAxis.x < 0)
+        if (PlayerInputHandler.instance.movementAxis.x < 0)
             HeadRB.AddForce(rootBalancer[0].transform.right * -500 * Time.deltaTime);
-        if (InputHandler.instance.movementAxis.x > 0)
+        if (PlayerInputHandler.instance.movementAxis.x > 0)
             HeadRB.AddForce(rootBalancer[0].transform.right * 500 * Time.deltaTime);
     }
     public void SwimInput()
@@ -318,7 +318,7 @@ public class RagdollController : MonoBehaviour {
         bodyDamp = 10;
 
         //if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
-        if(InputHandler.instance.movementAxis == Vector2.zero)
+        if(PlayerInputHandler.instance.movementAxis == Vector2.zero)
         {
             RagdollMode(false, false);
         } else
@@ -329,38 +329,38 @@ public class RagdollController : MonoBehaviour {
 
         guide.eulerAngles = Vector3.Lerp(guide.eulerAngles, new Vector3(0, _character.CameraController.activeCamera.transform.eulerAngles.y, 0), Time.deltaTime*2);
 
-        if (InputHandler.instance.movementAxis.y>0)
+        if (PlayerInputHandler.instance.movementAxis.y>0)
         {
-            _character.Animator.SetFloat("Y", 0.5f*InputHandler.instance.movementAxis.magnitude);
+            _character.Animator.SetFloat("Y", 0.5f*PlayerInputHandler.instance.movementAxis.magnitude);
             HeadRB.AddForce(rootBalancer[0].transform.forward * 2500 * Time.deltaTime);
         }
-        else if (InputHandler.instance.movementAxis.y<0)
+        else if (PlayerInputHandler.instance.movementAxis.y<0)
         {
-            _character.Animator.SetFloat("Y", 0.5f* InputHandler.instance.movementAxis.magnitude);
+            _character.Animator.SetFloat("Y", 0.5f* PlayerInputHandler.instance.movementAxis.magnitude);
             HeadRB.AddForce(rootBalancer[0].transform.forward * -2500 * Time.deltaTime);
         }
         else
         {
-            _character.Animator.SetFloat("Y", 0.25f* InputHandler.instance.movementAxis.magnitude);
+            _character.Animator.SetFloat("Y", 0.25f* PlayerInputHandler.instance.movementAxis.magnitude);
         }
-        if (InputHandler.instance.movementAxis.x<0)
+        if (PlayerInputHandler.instance.movementAxis.x<0)
             HeadRB.AddForce(rootBalancer[0].transform.right * -2500 * Time.deltaTime);
-        if (InputHandler.instance.movementAxis.x>0)
+        if (PlayerInputHandler.instance.movementAxis.x>0)
             HeadRB.AddForce(rootBalancer[0].transform.right * 2500 * Time.deltaTime);
-        if (InputHandler.instance.jumping)
+        if (PlayerInputHandler.instance.jumping)
         {
             HeadRB.AddForce(rootBalancer[0].transform.up * 3000 * Time.deltaTime);
             bodyRotation = 0;
         }
-        else if (InputHandler.instance.crouching)
+        else if (PlayerInputHandler.instance.crouching)
         {
             HeadRB.AddForce(rootBalancer[0].transform.up * -3000 * Time.deltaTime);
             bodyRotation = -90;
         } else
         {
-            if (InputHandler.instance.movementAxis.y>0)
+            if (PlayerInputHandler.instance.movementAxis.y>0)
                 bodyRotation = -45;
-            else if (InputHandler.instance.movementAxis.y<0)
+            else if (PlayerInputHandler.instance.movementAxis.y<0)
                 bodyRotation = 45;
             else
                 bodyRotation = -15;
@@ -411,7 +411,7 @@ public class RagdollController : MonoBehaviour {
     public void MouseInput()
     {
         bodyGuide.rotation = guide.rotation;
-        if (InputHandler.instance.aiming) Zoom(!_character.EquipmentController.disarmed);
+        if (PlayerInputHandler.instance.aiming) Zoom(!_character.EquipmentController.disarmed);
         else Zoom(false);
     }
     public void Zoom(bool zoom)

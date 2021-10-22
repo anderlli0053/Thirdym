@@ -33,6 +33,7 @@ namespace Gann4Games.EditorTools
             // Select the file to display its information in inspector
             Selection.activeObject = assetFile;
         }
-        public static object CreateWeapon(SO_WeaponPreset weapon, string filename) => Create(weapon, filename, "Weapons");
+        public static object CreateWeapon(string filename) => Create(new SO_WeaponPreset(), filename, "Weapons");
+        public static object CreateBullet(string filename) => Create(new SO_BulletPreset(), filename, "Bullets");
     }
 }

@@ -32,8 +32,8 @@ public class Defibrilator : MonoBehaviour
         _timer.CountTime();
         if (!_user.isNPC)
         {
-            if (InputHandler.instance.firing) Electrocute();
-            if (InputHandler.instance.firing)
+            if (PlayerInputHandler.instance.firing) Electrocute();
+            if (PlayerInputHandler.instance.firing)
             {
                 //canElectrocute = true;
                 if (_isDangerous)
@@ -44,7 +44,7 @@ public class Defibrilator : MonoBehaviour
                     electroParticle.SetActive(true);
                 }
             }
-            else if (!InputHandler.instance.firing)
+            else if (!PlayerInputHandler.instance.firing)
             {
                 //canElectrocute = false;
                 _soundSource.loop = false;
@@ -54,7 +54,7 @@ public class Defibrilator : MonoBehaviour
                 electroParticle.SetActive(false);
             }
 
-            if (InputHandler.instance.walking)
+            if (PlayerInputHandler.instance.walking)
             {
                 ChangeMode();
             }

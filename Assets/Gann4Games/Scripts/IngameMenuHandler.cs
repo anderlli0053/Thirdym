@@ -34,7 +34,7 @@ public class IngameMenuHandler : MonoBehaviour
     }
     private void Update()
     {
-        if (InputHandler.instance.pause) SetPausedStatus(!paused);
+        if (PlayerInputHandler.instance.pause) SetPausedStatus(!paused);
         switch (paused)
         {
             case true:

@@ -12,34 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
   m_Name: Shotgun CS-DAZ
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 6181783311461373853, guid: 6df9b9a558d04f144995ed0f876bc629,
+  weaponIcon: {fileID: 0}
+  weaponName: CS-DAZ
+  weaponDamage: 40
+  weaponType: 3
+  weaponBullet: {fileID: 11400000, guid: f4f18b2edda2451438e4ef4288c44dad, type: 2}
+  fireSoundEffects:
+  - {fileID: 8300000, guid: e50c789e31831e14eab6197fa1c2d096, type: 3}
+  reloadSoundEffects:
+  - {fileID: 8300000, guid: 6b715961f660f7740bf8a0a3927b9680, type: 3}
+  objectToDrop: {fileID: 6181783311461373853, guid: 6df9b9a558d04f144995ed0f876bc629,
     type: 3}
-  animationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654, type: 2}
-  leftWeaponModel: {fileID: 0}
-  leftPositionOffset: {x: 0, y: 0, z: 0}
-  leftRotationOffset: {x: 0, y: 0, z: 0}
+  characterAnimationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654,
+    type: 2}
+  leftHandSupportsWeapon: 1
   rightWeaponModel: {fileID: 919132149155446097, guid: acdbc06100a08224c898b34f2450bc67,
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: 0, y: 0, z: 0}
-  leftShoulderSpring: 1
-  leftElbowSpring: 1
-  rightShoulderSpring: 1
-  rightElbowSpring: 1
-  weaponType: 3
-  damage: 20
-  weaponName: CS-DAZ
+  useRightShoulder: 1
+  useRightElbow: 1
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  useLeftShoulder: 1
+  useLeftElbow: 1
+  bulletFireSource: {x: 0.39, y: 0, z: 0.04}
+  bulletFireTime: 1
+  bulletSpawnCount: 4
+  bulletSpreadAngle: 5
+  bulletDespawnTime: 3
+  useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75
-  shootPoint: {x: 0.39, y: 0, z: 0.04}
-  repeatTime: 1
-  bulletCount: 4
-  bulletSpread: 5
   useReload: 1
   reloadStartDelay: 0.6
   reloadDuration: 0.25
-  bulletType: {fileID: 11400000, guid: f4f18b2edda2451438e4ef4288c44dad, type: 2}
   muzzleFlash: {fileID: 0}
   muzzleFlashDisableTime: 0.05
-  sfxShoot: {fileID: 8300000, guid: e50c789e31831e14eab6197fa1c2d096, type: 3}
-  sfxReload: {fileID: 8300000, guid: 6b715961f660f7740bf8a0a3927b9680, type: 3}

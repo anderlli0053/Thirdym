@@ -69,6 +69,7 @@ public class PlayerInventoryHUD : MonoBehaviour {
         _textDefibrilator.color = Color.Lerp(_textDefibrilator.color, _colorTextDefibrilator, lerp);
         _textBlades.color = Color.Lerp(_textBlades.color, _meleeTextColor, lerp);
     }
+    
     public static void DisplayWeaponAs(WeaponType weaponType, EquipMode mode)
     {
         switch (weaponType)

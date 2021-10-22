@@ -12,35 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
   m_Name: Pistol Alien
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 3557475383247219646, guid: 5a3e86b1c55312546978c05f59c74a9e,
+  weaponIcon: {fileID: 0}
+  weaponName: Alien Pistol
+  weaponDamage: 0
+  weaponType: 1
+  weaponBullet: {fileID: 11400000, guid: 7d6329a78dba8d3429a351ec21f0677d, type: 2}
+  fireSoundEffects:
+  - {fileID: 8300000, guid: 63a11036d53edb6438ddbb6e6421e57e, type: 3}
+  reloadSoundEffects: []
+  objectToDrop: {fileID: 3557475383247219646, guid: 5a3e86b1c55312546978c05f59c74a9e,
     type: 3}
-  animationOverride: {fileID: 22100000, guid: 54081442e71a29c4bb6f105250dddbed, type: 2}
-  supportedByLeftHand: 0
-  leftWeaponModel: {fileID: 0}
-  leftPositionOffset: {x: 0, y: 0, z: 0}
-  leftRotationOffset: {x: 0, y: 0, z: 0}
+  characterAnimationOverride: {fileID: 22100000, guid: 54081442e71a29c4bb6f105250dddbed,
+    type: 2}
+  leftHandSupportsWeapon: 0
   rightWeaponModel: {fileID: 919132149155446097, guid: 884711feb823b0f4ebf72c0d536f4cef,
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: -90, y: 0, z: 0}
-  leftShoulderSpring: 1
-  leftElbowSpring: 1
-  rightShoulderSpring: 1
-  rightElbowSpring: 1
-  weaponType: 1
-  damage: 10
-  weaponName: Alien Pistol
+  useRightShoulder: 1
+  useRightElbow: 1
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  useLeftShoulder: 1
+  useLeftElbow: 1
+  bulletFireSource: {x: 0.18, y: 0, z: 0}
+  bulletFireTime: 0.5
+  bulletSpawnCount: 1
+  bulletSpreadAngle: 0
+  bulletDespawnTime: 3
+  useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75
-  shootPoint: {x: 0.18, y: 0, z: 0}
-  repeatTime: 0.5
-  bulletCount: 1
-  bulletSpread: 0
   useReload: 0
   reloadStartDelay: 0
   reloadDuration: 0
-  bulletType: {fileID: 11400000, guid: 7d6329a78dba8d3429a351ec21f0677d, type: 2}
   muzzleFlash: {fileID: 0}
   muzzleFlashDisableTime: 0.05
-  sfxShoot: {fileID: 8300000, guid: 63a11036d53edb6438ddbb6e6421e57e, type: 3}
-  sfxReload: {fileID: 0}

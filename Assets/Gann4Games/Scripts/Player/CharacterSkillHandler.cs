@@ -55,7 +55,7 @@ public class CharacterSkillHandler : MonoBehaviour {
     }
     private void Update()
     {
-        if (InputHandler.instance.ability) UseSkill();
+        if (PlayerInputHandler.instance.ability) UseSkill();
 
         switch (_choosenSkill)
         {

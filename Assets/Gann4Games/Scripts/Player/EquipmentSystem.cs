@@ -56,20 +56,22 @@ public class EquipmentSystem : MonoBehaviour {
 
     private void Update()
     {
-        if(InputHandler.instance.dropWeapon && !disarmed)
+        if (_character.isNPC) return;
+
+        if(PlayerInputHandler.instance.dropWeapon && !disarmed)
             DropEquippedWeapon();
 
-        if (InputHandler.instance.gameplayControls.Player.gun_blades.triggered && hasMelee)
+        if (PlayerInputHandler.instance.gameplayControls.Player.gun_blades.triggered && hasMelee)
             EquipWeapon(melee);
-        else if (InputHandler.instance.gameplayControls.Player.gun_pistol.triggered && hasPistol)
+        else if (PlayerInputHandler.instance.gameplayControls.Player.gun_pistol.triggered && hasPistol)
             EquipWeapon(pistol);
-        else if (InputHandler.instance.gameplayControls.Player.gun_rifle.triggered && hasRifle)
+        else if (PlayerInputHandler.instance.gameplayControls.Player.gun_rifle.triggered && hasRifle)
             EquipWeapon(rifle);
-        else if (InputHandler.instance.gameplayControls.Player.gun_shotgun.triggered && hasShotgun)
+        else if (PlayerInputHandler.instance.gameplayControls.Player.gun_shotgun.triggered && hasShotgun)
             EquipWeapon(shotgun);
-        else if (InputHandler.instance.gameplayControls.Player.gun_energy.triggered && hasHeavy)
+        else if (PlayerInputHandler.instance.gameplayControls.Player.gun_energy.triggered && hasHeavy)
             EquipWeapon(heavy);
-        else if (InputHandler.instance.gameplayControls.Player.gun_explosive.triggered && hasTool)
+        else if (PlayerInputHandler.instance.gameplayControls.Player.gun_explosive.triggered && hasTool)
             EquipWeapon(tool);
     }
     void RefreshInventoryHUD()
@@ -178,19 +180,19 @@ public class EquipmentSystem : MonoBehaviour {
 
         #region Arm parameters
 
-        _character.ArmController.LeftShoulder[0].useSpring = weapon.leftShoulderSpring;
-        _character.ArmController.LeftShoulder[1].useSpring = weapon.leftShoulderSpring;
-        _character.ArmController.LeftBicep.useSpring = weapon.leftShoulderSpring;
-        _character.ArmController.LeftElbow.useSpring = weapon.leftElbowSpring;
-        _character.ArmController.RightShoulder[0].useSpring = weapon.rightShoulderSpring;
-        _character.ArmController.RightShoulder[1].useSpring = weapon.rightShoulderSpring;
-        _character.ArmController.RightBicep.useSpring = weapon.rightShoulderSpring;
-        _character.ArmController.RightElbow.useSpring = weapon.rightElbowSpring;
+        _character.ArmController.LeftShoulder[0].useSpring = weapon.useLeftShoulder;
+        _character.ArmController.LeftShoulder[1].useSpring = weapon.useLeftShoulder;
+        _character.ArmController.LeftBicep.useSpring = weapon.useLeftShoulder;
+        _character.ArmController.LeftElbow.useSpring = weapon.useLeftElbow;
+        _character.ArmController.RightShoulder[0].useSpring = weapon.useRightShoulder;
+        _character.ArmController.RightShoulder[1].useSpring = weapon.useRightShoulder;
+        _character.ArmController.RightBicep.useSpring = weapon.useRightShoulder;
+        _character.ArmController.RightElbow.useSpring = weapon.useRightElbow;
 
         #endregion
         
         _character.Animator.SetTrigger("WeaponSwap");
-        _character.SetAnimationOverride(weapon.animationOverride);
+        _character.SetAnimationOverride(weapon.characterAnimationOverride);
         StoreWeaponOnInventory(weapon);
 
         yield return new WaitForSeconds(0.5f);
@@ -230,7 +232,7 @@ public class EquipmentSystem : MonoBehaviour {
                 break;
         }
 
-        GameObject prefab = Instantiate(weapon.dropPrefab);
+        GameObject prefab = Instantiate(weapon.objectToDrop);
         prefab.transform.position = dropPosition.position;
         prefab.transform.rotation = dropPosition.rotation;
 

@@ -78,8 +78,8 @@ public class CharacterArms : MonoBehaviour {
                 // High precision aiming
                 if (_character.isPlayer)
                 {
-                    bool isCharacterFiring = InputHandler.instance.firing;
-                    bool isCharacterAiming = InputHandler.instance.aiming;
+                    bool isCharacterFiring = _character.InputHandler.firing;
+                    bool isCharacterAiming = _character.InputHandler.aiming;
                     bool isCharacterDisarmed = equipment.disarmed;
                     bool aimGun = isCharacterAiming && !isCharacterDisarmed;
 
@@ -103,14 +103,14 @@ public class CharacterArms : MonoBehaviour {
     {
         if (IngameMenuHandler.instance.paused) return;
 
-        bool supportedByLeftHand = _character.EquipmentController.currentWeapon.supportedByLeftHand;
+        bool supportedByLeftHand = _character.EquipmentController.currentWeapon.leftHandSupportsWeapon;
         bool isReloading = _anim.GetBool("WeaponReload");
 
-        if((aiming && !isReloading) || (aiming && !_character.EquipmentController.currentWeapon.reloadingInterruptsAiming))
+        if(aiming && !isReloading)
         {
             RightHandLookAtScreenCenter();
         }
-        else if (isReloading && supportedByLeftHand)
+        else if (isReloading || supportedByLeftHand)
         {
             RightHandLookAtLeftHand();
         }

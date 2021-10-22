@@ -51,6 +51,7 @@ public class CharacterCustomization : MonoBehaviour
     PlayerCameraController _cameraController;
     NPC_Ragdoll _npc;
     CharacterWalljump _walljumpController;
+    PlayerInputHandler _playerInputHandler;
 
     public Animator Animator => ragdollAnimator;
     public AudioSource SoundSource => _audioPlayer;
@@ -62,6 +63,7 @@ public class CharacterCustomization : MonoBehaviour
     public PlayerCameraController CameraController => _cameraController;
     public NPC_Ragdoll NPC => _npc;
     public CharacterWalljump WalljumpController => _walljumpController;
+    public PlayerInputHandler InputHandler => _playerInputHandler;
 
     private void Awake()
     {
@@ -81,6 +83,7 @@ public class CharacterCustomization : MonoBehaviour
         _cameraController = GetComponent<PlayerCameraController>();
         _npc = GetComponent<NPC_Ragdoll>();
         _walljumpController = GetComponent<CharacterWalljump>();
+        _playerInputHandler = GetComponent<PlayerInputHandler>();
         #endregion
 
         if (!_npc) isNPC = false;

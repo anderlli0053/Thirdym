@@ -14,7 +14,7 @@ public class CharacterShootHandler : MonoBehaviour {
 
     SO_WeaponPreset _weapon => _character.EquipmentController.currentWeapon;
 
-    float _repeatTime => _weapon.repeatTime;
+    float _repeatTime => _weapon.bulletFireTime;
     public Vector3 HitPosition
     {
         get
@@ -49,7 +49,7 @@ public class CharacterShootHandler : MonoBehaviour {
         if(!_timer.IsTimeOut()) 
         {
             _timer.CountTime();
-            if(!_character.isNPC) MainHUDHandler.instance.crosshairImage.fillAmount = _timer.currentTime / _weapon.repeatTime;
+            if(!_character.isNPC) MainHUDHandler.instance.crosshairImage.fillAmount = _timer.currentTime / _weapon.bulletFireTime;
         }
     }
     public void StartShooting()
@@ -63,9 +63,10 @@ public class CharacterShootHandler : MonoBehaviour {
     }
     void Shoot()
     {
-        _character.SoundSource.PlayOneShot(_weapon.sfxShoot);
-        if(_character.EquipmentController.currentWeapon.useRecoil)
-            _character.baseBody.rightElbow.GetComponent<Rigidbody>().AddForce(PlayerCameraController.instance.activeCamera.transform.forward * -(500 * (_weapon.damage / 10)));
+        AudioClip shootSFX = AudioTools.GetRandomClip(_weapon.fireSoundEffects);
+        _character.SoundSource.PlayOneShot(shootSFX);
+        if(_character.EquipmentController.currentWeapon.useFireRecoil)
+            _character.baseBody.rightElbow.GetComponent<Rigidbody>().AddForce(PlayerCameraController.instance.activeCamera.transform.forward * -(500 * (_weapon.weaponDamage / 10)));
 
         CreateBullets();
             
@@ -74,12 +75,12 @@ public class CharacterShootHandler : MonoBehaviour {
     }
     void CreateBullets()
     {
-        Vector3 shootPosition = transform.position + transform.TransformDirection(_weapon.shootPoint);
+        Vector3 shootPosition = transform.position + transform.TransformDirection(_weapon.bulletFireSource);
 
-        for (int i = 0; i < _weapon.bulletCount; i++)
+        for (int i = 0; i < _weapon.bulletSpawnCount; i++)
         {
-            GameObject _bulletPrefab = Instantiate(_weapon.bulletType.bullet, shootPosition, transform.rotation, null);
-            _bulletPrefab.transform.Rotate(Random.Range(-_weapon.bulletSpread, _weapon.bulletSpread), Random.Range(-_weapon.bulletSpread, _weapon.bulletSpread), 0);
+            GameObject _bulletPrefab = Instantiate(_weapon.weaponBullet.bullet, shootPosition, transform.rotation, null);
+            _bulletPrefab.transform.Rotate(Random.Range(-_weapon.bulletSpreadAngle, _weapon.bulletSpreadAngle), Random.Range(-_weapon.bulletSpreadAngle, _weapon.bulletSpreadAngle), 0);
 
             Bullet _bulletComponent = _bulletPrefab.GetComponent<Bullet>();
             _bulletComponent.user = _character.transform;
@@ -88,9 +89,11 @@ public class CharacterShootHandler : MonoBehaviour {
     }
     IEnumerator ReloadWeapon()
     {
+        AudioClip reloadSFX = AudioTools.GetRandomClip(_weapon.reloadSoundEffects);
+
         yield return new WaitForSeconds(_weapon.reloadStartDelay);
         _character.Animator.SetBool("WeaponReload", true);
-        _character.SoundSource.PlayOneShot(_weapon.sfxReload);
+        _character.SoundSource.PlayOneShot(reloadSFX);
         _weaponAnimator?.SetBool("WeaponReload", true);
 
         yield return new WaitForSeconds(_weapon.reloadDuration);

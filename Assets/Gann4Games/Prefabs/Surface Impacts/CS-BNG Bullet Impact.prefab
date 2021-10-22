@@ -4952,5 +4952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ba17708b49d1a41a0516fea7f74ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosiveData: {fileID: 11400000, guid: 8c6a3d49628fd5d40935735837ac4df0, type: 2}
   explodeOnStart: 1
   explodeOnImpact: 0

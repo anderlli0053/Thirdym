@@ -20,8 +20,8 @@ public class ShootSystem : MonoBehaviour {
         bool isCharacterDisarmed = _character.EquipmentController.disarmed;
         bool isCharacterAPlayer = _character.isPlayer;
         bool isGamePaused = IngameMenuHandler.instance.paused;
-        bool isCharacterFiring = InputHandler.instance.firing;
-        bool isCharacterAiming = InputHandler.instance.aiming;
+        bool isCharacterFiring = PlayerInputHandler.instance.firing;
+        bool isCharacterAiming = PlayerInputHandler.instance.aiming;
         bool canShoot = !isCharacterDead && !isCharacterDisarmed && !isGamePaused && isCharacterAPlayer;
 
         if (canShoot && isCharacterFiring && isCharacterAiming)

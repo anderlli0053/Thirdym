@@ -33,8 +33,8 @@ public class RearWheelDrive : MonoBehaviour {
 	// this helps us to figure our which wheels are front ones and which are rear
 	public void Update()
 	{
-		float angle = maxAngle * (canBeDriven==true ? InputHandler.instance.movementAxis.x : 0);
-		float torque = maxTorque * (canBeDriven==true ? InputHandler.instance.movementAxis.y : 0);
+		float angle = maxAngle * (canBeDriven==true ? PlayerInputHandler.instance.movementAxis.x : 0);
+		float torque = maxTorque * (canBeDriven==true ? PlayerInputHandler.instance.movementAxis.y : 0);
 		foreach (WheelCollider wheel in wheels)
 		{
 			// a simple car where front wheels steer while rear ones drive

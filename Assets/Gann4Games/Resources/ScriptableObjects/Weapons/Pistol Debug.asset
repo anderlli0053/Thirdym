@@ -12,35 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
   m_Name: Pistol Debug
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 499736502844477934, guid: 0f36298ced599464fa2c28eca5a9ba35,
+  weaponIcon: {fileID: 0}
+  weaponName: DEBUG_WEAPON
+  weaponDamage: 0
+  weaponType: 1
+  weaponBullet: {fileID: 11400000, guid: 321461957f572b44ab4ee64901c13000, type: 2}
+  fireSoundEffects:
+  - {fileID: 8300000, guid: 1aa6aa46b3547fc43b71338bc44c15d6, type: 3}
+  - {fileID: 8300000, guid: a5749ff8a8d41ba468d132f201416ddd, type: 3}
+  - {fileID: 8300000, guid: 5983916a1fff4bf42851d1301747bbcc, type: 3}
+  reloadSoundEffects: []
+  objectToDrop: {fileID: 499736502844477934, guid: 0f36298ced599464fa2c28eca5a9ba35,
     type: 3}
-  animationOverride: {fileID: 22100000, guid: 54081442e71a29c4bb6f105250dddbed, type: 2}
-  supportedByLeftHand: 0
-  leftWeaponModel: {fileID: 0}
-  leftPositionOffset: {x: 0, y: 0, z: 0}
-  leftRotationOffset: {x: 0, y: 0, z: 0}
+  characterAnimationOverride: {fileID: 22100000, guid: 54081442e71a29c4bb6f105250dddbed,
+    type: 2}
+  leftHandSupportsWeapon: 0
   rightWeaponModel: {fileID: 919132149155446097, guid: 9cd7f74351927b943b53f73021a78e41,
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: -90, y: 0, z: 0}
-  leftShoulderSpring: 0
-  leftElbowSpring: 0
-  rightShoulderSpring: 1
-  rightElbowSpring: 1
-  weaponType: 1
-  damage: 25
-  weaponName: DEBUG_WEAPON
+  useRightShoulder: 1
+  useRightElbow: 1
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  useLeftShoulder: 0
+  useLeftElbow: 0
+  bulletFireSource: {x: 0.22, y: 0, z: 0}
+  bulletFireTime: 0.2
+  bulletSpawnCount: 1
+  bulletSpreadAngle: 0
+  bulletDespawnTime: 3
+  useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75
-  shootPoint: {x: 0.22, y: 0, z: 0}
-  repeatTime: 0.2
-  bulletCount: 1
-  bulletSpread: 0
   useReload: 0
   reloadStartDelay: 0
   reloadDuration: 0
-  bulletType: {fileID: 11400000, guid: 321461957f572b44ab4ee64901c13000, type: 2}
   muzzleFlash: {fileID: 0}
   muzzleFlashDisableTime: 0.05
-  sfxShoot: {fileID: 8300000, guid: 5983916a1fff4bf42851d1301747bbcc, type: 3}
-  sfxReload: {fileID: 0}

@@ -26,7 +26,7 @@ public class grabRigidbodies : MonoBehaviour {
     void Update() {
         if (rb != null || rbGrabbed)
         {
-            if (InputHandler.instance.use)
+            if (PlayerInputHandler.instance.use)
             {
                 if (rbGrabbed == false)
                 {

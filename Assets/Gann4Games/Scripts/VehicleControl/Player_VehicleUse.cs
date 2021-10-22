@@ -17,7 +17,7 @@ public class Player_VehicleUse : MonoBehaviour {
     }
     private void Update()
     {
-        if(InputHandler.instance.use && vehicle != null)
+        if(PlayerInputHandler.instance.use && vehicle != null)
         {
             isInside = !isInside;
             if(isInside) EnterVehicle();

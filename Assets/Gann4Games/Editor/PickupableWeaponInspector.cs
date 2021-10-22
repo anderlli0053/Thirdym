@@ -20,7 +20,7 @@ namespace Gann4Games.EditorTools
 
                 // "Create data" button
                 if(GUILayout.Button("Create data"))
-                    weapon.weaponData = ScriptableObjectTools.CreateWeapon(new SO_WeaponPreset(), target.name) as SO_WeaponPreset; ;
+                    weapon.weaponData = ScriptableObjectTools.CreateWeapon(target.name) as SO_WeaponPreset;
             }
             else
             {
@@ -31,7 +31,7 @@ namespace Gann4Games.EditorTools
                 if(GUILayout.Button("Open weapon data"))
                     ScriptableObjectTools.ShowAssetInProjectWindow(weapon.weaponData);
                 if (GUILayout.Button("Open bullet data"))
-                    ScriptableObjectTools.ShowAssetInProjectWindow(weapon.weaponData.bulletType);
+                    ScriptableObjectTools.ShowAssetInProjectWindow(weapon.weaponData.weaponBullet);
                 //
                 EditorGUILayout.EndHorizontal();
             }

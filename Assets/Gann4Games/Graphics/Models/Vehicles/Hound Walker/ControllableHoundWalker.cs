@@ -24,7 +24,7 @@ public class ControllableHoundWalker : MonoBehaviour {
             if (_controlling)
             {
                 PlayerCameraController cam = ragdollIn.GetComponent<PlayerCameraController>();
-                if (InputHandler.instance.use)
+                if (PlayerInputHandler.instance.use)
                 {
                     ragdollIn.GetComponent<Rigidbody>().isKinematic = false;
                     ragdollIn.transform.position = exitPoint();
@@ -44,7 +44,7 @@ public class ControllableHoundWalker : MonoBehaviour {
             }
             else
             {
-                if (InputHandler.instance.use)
+                if (PlayerInputHandler.instance.use)
                 {
                     _controlling = true;
                 }
@@ -53,9 +53,9 @@ public class ControllableHoundWalker : MonoBehaviour {
     }
     void WalkerControl()
     {
-        _walker.body.GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0, 0, InputHandler.instance.movementAxis.x* 50), ForceMode.Acceleration);
-        _walker.anim.SetBool("walk", InputHandler.instance.movementAxis.y>0);
-        if (InputHandler.instance.jumping)
+        _walker.body.GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(0, 0, PlayerInputHandler.instance.movementAxis.x* 50), ForceMode.Acceleration);
+        _walker.anim.SetBool("walk", PlayerInputHandler.instance.movementAxis.y>0);
+        if (PlayerInputHandler.instance.jumping)
             _walker.anim.SetTrigger("jump");
     }
     private void OnTriggerEnter(Collider other)

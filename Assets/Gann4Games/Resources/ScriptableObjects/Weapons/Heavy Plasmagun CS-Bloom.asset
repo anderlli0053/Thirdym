@@ -12,35 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
   m_Name: Heavy Plasmagun CS-Bloom
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 6571201012871883631, guid: 3ea940627a13f4f47966477d53e09e07,
+  weaponIcon: {fileID: 0}
+  weaponName: Plasmagun CS-Bloom
+  weaponDamage: 0
+  weaponType: 4
+  weaponBullet: {fileID: 11400000, guid: f4f18b2edda2451438e4ef4288c44dad, type: 2}
+  fireSoundEffects:
+  - {fileID: 8300000, guid: 561205cb42e1c4c4b9adfc49dd0ed1f1, type: 3}
+  reloadSoundEffects: []
+  objectToDrop: {fileID: 6571201012871883631, guid: 3ea940627a13f4f47966477d53e09e07,
     type: 3}
-  animationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654, type: 2}
-  supportedByLeftHand: 1
-  leftWeaponModel: {fileID: 0}
-  leftPositionOffset: {x: 0, y: 0, z: 0}
-  leftRotationOffset: {x: 0, y: 0, z: 0}
+  characterAnimationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654,
+    type: 2}
+  leftHandSupportsWeapon: 1
   rightWeaponModel: {fileID: 919132149155446097, guid: d4c25a142fed20a4abb9e7aade3cc6ce,
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: 0, y: 0, z: 0}
-  leftShoulderSpring: 1
-  leftElbowSpring: 1
-  rightShoulderSpring: 1
-  rightElbowSpring: 1
-  weaponType: 4
-  damage: 50
-  weaponName: Plasmagun CS-Bloom
+  useRightShoulder: 1
+  useRightElbow: 1
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  useLeftShoulder: 1
+  useLeftElbow: 1
+  bulletFireSource: {x: 0.39, y: 0, z: 0.07}
+  bulletFireTime: 0.5
+  bulletSpawnCount: 1
+  bulletSpreadAngle: 0
+  bulletDespawnTime: 3
+  useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75
-  shootPoint: {x: 0.39, y: 0, z: 0.07}
-  repeatTime: 0.5
-  bulletCount: 1
-  bulletSpread: 0
   useReload: 0
   reloadStartDelay: 0
   reloadDuration: 0
-  bulletType: {fileID: 11400000, guid: f4f18b2edda2451438e4ef4288c44dad, type: 2}
   muzzleFlash: {fileID: 0}
   muzzleFlashDisableTime: 0.05
-  sfxShoot: {fileID: 8300000, guid: eab1af71927c588499271240f353983f, type: 3}
-  sfxReload: {fileID: 8300000, guid: c38aa357b091c564ea7365305f089d4e, type: 3}

@@ -12,34 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
   m_Name: Heavy RayGun
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 9038595934824444561, guid: bb615e6bbef2bbd4eb749169286bed1d,
+  weaponIcon: {fileID: 0}
+  weaponName: RayGun C-01y
+  weaponDamage: 0
+  weaponType: 4
+  weaponBullet: {fileID: 11400000, guid: 477dd07b4000a5d4b8fa09e550bff2f9, type: 2}
+  fireSoundEffects:
+  - {fileID: 8300000, guid: b5af06df3234e184daf429b42281f619, type: 3}
+  reloadSoundEffects: []
+  objectToDrop: {fileID: 9038595934824444561, guid: bb615e6bbef2bbd4eb749169286bed1d,
     type: 3}
-  animationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654, type: 2}
-  leftWeaponModel: {fileID: 0}
-  leftPositionOffset: {x: 0, y: 0, z: 0}
-  leftRotationOffset: {x: 0, y: 0, z: 0}
+  characterAnimationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654,
+    type: 2}
+  leftHandSupportsWeapon: 1
   rightWeaponModel: {fileID: 919132149155446097, guid: 22c743cf86902684ca5723178e0eceae,
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: 0, y: 0, z: 0}
-  leftShoulderSpring: 1
-  leftElbowSpring: 1
-  rightShoulderSpring: 1
-  rightElbowSpring: 1
-  weaponType: 4
-  damage: 50
-  weaponName: RayGun C-01y
+  useRightShoulder: 1
+  useRightElbow: 1
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  useLeftShoulder: 1
+  useLeftElbow: 1
+  bulletFireSource: {x: 0.33, y: 0, z: 0.03}
+  bulletFireTime: 3
+  bulletSpawnCount: 4
+  bulletSpreadAngle: 5
+  bulletDespawnTime: 3
+  useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75
-  shootPoint: {x: 0.33, y: 0, z: 0.03}
-  repeatTime: 3
-  bulletCount: 4
-  bulletSpread: 5
   useReload: 0
   reloadStartDelay: 0
   reloadDuration: 0
-  bulletType: {fileID: 11400000, guid: 477dd07b4000a5d4b8fa09e550bff2f9, type: 2}
   muzzleFlash: {fileID: 0}
   muzzleFlashDisableTime: 0.05
-  sfxShoot: {fileID: 8300000, guid: b5af06df3234e184daf429b42281f619, type: 3}
-  sfxReload: {fileID: 0}

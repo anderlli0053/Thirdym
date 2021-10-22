@@ -1,68 +1,65 @@
 using UnityEngine;
 using Gann4Games.Thirdym.Enums;
+using UnityEngine.Serialization;
 
 namespace Gann4Games.Thirdym.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "New weapon preset", menuName = "Scriptable Objects/Weapon Preset")]
     public class SO_WeaponPreset : ScriptableObject
     {
-        // FIND ALL OF THESE PARAMETERS IN 'SO_Bullet Preset' AND REMOVE THEM
+        [Header("Main Parameters")]
+        public Sprite weaponIcon;
+        public string weaponName = "unnamed_weapon";
+        [FormerlySerializedAs("damage")] public int weaponDamage;
+        public WeaponType weaponType;
+        [FormerlySerializedAs("bulletType")] public SO_BulletPreset weaponBullet;
+        [FormerlySerializedAs("sfxShoot")] public AudioClip[] fireSoundEffects;
+        [FormerlySerializedAs("sfxReload")] public AudioClip[] reloadSoundEffects;
 
-        [Header("Visuals")]
-        [Tooltip("The object that the player will drop.")]
-        public GameObject dropPrefab;
-        public AnimatorOverrideController animationOverride;
+        [Header("Ragdoll configuration")]
+        [Tooltip("The object that the player will drop, for example, on death if this weapon is found in the inventory.")]
+        [FormerlySerializedAs("dropPrefab")] public GameObject objectToDrop;
+        [FormerlySerializedAs("animationOverride")] public AnimatorOverrideController characterAnimationOverride;
         [Tooltip("Usually long weapons are held with both hands.")]
-        public bool supportedByLeftHand = true;
+        [FormerlySerializedAs("supportedByLeftHand")] public bool leftHandSupportsWeapon = true;
+
+
+        [Header("Ragdoll arms configuration")]
+        [Tooltip("The model that will be placed in the right hand.")]
+        public GameObject rightWeaponModel;
+        public Vector3 rightPositionOffset;
+        public Vector3 rightRotationOffset;
+        [FormerlySerializedAs("rightShoulderSpring")] public bool useRightShoulder = true;
+        [FormerlySerializedAs("rightElbowSpring")] public bool useRightElbow = true;
         [Space]
         [Tooltip("The model that will be placed in the left hand.")]
         public GameObject leftWeaponModel;
         public Vector3 leftPositionOffset;
         public Vector3 leftRotationOffset;
-        [Space]
-        [Tooltip("The model that will be placed in the right hand.")]
-        public GameObject rightWeaponModel;
-        public Vector3 rightPositionOffset;
-        public Vector3 rightRotationOffset;
-        [Space]
-        public bool leftShoulderSpring = true;
-        public bool leftElbowSpring = true;
-        public bool rightShoulderSpring = true;
-        public bool rightElbowSpring = true;
+        [FormerlySerializedAs("leftShoulderSpring")] public bool useLeftShoulder = true;
+        [FormerlySerializedAs("leftElbowSpring")] public bool useLeftElbow = true;
 
 
-        [Header("Stats")]
-        public WeaponType weaponType;
+        [Header("Weapon configuration")]
+        [FormerlySerializedAs("shootPoint")] public Vector3 bulletFireSource;
+        [Tooltip("Bullet spawning in seconds.")]
+        [FormerlySerializedAs("repeatTime")] public float bulletFireTime = 1;
+        [FormerlySerializedAs("bulletCount")] public int bulletSpawnCount = 1;
+        [FormerlySerializedAs("bulletSpread")] public float bulletSpreadAngle;
+        [Tooltip("When the bullet will be destroyed (in seconds) after it has been spawned")]
+        [FormerlySerializedAs("bulletStopTime")] public float bulletDespawnTime = 3;
+        [Space]
         [Tooltip("This setting allows the weapon to push back the player when shooting.")]
-        public bool useRecoil = true;
-        public float damage;
-        [Header("Configuration")]
-        public string weaponName = "unnamed_weapon";
+        [FormerlySerializedAs("useRecoil")] public bool useFireRecoil = true;
+        [Space]
         public bool useRicochet = true;
         public float ricochetMinAngle = .75f;
-        public Vector3 shootPoint;
-        [Space]
-        [Tooltip("Bullet spawning in seconds.")]
-        public float repeatTime = 1;
-        public float bulletCount = 1;
-        public float bulletSpread;
-        [Tooltip("When the bullet will be destroyed (in seconds) after it has been spawned")]
-        public float bulletStopTime = 3;
         [Space]
         public bool useReload;
-        [Tooltip("Usually used for melee weapons. If disabled, reloads will not interrupt aiming forward.")]
-        public bool reloadingInterruptsAiming = true;
         public float reloadStartDelay;
         public float reloadDuration;
-
-        [Header("Effects")]
-        public SO_BulletPreset bulletType;
         [Space]
         public GameObject muzzleFlash;
         public float muzzleFlashDisableTime = 0.05f;
-
-        [Header("Sound Effects")]
-        public AudioClip sfxShoot;
-        public AudioClip sfxReload;
     }
 }

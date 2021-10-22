@@ -22,17 +22,17 @@ public class Bullet : MonoBehaviour {
         ApplyVisuals();
 
         FireBullet(transform.right);
-        Destroy(gameObject, weapon.bulletStopTime);
+        Destroy(gameObject, weapon.bulletDespawnTime);
     }
     void ApplyVisuals()
     {
-        _trailRenderer.startColor = weapon.bulletType.bulletColor;
-        _trailRenderer.endColor = weapon.bulletType.bulletColor;
-        _trailRenderer.startWidth = weapon.bulletType.bulletWidth;
-        _trailRenderer.endWidth = weapon.bulletType.bulletWidth;
-        _trailRenderer.time = weapon.bulletType.bulletLenght;
-        _trailRenderer.material = weapon.bulletType.bulletMaterial;
-        _trailRenderer.textureMode = weapon.bulletType.textureMode;
+        _trailRenderer.startColor = weapon.weaponBullet.bulletColor;
+        _trailRenderer.endColor = weapon.weaponBullet.bulletColor;
+        _trailRenderer.startWidth = weapon.weaponBullet.bulletWidth;
+        _trailRenderer.endWidth = weapon.weaponBullet.bulletWidth;
+        _trailRenderer.time = weapon.weaponBullet.bulletLenght;
+        _trailRenderer.material = weapon.weaponBullet.bulletMaterial;
+        _trailRenderer.textureMode = weapon.weaponBullet.textureMode;
     }
 
     private void FireBullet(Vector3 direction)
@@ -51,14 +51,14 @@ public class Bullet : MonoBehaviour {
         var damageableObject = other.gameObject.GetComponent<IDamageable>();
         if (damageableObject != null)
         {
-            damageableObject.DealDamage(weapon.damage, DamageType.Bullet, user.position);
+            damageableObject.DealDamage(weapon.weaponDamage, DamageType.Bullet, user.position);
         }
 
         HingeJointTarget ragdollJoint = other.gameObject.GetComponent<HingeJointTarget>();
         if (ragdollJoint)
         {
             if (ragdollJoint.CanBeDismembered) 
-                ragdollJoint.hj.breakForce -= 100 * weapon.damage;
+                ragdollJoint.hj.breakForce -= 100 * weapon.weaponDamage;
         }
 
         Rigidbody otherRigidbody = other.gameObject.GetComponent<Rigidbody>();
@@ -66,10 +66,10 @@ public class Bullet : MonoBehaviour {
         {
             if (other.transform.gameObject.HasTag("Breakable"))
                 other.transform.GetComponent<Rigidbody>().isKinematic = false;
-            other.transform.GetComponent<Rigidbody>().AddForce(transform.forward * (50 * weapon.damage));
+            other.transform.GetComponent<Rigidbody>().AddForce(transform.forward * (50 * weapon.weaponDamage));
         }
         else
-            CreateParticle(weapon.bulletType.onHitPrefab, transform.position, transform.rotation);
+            CreateParticle(weapon.weaponBullet.onHitPrefab, transform.position, transform.rotation);
 
         if (other.transform.gameObject.HasTag("Energy"))
         {
@@ -100,9 +100,9 @@ public class Bullet : MonoBehaviour {
     {
         GameObject newBulletHole = Instantiate(bulletHole, where+surfaceNormal*normalOffset, Quaternion.LookRotation(-surfaceNormal));
         MeshRenderer renderer = newBulletHole.GetComponent<MeshRenderer>();
-        renderer.material.SetColor("_Color", weapon.bulletType.bulletColor);
+        renderer.material.SetColor("_Color", weapon.weaponBullet.bulletColor);
 
-        newBulletHole.transform.localScale = Vector3.one*(weapon.bulletType.bulletWidth/2);
+        newBulletHole.transform.localScale = Vector3.one*(weapon.weaponBullet.bulletWidth/2);
     }
     public void CreateParticle(GameObject prefab, Vector3 startPos, Quaternion startRot, Transform parent = null)
     {
@@ -111,7 +111,7 @@ public class Bullet : MonoBehaviour {
     }
     public void DoImpact()
     {
-        CreateParticle(weapon.bulletType.onHitPrefab, transform.position, transform.rotation);
+        CreateParticle(weapon.weaponBullet.onHitPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
     public void Deflect()

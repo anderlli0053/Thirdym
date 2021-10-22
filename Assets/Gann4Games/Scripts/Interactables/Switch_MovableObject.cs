@@ -72,7 +72,7 @@ namespace Gann4Games.Thirdym.Interactables
         }
         private void Update()
         {
-            if (InputHandler.instance.pause && cam != null)
+            if (PlayerInputHandler.instance.pause && cam != null)
             {
                 //cam.GetComponent<Camera>().depth = -10;
                 //cam.SetActive(false);.
@@ -135,7 +135,7 @@ namespace Gann4Games.Thirdym.Interactables
         {
             if (other.gameObject.HasTag("Player") && other.gameObject.layer == LayerMask.NameToLayer("ControllerCollider"))
             {
-                if (InputHandler.instance.use)
+                if (PlayerInputHandler.instance.use)
                 {
                     if (!EnteringPassword && RequirePassword)
                     {

@@ -12,34 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
   m_Name: Heavy LiteRailgun
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 8907120099291468712, guid: f7579e3b4e290644287e2f9bc7f3a90d,
+  weaponIcon: {fileID: 0}
+  weaponName: LiteRailgun v01 CS-HShot
+  weaponDamage: 0
+  weaponType: 4
+  weaponBullet: {fileID: 11400000, guid: 7d6329a78dba8d3429a351ec21f0677d, type: 2}
+  fireSoundEffects:
+  - {fileID: 8300000, guid: eeaf2d233ce208f4c848a0d8df8aa8c9, type: 3}
+  reloadSoundEffects: []
+  objectToDrop: {fileID: 8907120099291468712, guid: f7579e3b4e290644287e2f9bc7f3a90d,
     type: 3}
-  animationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654, type: 2}
-  leftWeaponModel: {fileID: 0}
-  leftPositionOffset: {x: 0, y: 0, z: 0}
-  leftRotationOffset: {x: 0, y: 0, z: 0}
+  characterAnimationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654,
+    type: 2}
+  leftHandSupportsWeapon: 1
   rightWeaponModel: {fileID: 919132149155446097, guid: de3a33b0cceab964e9b612fc8e395483,
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: 0, y: 0, z: 0}
-  leftShoulderSpring: 1
-  leftElbowSpring: 1
-  rightShoulderSpring: 1
-  rightElbowSpring: 1
-  weaponType: 4
-  damage: 40
-  weaponName: LiteRailgun v01 CS-HShot
+  useRightShoulder: 1
+  useRightElbow: 1
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  useLeftShoulder: 1
+  useLeftElbow: 1
+  bulletFireSource: {x: 0.33, y: 0, z: 0.09}
+  bulletFireTime: 1.5
+  bulletSpawnCount: 1
+  bulletSpreadAngle: 0
+  bulletDespawnTime: 3
+  useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75
-  shootPoint: {x: 0.33, y: 0, z: 0.09}
-  repeatTime: 1.5
-  bulletCount: 1
-  bulletSpread: 0
   useReload: 1
   reloadStartDelay: 0.75
   reloadDuration: 0.25
-  bulletType: {fileID: 11400000, guid: 7d6329a78dba8d3429a351ec21f0677d, type: 2}
   muzzleFlash: {fileID: 0}
   muzzleFlashDisableTime: 0.05
-  sfxShoot: {fileID: 8300000, guid: eeaf2d233ce208f4c848a0d8df8aa8c9, type: 3}
-  sfxReload: {fileID: 8300000, guid: df59554418ea7e742813b02a59fcd5c0, type: 3}

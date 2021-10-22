@@ -12,34 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
   m_Name: Rifle C-01r
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 7475031920843401806, guid: 3387470bb7e9e6f4f9b099c931d3c803,
+  weaponIcon: {fileID: 0}
+  weaponName: C-01r
+  weaponDamage: 0
+  weaponType: 2
+  weaponBullet: {fileID: 11400000, guid: 321461957f572b44ab4ee64901c13000, type: 2}
+  fireSoundEffects:
+  - {fileID: 8300000, guid: 561205cb42e1c4c4b9adfc49dd0ed1f1, type: 3}
+  reloadSoundEffects: []
+  objectToDrop: {fileID: 7475031920843401806, guid: 3387470bb7e9e6f4f9b099c931d3c803,
     type: 3}
-  animationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654, type: 2}
-  leftWeaponModel: {fileID: 0}
-  leftPositionOffset: {x: 0, y: 0, z: 0}
-  leftRotationOffset: {x: 0, y: 0, z: 0}
+  characterAnimationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654,
+    type: 2}
+  leftHandSupportsWeapon: 1
   rightWeaponModel: {fileID: 919132149155446097, guid: b2e2d8476509e4240ab66f5dbe3f9c58,
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: 0, y: 0, z: 0}
-  leftShoulderSpring: 1
-  leftElbowSpring: 1
-  rightShoulderSpring: 1
-  rightElbowSpring: 1
-  weaponType: 2
-  damage: 20
-  weaponName: C-01r
+  useRightShoulder: 1
+  useRightElbow: 1
+  leftWeaponModel: {fileID: 0}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  useLeftShoulder: 1
+  useLeftElbow: 1
+  bulletFireSource: {x: 0.37, y: 0, z: 0.11}
+  bulletFireTime: 1
+  bulletSpawnCount: 1
+  bulletSpreadAngle: 0
+  bulletDespawnTime: 3
+  useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75
-  shootPoint: {x: 0.37, y: 0, z: 0.11}
-  repeatTime: 0.2
-  bulletCount: 1
-  bulletSpread: 0
   useReload: 0
   reloadStartDelay: 0
   reloadDuration: 0
-  bulletType: {fileID: 11400000, guid: 321461957f572b44ab4ee64901c13000, type: 2}
   muzzleFlash: {fileID: 0}
   muzzleFlashDisableTime: 0.05
-  sfxShoot: {fileID: 8300000, guid: 561205cb42e1c4c4b9adfc49dd0ed1f1, type: 3}
-  sfxReload: {fileID: 0}
