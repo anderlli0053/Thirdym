@@ -17,7 +17,10 @@ MonoBehaviour:
   weaponDamage: 0
   weaponType: 0
   weaponBullet: {fileID: 0}
-  fireSoundEffects: []
+  fireSoundEffects:
+  - {fileID: 8300000, guid: 241ddb07c5a78fa46ac5977e60a42240, type: 3}
+  - {fileID: 8300000, guid: f5c91c64b7ee9f24097c7b65b77aa483, type: 3}
+  - {fileID: 8300000, guid: 034f9e10d7c93f14888457380346b9e3, type: 3}
   reloadSoundEffects: []
   objectToDrop: {fileID: 3040534797571657392, guid: 9907972b1a834d64ab51e0b7dac282ac,
     type: 3}
@@ -37,9 +40,9 @@ MonoBehaviour:
   useLeftElbow: 1
   bulletFireSource: {x: 0.3, y: 0, z: 0}
   bulletFireTime: 0
-  bulletSpawnCount: 1
+  bulletSpawnCount: 0
   bulletSpreadAngle: 0
-  bulletDespawnTime: 0.02
+  bulletDespawnTime: 0
   useCameraAim: 0
   useFireRecoil: 0
   useRicochet: 0
