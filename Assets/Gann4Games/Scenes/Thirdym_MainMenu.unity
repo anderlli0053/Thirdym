@@ -1088,10 +1088,7 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 500
     Dutch: 0
-    ModeOverride: 0
     LensShift: {x: 0, y: 0}
-    GateFit: 2
-    m_SensorSize: {x: 1.7757576, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1107,7 +1104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149591627}
-  m_LocalRotation: {x: -0.024431199, y: 0.9631385, z: -0.093766764, w: -0.2509485}
+  m_LocalRotation: {x: -0.024431195, y: 0.9631385, z: -0.09376676, w: -0.2509485}
   m_LocalPosition: {x: -214.55266, y: -157.53279, z: 34.219955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2053,10 +2050,7 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 500
     Dutch: 0
-    ModeOverride: 0
     LensShift: {x: 0, y: 0}
-    GateFit: 2
-    m_SensorSize: {x: 1.7757576, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2156,10 +2150,7 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 500
     Dutch: 0
-    ModeOverride: 0
     LensShift: {x: 0, y: 0}
-    GateFit: 2
-    m_SensorSize: {x: 1.7757576, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10377,7 +10368,7 @@ PrefabInstance:
     - target: {fileID: 5487944124020133776, guid: a5011124aed091e45982cf4297444dda,
         type: 3}
       propertyPath: m_text
-      value: Update
+      value: Update game
       objectReference: {fileID: 0}
     - target: {fileID: 5487944125098600988, guid: a5011124aed091e45982cf4297444dda,
         type: 3}
@@ -10517,7 +10508,7 @@ PrefabInstance:
     - target: {fileID: 5487944125098600989, guid: a5011124aed091e45982cf4297444dda,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: https://gamejolt.com/games/thirdym/261475
+      value: http://gann4life.ga/thirdym
       objectReference: {fileID: 0}
     - target: {fileID: 5487944125098600989, guid: a5011124aed091e45982cf4297444dda,
         type: 3}
@@ -11739,7 +11730,6 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1003784033}
-  m_VersionIndex: 0
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12081,7 +12071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   json_structure:
-    choosen_suit: 3
+    choosen_suit: 4
     audio_master: 1
     audio_environment: 1
     audio_music: 1
@@ -12094,7 +12084,7 @@ MonoBehaviour:
     weapons_shotgunSlot: 1
     weapons_energySlot: 0
     weapons_havePistol: 1
-    weapons_haveAutomatic: 1
+    weapons_haveAutomatic: 0
     weapons_haveShotgun: 1
     weapons_haveEnergyBased: 0
     weapons_haveDefibrilators: 0
@@ -17735,8 +17725,10 @@ MonoBehaviour:
     head: {fileID: 3512241226476141607}
     leftShoulder: {fileID: 3512241226476141597}
     leftElbow: {fileID: 3512241226476141591}
+    leftHand: {fileID: 0}
     rightShoulder: {fileID: 3512241226476141577}
     rightElbow: {fileID: 3512241226476141571}
+    rightHand: {fileID: 0}
     leftLeg: {fileID: 3512241226476141599}
     leftKnee: {fileID: 3512241226476141585}
     leftFoot: {fileID: 3512241226476141589}
