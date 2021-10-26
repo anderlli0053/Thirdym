@@ -3,7 +3,17 @@ guid: acdbc06100a08224c898b34f2450bc67
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CS-DAZ
+    second: {fileID: 2100000, guid: d7a6fcbd3e8e02341a3dccbe825315c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CS-DAZ_Cannon
+    second: {fileID: 2100000, guid: d0abdf5dc5a42ec45ae6586932e8f36b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

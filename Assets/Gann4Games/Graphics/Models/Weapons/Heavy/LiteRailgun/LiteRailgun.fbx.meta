@@ -3,7 +3,22 @@ guid: de3a33b0cceab964e9b612fc8e395483
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LiteRailgun
+    second: {fileID: 2100000, guid: edd6fe2a85829d1439db425a65d5dfb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LiteRailgun_Charger
+    second: {fileID: 2100000, guid: f80623369a163b542a2ee94fc08b5e7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LiteRailgun_Charger.001
+    second: {fileID: 2100000, guid: b1a544d5e2d0dfc41bbd0af76b0b2c85, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

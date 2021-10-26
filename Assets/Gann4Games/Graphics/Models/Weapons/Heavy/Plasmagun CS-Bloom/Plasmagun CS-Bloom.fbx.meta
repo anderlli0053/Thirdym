@@ -3,7 +3,12 @@ guid: d4c25a142fed20a4abb9e7aade3cc6ce
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plasmagun CS-Bloom
+    second: {fileID: 2100000, guid: 53e7d891408945148aa4e193a13e6345, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
