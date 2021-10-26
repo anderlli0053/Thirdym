@@ -1,6 +1,7 @@
 using UnityEngine;
-using Gann4Games.Thirdym.Enums;
 using UnityEngine.Serialization;
+using Gann4Games.Thirdym.Enums;
+using Gann4Games.Thirdym.Utility;
 
 namespace Gann4Games.Thirdym.ScriptableObjects
 {
@@ -49,6 +50,9 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         [Tooltip("When the bullet will be destroyed (in seconds) after it has been spawned")]
         [FormerlySerializedAs("bulletStopTime")] public float bulletDespawnTime = 3;
         [Space]
+        [Tooltip("Allows the weapon to be aimed accurately towards the center of screen.")]
+        public bool useCameraAim = true;
+        [Space]
         [Tooltip("This setting allows the weapon to push back the player when shooting.")]
         [FormerlySerializedAs("useRecoil")] public bool useFireRecoil = true;
         [Space]
@@ -61,5 +65,8 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         [Space]
         public GameObject muzzleFlash;
         public float muzzleFlashDisableTime = 0.05f;
+
+        public AudioClip GetFireSFX() => AudioTools.GetRandomClip(fireSoundEffects);
+        public AudioClip GetReloadSFX() => AudioTools.GetRandomClip(reloadSoundEffects);
     }
 }

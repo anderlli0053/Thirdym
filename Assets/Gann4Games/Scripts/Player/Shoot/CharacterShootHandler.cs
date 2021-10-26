@@ -63,8 +63,8 @@ public class CharacterShootHandler : MonoBehaviour {
     }
     void Shoot()
     {
-        AudioClip shootSFX = AudioTools.GetRandomClip(_weapon.fireSoundEffects);
-        _character.SoundSource.PlayOneShot(shootSFX);
+        if(_character.EquipmentController.currentWeapon.bulletSpawnCount != 0)
+            _character.PlayFireSFX();
         if(_character.EquipmentController.currentWeapon.useFireRecoil)
             _character.baseBody.rightElbow.GetComponent<Rigidbody>().AddForce(PlayerCameraController.instance.activeCamera.transform.forward * -(500 * (_weapon.weaponDamage / 10)));
 
@@ -75,6 +75,8 @@ public class CharacterShootHandler : MonoBehaviour {
     }
     void CreateBullets()
     {
+        if (!_weapon.weaponBullet) return;
+
         Vector3 shootPosition = transform.position + transform.TransformDirection(_weapon.bulletFireSource);
 
         for (int i = 0; i < _weapon.bulletSpawnCount; i++)

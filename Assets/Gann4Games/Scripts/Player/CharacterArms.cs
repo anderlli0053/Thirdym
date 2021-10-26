@@ -101,12 +101,13 @@ public class CharacterArms : MonoBehaviour {
 
     public void AimWeapon(bool aiming)
     {
-        if (IngameMenuHandler.instance.paused) return;
+        if (IngameMenuHandler.instance.paused || !_character.EquipmentController.currentWeapon) return;
 
+        bool allowWeaponAim = _character.EquipmentController.currentWeapon.useCameraAim;
         bool supportedByLeftHand = _character.EquipmentController.currentWeapon.leftHandSupportsWeapon;
         bool isReloading = _anim.GetBool("WeaponReload");
 
-        if(aiming && !isReloading)
+        if(aiming && allowWeaponAim && !isReloading)
         {
             RightHandLookAtScreenCenter();
         }

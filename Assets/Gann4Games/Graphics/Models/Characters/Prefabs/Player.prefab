@@ -1548,6 +1548,7 @@ GameObject:
   - component: {fileID: 4621199092727750}
   - component: {fileID: 95888107412333752}
   - component: {fileID: 114396777578769798}
+  - component: {fileID: 6617103579067556411}
   m_Layer: 0
   m_Name: StaticAnimator
   m_TagString: Untagged
@@ -1607,6 +1608,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnableMeshes: 0
+--- !u!114 &6617103579067556411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227637012718004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e714051e64bf747a0ef8732d1022b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1236214415349824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,6 +2492,7 @@ GameObject:
   - component: {fileID: 114585330830061758}
   - component: {fileID: 114193048304934044}
   - component: {fileID: 114264627613358132}
+  - component: {fileID: 8079724887114882779}
   - component: {fileID: 114135096206375756}
   - component: {fileID: 114910190424685354}
   - component: {fileID: 114708178553171508}
@@ -2646,15 +2660,12 @@ MonoBehaviour:
   dropPosition: {fileID: 4013779525127334}
   currentWeapon: {fileID: 0}
   startWeapon: {fileID: 0}
-  melee: {fileID: 0}
+  melee: {fileID: 11400000, guid: 1d82368d4264db9439fcb3e1005a4452, type: 2}
   pistol: {fileID: 0}
   rifle: {fileID: 0}
   shotgun: {fileID: 0}
   heavy: {fileID: 0}
   tool: {fileID: 0}
-  PSIBlades:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &114264627613358132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,6 +2678,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e63060d8a33a24ea9695be86c6842f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8079724887114882779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482580894358688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154c6258d40ff634d81e7739abc9c11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationEvents: {fileID: 6617103579067556411}
 --- !u!114 &114135096206375756
 MonoBehaviour:
   m_ObjectHideFlags: 0

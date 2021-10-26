@@ -7,8 +7,8 @@ public class EquipmentSystem : MonoBehaviour {
     
     CharacterCustomization _character;
 
-    GameObject _leftHandWeapon;
-    GameObject _rightHandWeapon;
+    public GameObject LeftHandWeapon { get; private set; }
+    public GameObject RightHandWeapon { get; private set; }
 
     bool UsePlayerPrefs => _character.usePlayerPrefs;
 
@@ -245,15 +245,15 @@ public class EquipmentSystem : MonoBehaviour {
     }
     void ClearHands()
     {
-        if (_leftHandWeapon != null)
+        if (LeftHandWeapon != null)
         {
-            Destroy(_leftHandWeapon);
-            _leftHandWeapon = null;
+            Destroy(LeftHandWeapon);
+            LeftHandWeapon = null;
         }
-        if (_rightHandWeapon != null)
+        if (RightHandWeapon != null)
         {
-            Destroy(_rightHandWeapon);
-            _rightHandWeapon = null;
+            Destroy(RightHandWeapon);
+            RightHandWeapon = null;
         }
 
         currentWeapon = null;
@@ -261,8 +261,8 @@ public class EquipmentSystem : MonoBehaviour {
     void DisplayWeaponOnHands(SO_WeaponPreset weapon)
     {
         ClearHands();
-        _leftHandWeapon = CreateObjectAt(weapon.leftWeaponModel, _character.baseBody.leftHand, weapon.leftPositionOffset, weapon.leftRotationOffset);
-        _rightHandWeapon = CreateObjectAt(weapon.rightWeaponModel, _character.baseBody.rightHand, weapon.rightPositionOffset, weapon.rightRotationOffset);
+        LeftHandWeapon = CreateObjectAt(weapon.leftWeaponModel, _character.baseBody.leftHand, weapon.leftPositionOffset, weapon.leftRotationOffset);
+        RightHandWeapon = CreateObjectAt(weapon.rightWeaponModel, _character.baseBody.rightHand, weapon.rightPositionOffset, weapon.rightRotationOffset);
     }
     GameObject CreateObjectAt(GameObject prefab, Transform placeTransform, Vector3 positionOffset, Vector3 rotationOffset)
     {

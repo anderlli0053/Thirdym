@@ -14,12 +14,7 @@ namespace Gann4Games.EditorTools
 
             if (weaponPreset.weaponIcon) weaponIcon = AssetPreview.GetAssetPreview(weaponPreset.weaponIcon);
             else EditorGUILayout.HelpBox("Weapon icon needs to be assigned.", MessageType.Info);
-            if (!weaponPreset.weaponBullet)
-            {
-                EditorGUILayout.HelpBox("Weapon bullet can't be empty!", MessageType.Warning);
-                if (GUILayout.Button("Create bullet"))
-                    weaponPreset.weaponBullet = ScriptableObjectTools.CreateBullet("NewBulletPreset") as SO_BulletPreset;
-            }
+
             if (weaponPreset.fireSoundEffects.Length < 1)
                 EditorGUILayout.HelpBox("Don't forget to add sounds to the weapon.", MessageType.Info);
             if (!weaponPreset.objectToDrop)

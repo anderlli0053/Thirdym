@@ -19,7 +19,8 @@ MonoBehaviour:
   weaponBullet: {fileID: 11400000, guid: 477dd07b4000a5d4b8fa09e550bff2f9, type: 2}
   fireSoundEffects:
   - {fileID: 8300000, guid: b5af06df3234e184daf429b42281f619, type: 3}
-  reloadSoundEffects: []
+  reloadSoundEffects:
+  - {fileID: 8300000, guid: df59554418ea7e742813b02a59fcd5c0, type: 3}
   objectToDrop: {fileID: 9038595934824444561, guid: bb615e6bbef2bbd4eb749169286bed1d,
     type: 3}
   characterAnimationOverride: {fileID: 22100000, guid: 82c61de389f593749ab21435c28da654,
@@ -41,11 +42,12 @@ MonoBehaviour:
   bulletSpawnCount: 4
   bulletSpreadAngle: 5
   bulletDespawnTime: 3
+  useCameraAim: 1
   useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75
-  useReload: 0
-  reloadStartDelay: 0
-  reloadDuration: 0
+  useReload: 1
+  reloadStartDelay: 1
+  reloadDuration: 1.5
   muzzleFlash: {fileID: 0}
   muzzleFlashDisableTime: 0.05

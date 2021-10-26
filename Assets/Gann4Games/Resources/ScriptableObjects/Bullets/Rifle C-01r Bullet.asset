@@ -12,26 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b85dfd8d902744992cad410d7a5b28, type: 3}
   m_Name: Rifle C-01r Bullet
   m_EditorClassIdentifier: 
-  usesRicochet: 1
-  ricochetMinAngle: 0.75
-  texMode: 0
-  PumpOptions:
-    pumpAfterShoot: 0
-    pumpStartDelay: 0
-    pumpDuration: 0
   bullet: {fileID: 1056222452386770, guid: fe6f82b7a9c3aa940832571f6239dfa8, type: 3}
-  bulletSpread: 0
+  onHitPrefab: {fileID: 5377293820116007728, guid: 6ff74986edb23a34a8a21c8524edbbde,
+    type: 3}
+  bulletColor: {r: 1, g: 1, b: 1, a: 1}
+  bulletMaterial: {fileID: 2100000, guid: 6ae6d65ec583efe4b936cb2c452f3468, type: 2}
+  textureMode: 0
   bulletWidth: 0.25
   bulletLenght: 0.1
-  damage: 38
-  repeatTime: 0.15
-  muzzleDisableTime: 0.05
-  bulletCount: 1
-  muzzleFlash: {fileID: 1523652767490950, guid: 1af83f415f1c11343941df442731e780,
-    type: 3}
-  bulletMaterial: {fileID: 2100000, guid: 6ae6d65ec583efe4b936cb2c452f3468, type: 2}
-  bulletColor: {r: 1, g: 1, b: 1, a: 1}
-  sfxShoot: {fileID: 8300000, guid: 561205cb42e1c4c4b9adfc49dd0ed1f1, type: 3}
-  sfxPump: {fileID: 0}
-  solidImpact: {fileID: 5377293820116007728, guid: 6ff74986edb23a34a8a21c8524edbbde,
-    type: 3}

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88265089f50dd344ba8e3e5052944bfc, type: 3}
+  m_Name: Melee PSIBlades
+  m_EditorClassIdentifier: 
+  weaponIcon: {fileID: 0}
+  weaponName: unnamed_weapon
+  weaponDamage: 25
+  weaponType: 0
+  weaponBullet: {fileID: 0}
+  fireSoundEffects:
+  - {fileID: 8300000, guid: 241ddb07c5a78fa46ac5977e60a42240, type: 3}
+  - {fileID: 8300000, guid: f5c91c64b7ee9f24097c7b65b77aa483, type: 3}
+  - {fileID: 8300000, guid: 034f9e10d7c93f14888457380346b9e3, type: 3}
+  reloadSoundEffects: []
+  objectToDrop: {fileID: 5461905483988421131, guid: 5b19d492a7f321545b181a2941a2fb2d,
+    type: 3}
+  characterAnimationOverride: {fileID: 22100000, guid: 67961edcab66a0f4d87f550ce95c55b7,
+    type: 2}
+  leftHandSupportsWeapon: 0
+  rightWeaponModel: {fileID: 6339124114711659208, guid: 8562db8712204b247a58900c56034f5c,
+    type: 3}
+  rightPositionOffset: {x: 0, y: 0, z: 0}
+  rightRotationOffset: {x: 0, y: 0, z: 0}
+  useRightShoulder: 1
+  useRightElbow: 1
+  leftWeaponModel: {fileID: 1267418532878958799, guid: 2e1ec10fc44928e42a3afd6b20cada57,
+    type: 3}
+  leftPositionOffset: {x: 0, y: 0, z: 0}
+  leftRotationOffset: {x: 0, y: 0, z: 0}
+  useLeftShoulder: 1
+  useLeftElbow: 1
+  bulletFireSource: {x: 0, y: 0, z: 0}
+  bulletFireTime: 0
+  bulletSpawnCount: 0
+  bulletSpreadAngle: 0
+  bulletDespawnTime: 3
+  useCameraAim: 0
+  useFireRecoil: 0
+  useRicochet: 0
+  ricochetMinAngle: 0.75
+  useReload: 0
+  reloadStartDelay: 0
+  reloadDuration: 0
+  muzzleFlash: {fileID: 0}
+  muzzleFlashDisableTime: 0.05

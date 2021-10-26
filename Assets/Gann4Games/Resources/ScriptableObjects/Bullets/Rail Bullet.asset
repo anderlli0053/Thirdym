@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Rail Bullet
   m_EditorClassIdentifier: 
   bullet: {fileID: 1056222452386770, guid: fe6f82b7a9c3aa940832571f6239dfa8, type: 3}
-  solidImpact: {fileID: 5377293820116007728, guid: 6ff74986edb23a34a8a21c8524edbbde,
+  onHitPrefab: {fileID: 5377293820116007728, guid: 6ff74986edb23a34a8a21c8524edbbde,
     type: 3}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
   bulletMaterial: {fileID: 2100000, guid: 3eb5bc193780af14ca0746bb14979c11, type: 2}
-  texMode: 1
+  textureMode: 1
   bulletWidth: 0.5
   bulletLenght: 1

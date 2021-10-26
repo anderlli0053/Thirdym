@@ -24,7 +24,7 @@ MonoBehaviour:
   characterAnimationOverride: {fileID: 22100000, guid: e8e7c5b23657a8d448b905b976395655,
     type: 2}
   leftHandSupportsWeapon: 0
-  rightWeaponModel: {fileID: 919132149155446097, guid: d15b4da9bdba0454390918154f44aa9c,
+  rightWeaponModel: {fileID: 4304415892148866479, guid: c6196720fa244ce4c9d0781014c6a0dd,
     type: 3}
   rightPositionOffset: {x: 0, y: 0, z: 0}
   rightRotationOffset: {x: 0, y: 45, z: 0}
@@ -36,14 +36,15 @@ MonoBehaviour:
   useLeftShoulder: 1
   useLeftElbow: 1
   bulletFireSource: {x: 0.3, y: 0, z: 0}
-  bulletFireTime: 1
+  bulletFireTime: 0
   bulletSpawnCount: 1
   bulletSpreadAngle: 0
   bulletDespawnTime: 0.02
+  useCameraAim: 0
   useFireRecoil: 0
   useRicochet: 0
   ricochetMinAngle: 0.75
-  useReload: 1
+  useReload: 0
   reloadStartDelay: 0.2
   reloadDuration: 0.2
   muzzleFlash: {fileID: 0}

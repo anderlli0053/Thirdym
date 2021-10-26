@@ -52,6 +52,7 @@ public class CharacterCustomization : MonoBehaviour
     NPC_Ragdoll _npc;
     CharacterWalljump _walljumpController;
     PlayerInputHandler _playerInputHandler;
+    CharacterMeleeHandler _meleeHandler;
 
     public Animator Animator => ragdollAnimator;
     public AudioSource SoundSource => _audioPlayer;
@@ -64,6 +65,7 @@ public class CharacterCustomization : MonoBehaviour
     public NPC_Ragdoll NPC => _npc;
     public CharacterWalljump WalljumpController => _walljumpController;
     public PlayerInputHandler InputHandler => _playerInputHandler;
+    public CharacterMeleeHandler MeleeHandler => _meleeHandler;
 
     private void Awake()
     {
@@ -84,6 +86,7 @@ public class CharacterCustomization : MonoBehaviour
         _npc = GetComponent<NPC_Ragdoll>();
         _walljumpController = GetComponent<CharacterWalljump>();
         _playerInputHandler = GetComponent<PlayerInputHandler>();
+        _meleeHandler = GetComponent<CharacterMeleeHandler>();
         #endregion
 
         if (!_npc) isNPC = false;
@@ -156,6 +159,7 @@ public class CharacterCustomization : MonoBehaviour
     }
 
     public void PlaySFX(AudioClip sfx) => _audioPlayer.PlayOneShot(sfx);
+    public void PlayFireSFX() => _audioPlayer.PlayOneShot(EquipmentController.currentWeapon.GetFireSFX());
     public void PlayEnemyDownSFX() => PlaySFX(AudioTools.GetRandomClip(preset.enemyDownSFX));
     public void PlayAlertSFX() => PlaySFX(AudioTools.GetRandomClip(preset.alertSFX));
     public void PlayPainSFX() => PlaySFX(AudioTools.GetRandomClip(preset.painSFX));
