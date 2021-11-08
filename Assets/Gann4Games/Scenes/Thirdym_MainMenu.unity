@@ -2066,7 +2066,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502829982}
-  m_LocalRotation: {x: -0.09195221, y: 0.2388996, z: 0.022730794, w: 0.96641356}
+  m_LocalRotation: {x: -0.09195222, y: 0.2388996, z: 0.022730794, w: 0.96641356}
   m_LocalPosition: {x: -215.21565, y: -157.52678, z: 33.554955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15933,7 +15933,7 @@ PrefabInstance:
     - target: {fileID: 5487944125098600989, guid: a5011124aed091e45982cf4297444dda,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5487944125098600989, guid: a5011124aed091e45982cf4297444dda,
         type: 3}
@@ -17725,10 +17725,10 @@ MonoBehaviour:
     head: {fileID: 3512241226476141607}
     leftShoulder: {fileID: 3512241226476141597}
     leftElbow: {fileID: 3512241226476141591}
-    leftHand: {fileID: 0}
+    leftHand: {fileID: 3512241226476141587}
     rightShoulder: {fileID: 3512241226476141577}
     rightElbow: {fileID: 3512241226476141571}
-    rightHand: {fileID: 0}
+    rightHand: {fileID: 3512241226476141583}
     leftLeg: {fileID: 3512241226476141599}
     leftKnee: {fileID: 3512241226476141585}
     leftFoot: {fileID: 3512241226476141589}
@@ -17753,8 +17753,10 @@ MonoBehaviour:
   body: {x: 0, y: 0, z: 0, w: 1}
   leftShoulder: {x: 0.19221283, y: 0.1601019, z: 0.61965746, w: 0.7439397}
   leftElbow: {x: -0, y: 0.0728815, z: 0.000000022351742, w: 0.9973406}
+  leftHand: {x: 0, y: 0, z: 0, w: 0}
   rightShoulder: {x: 0.1557388, y: -0.06893443, z: -0.6238123, w: 0.7627921}
   rightElbow: {x: -0.000000014901163, y: -0.13999827, z: 0.00000006519259, w: 0.99015176}
+  rightHand: {x: 0, y: 0, z: 0, w: 0}
   leftLeg: {x: -0.054068655, y: -0.08022044, z: -0.0043578907, w: 0.9953001}
   leftKnee: {x: 0.08928143, y: -0, z: 9.3132246e-10, w: 0.9960065}
   leftFoot: {x: -0.057366207, y: -5.935277e-10, z: -0.0000000036951406, w: 0.99835324}
