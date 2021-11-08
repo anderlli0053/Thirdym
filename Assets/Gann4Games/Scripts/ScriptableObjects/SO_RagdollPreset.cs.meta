@@ -14,6 +14,9 @@ MonoImporter:
       type: 3}
   - blood_squirt: {fileID: 1224442589504162, guid: 7a09dcbddcad390428ec0d6b32b95dc5,
       type: 3}
+  - sfxCollideHard: {fileID: 8300000, guid: 43fa865b096a54d4ead08df1817aba95, type: 3}
+  - sfxCollideMedium: {fileID: 8300000, guid: a629709fc5c005848814945bb7ca8b1a, type: 3}
+  - sfxCollideSoft: {fileID: 8300000, guid: 90b28444bd3e5d648bba8b809df77020, type: 3}
   - forcedDeathSFX: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}

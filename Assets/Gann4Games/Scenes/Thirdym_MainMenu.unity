@@ -1104,7 +1104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149591627}
-  m_LocalRotation: {x: -0.024431195, y: 0.9631385, z: -0.09376676, w: -0.2509485}
+  m_LocalRotation: {x: -0.024421172, y: 0.96316534, z: -0.09376936, w: -0.25084558}
   m_LocalPosition: {x: -214.55266, y: -157.53279, z: 34.219955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2066,7 +2066,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502829982}
-  m_LocalRotation: {x: -0.09195222, y: 0.2388996, z: 0.022730794, w: 0.96641356}
+  m_LocalRotation: {x: -0.091953136, y: 0.23885949, z: 0.022726972, w: 0.96642345}
   m_LocalPosition: {x: -215.21565, y: -157.52678, z: 33.554955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2116,7 +2116,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513555905}
-  m_LocalRotation: {x: 0.025450157, y: 0.9519401, z: -0.08243808, w: 0.29388145}
+  m_LocalRotation: {x: 0.025479466, y: 0.9518356, z: -0.08242902, w: 0.29421994}
   m_LocalPosition: {x: -215.35266, y: -157.58278, z: 35.399956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5972,7 +5972,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh183370
+  m_Name: pb_Mesh48062
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10245,7 +10245,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767527556}
-  m_LocalRotation: {x: 0.025450157, y: 0.9519401, z: -0.08243808, w: 0.29388145}
+  m_LocalRotation: {x: 0.025479466, y: 0.9518356, z: -0.08242902, w: 0.29421994}
   m_LocalPosition: {x: -0.33900002, y: 0.154, z: 2.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -12071,7 +12071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   json_structure:
-    choosen_suit: 4
+    choosen_suit: 7
     audio_master: 1
     audio_environment: 1
     audio_music: 1
@@ -12096,6 +12096,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c453347c217497648b7d19655a7c8d66, type: 2}
   - {fileID: 11400000, guid: 83b1d1308eb9fd340b89f26c9fef5d01, type: 2}
   - {fileID: 11400000, guid: 96e022d4dd249a549b3a5f792353d6eb, type: 2}
+  - {fileID: 11400000, guid: 86ddba055a7008f45a6d046ea24f2eeb, type: 2}
   choosen_suit: 3
 --- !u!114 &1868601012
 MonoBehaviour:
