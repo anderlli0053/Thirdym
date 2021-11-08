@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56050529e950c947bcdcc54793cfeba, type: 3}
+  m_Name: Proxy Helmetless
+  m_EditorClassIdentifier: 
+  profile: {fileID: 0}
+  character_name: Proxy Helmetless
+  damageIndicator: {fileID: 2489321738901700669, guid: 5de52ddfb1e43b54b841675cea7c9c49,
+    type: 3}
+  battleSuit: {fileID: 1982465460873959644, guid: 4f529847b28d8ad488e83a91af3b413d,
+    type: 3}
+  skill: 0
+  maximumHealth: 400
+  injuryLevel: 100
+  regeneration_rate: 500
+  bladeDamage: 10
+  blood_splat: {fileID: 1362980632775236, guid: a6e1bb3d294ccf448aa50f1a6b029969,
+    type: 3}
+  blood_bleed: {fileID: 1882992891793642, guid: 61d2bf4c658bb804a85a6e3357a2e70a,
+    type: 3}
+  blood_squirt: {fileID: 1224442589504162, guid: 7a09dcbddcad390428ec0d6b32b95dc5,
+    type: 3}
+  bloodColor: {r: 1, g: 0, b: 0, a: 1}
+  bladesColor: {r: 1, g: 0, b: 0.74655247, a: 1}
+  faction: Factions/CorrectionNine
+  enemyTags:
+  - Factions/UsurpationForces
+  - Factions/Falkonian
+  - Factions/CivilSecurity
+  - Factions/Androids
+  allyTags: []
+  sfxCollideHard: {fileID: 8300000, guid: 43fa865b096a54d4ead08df1817aba95, type: 3}
+  sfxCollideMedium: {fileID: 8300000, guid: a629709fc5c005848814945bb7ca8b1a, type: 3}
+  sfxCollideSoft: {fileID: 8300000, guid: 90b28444bd3e5d648bba8b809df77020, type: 3}
+  enemyDownSFX:
+  - {fileID: 8300000, guid: 0ec783753578f1c49a1400ce0bf82a41, type: 3}
+  - {fileID: 8300000, guid: e9caa8f520791574c8186b549eaaeafb, type: 3}
+  - {fileID: 8300000, guid: 64ee21ef3a4ba6b43a3bfac2266853a9, type: 3}
+  alertSFX:
+  - {fileID: 8300000, guid: b1190c27186457741bffae8c8fc0830b, type: 3}
+  - {fileID: 8300000, guid: fdcf60bdf81e24641becc14ea9c82939, type: 3}
+  - {fileID: 8300000, guid: 95d4827c51474f749955a8815a8cf8e4, type: 3}
+  painSFX:
+  - {fileID: 8300000, guid: 3f3787d30eb5e724c8aade3ec99e2607, type: 3}
+  - {fileID: 8300000, guid: 60b4a9b8c56c22b4ebbf8904e9d7573d, type: 3}
+  - {fileID: 8300000, guid: 0da15262c9a7d6541aacf596e5692a87, type: 3}
+  injuryStateSFX:
+  - {fileID: 8300000, guid: d9ce45560cd7b7d4b80bddcad55a2747, type: 3}
+  deathSFX:
+  - {fileID: 8300000, guid: 4cd780c580deadb46ae53a217a6aa8b8, type: 3}
+  forcedDeathSFX: {fileID: 0}
+  author: Gann4Life, Alberth
