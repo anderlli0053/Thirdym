@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
   weaponName: Alien Pistol
-  weaponDamage: 0
+  weaponDamage: 50
   weaponType: 1
   weaponBullet: {fileID: 11400000, guid: 7d6329a78dba8d3429a351ec21f0677d, type: 2}
   fireSoundEffects:
@@ -41,6 +41,7 @@ MonoBehaviour:
   bulletSpawnCount: 1
   bulletSpreadAngle: 0
   bulletDespawnTime: 3
+  useCameraAim: 1
   useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75

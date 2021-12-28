@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 21300000, guid: f588d850485d0ae479d73cf3bd0b7b00, type: 3}
   weaponName: CS-BNG
-  weaponDamage: 50
+  weaponDamage: 120
   weaponType: 4
   weaponBullet: {fileID: 11400000, guid: 6cc346b8134a49e438e40457631916df, type: 2}
   fireSoundEffects:
@@ -41,6 +41,7 @@ MonoBehaviour:
   bulletSpawnCount: 1
   bulletSpreadAngle: 0
   bulletDespawnTime: 3
+  useCameraAim: 1
   useFireRecoil: 1
   useRicochet: 0
   ricochetMinAngle: 0.75

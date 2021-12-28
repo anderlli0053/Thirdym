@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Custom Assets/Input/GameplayInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Gann4Games/Input/GameplayInput.inputactions'
 
 using System;
 using System.Collections;
