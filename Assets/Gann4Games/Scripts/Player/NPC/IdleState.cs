@@ -17,6 +17,7 @@ namespace Gann4Games.Thirdym.NPC
             stateName = "Idle";
             _timer.SetTimeOut(5);
         }
+        
         public override State GetCurrentState()
         {
             if (character.HealthController.IsDead) return deadState;

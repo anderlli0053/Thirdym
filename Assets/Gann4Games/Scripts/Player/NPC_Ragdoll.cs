@@ -57,6 +57,7 @@ namespace Gann4Games.Thirdym.NPC
 
         private void OnDamageDealed(object sender, CharacterHealthSystem.OnDamageDealedArgs e)
         {
+            if(!character.HealthController.IsFullyAlive) return;
             SetTargetPoint(e.where);
             RagdollBodyLookAt(targetPoint);
             HeadLookAt(targetPoint);

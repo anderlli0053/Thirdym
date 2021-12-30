@@ -29,7 +29,7 @@ public class PickupableWeapon : MonoBehaviour
         _auSource.spatialBlend = 1;
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Vector3 shootPoint = transform.position + transform.TransformDirection(weaponData.bulletFireSource);
 
@@ -41,10 +41,12 @@ public class PickupableWeapon : MonoBehaviour
         Gizmos.DrawSphere(transform.position, 0.025f);
         Handles.Label(transform.position, "Right Hand Position (origin)");
     }
+
     void OnCollideSoft(object sender, CollisionEvents.CollisionArgs args)
     {
         _auSource.PlayOneShot(collisionSoftSFX);
     }
+
     void OnCollideMedium(object sender, CollisionEvents.CollisionArgs args)
     {
         _auSource.PlayOneShot(collisionMediumSFX);
