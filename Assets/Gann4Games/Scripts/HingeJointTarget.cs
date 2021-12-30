@@ -5,26 +5,15 @@ public class HingeJointTarget : MonoBehaviour
     public Transform target;
     [Tooltip("Only use one of these values at a time. Toggle invert if the rotation is backwards.")]
     public bool x, y, z, invert;
-    public Vector3 bloodRotationOffset;
-    
-    public bool CanBeDismembered { get => _startBreakForce != 0; }
 
-    float _startBreakForce = 0;
-    CharacterBodypart _partCollision;
     void Start()
     {
-        _partCollision = GetComponent<CharacterBodypart>();
-
         hj = GetComponent<HingeJoint>();
-        //hj.autoConfigureConnectedAnchor = false;
-        if (hj.breakForce != Mathf.Infinity) _startBreakForce = hj.breakForce;
     }
     void Update()
     {
         if (hj != null)
         {
-            if (hj.breakForce < _startBreakForce)
-                hj.breakForce += 10;
             if (x)
             {
                 JointSpring js;
@@ -69,17 +58,5 @@ public class HingeJointTarget : MonoBehaviour
                 hj.spring = js;
             }
         }
-    }
-    private void OnJointBreak()
-    {
-        _partCollision.character.preset.IndicateDamage(transform.position).Display("Dismembered", Color.red);
-        if (_partCollision != null) _partCollision.character.HealthController.DealDamage(_partCollision.character.HealthController.CurrentHealth, Vector3.zero);
-        GameObject BleedGO = _partCollision.character.preset.BloodSquirtFX();
-        BleedGO.transform.position = transform.position;
-        BleedGO.transform.rotation = transform.rotation;
-        BleedGO.transform.SetParent(transform);
-        BleedGO.transform.Rotate(bloodRotationOffset);
-        transform.SetParent(null);
-        Destroy(this);
     }
 }

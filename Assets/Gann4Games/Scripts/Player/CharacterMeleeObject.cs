@@ -31,7 +31,6 @@ public class CharacterMeleeObject : MonoBehaviour {
         var damageableObject = other.GetComponent<IDamageable>();
         CharacterBodypart otherBodypart = other.GetComponent<CharacterBodypart>();
         BreakableObject otherBreakable = other.GetComponent<BreakableObject>();
-        HingeJointTarget otherJoint = other.GetComponent<HingeJointTarget>();
         Bullet otherBullet = other.GetComponent<Bullet>();
         Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
 
@@ -44,12 +43,6 @@ public class CharacterMeleeObject : MonoBehaviour {
             _character.preset.IndicateDamage(transform.position).Display(_bladeDamage.ToString("F0"), Color.white);
         else
             spawnParticle(impactPrefab, transform.position);
-
-        if (otherJoint)
-        {
-            if (otherJoint.CanBeDismembered)
-                otherJoint.hj.breakForce -= otherJoint.hj.breakForce * 1 / 4;
-        }
 
         if(otherBullet)
         {

@@ -54,13 +54,6 @@ public class Bullet : MonoBehaviour {
             damageableObject.DealDamage(weapon.weaponDamage, DamageType.Bullet, user.position);
         }
 
-        HingeJointTarget ragdollJoint = other.gameObject.GetComponent<HingeJointTarget>();
-        if (ragdollJoint)
-        {
-            if (ragdollJoint.CanBeDismembered) 
-                ragdollJoint.hj.breakForce -= 100 * weapon.weaponDamage;
-        }
-
         Rigidbody otherRigidbody = other.gameObject.GetComponent<Rigidbody>();
         if (otherRigidbody)
         {
