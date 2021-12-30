@@ -64,8 +64,6 @@ public class RagdollController : MonoBehaviour {
     float wallJumpTime;
     readonly float walljumpDelay = .1f;
     void Update () {
-
-
         axisMovement = new Vector3(PlayerInputHandler.instance.movementAxis.x, 0, PlayerInputHandler.instance.movementAxis.y); // Player movement
 
         _character.Animator.SetBool("Grounded", enviroment.IsGrounded || enviroment.IsSwimming);
@@ -90,17 +88,6 @@ public class RagdollController : MonoBehaviour {
         {
             if (!_character.HealthController.IsDead)
             {
-
-                for (int i = 0; i < LegsMotion.Count; i++) //Check for any leg dismembered
-                {
-                    if (LegsMotion[i] == null)
-                    {
-                        _character.HealthController.DealDamage(_character.HealthController.CurrentHealth, Vector3.zero);
-                        _character.HealthController.PlayPainSound();
-                        LegsMotion.Remove(LegsMotion[i]);
-                        //RagdollMode(false, true);
-                    }
-                }
                 if (PlayerInputHandler.instance.ragdolling) //Be a ragdoll
                 {
                     isRagdollState = true;
