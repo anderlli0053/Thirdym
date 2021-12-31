@@ -124,6 +124,38 @@ public class EquipmentSystem : MonoBehaviour {
         }
     }
     public void EquipWeapon(SO_WeaponPreset weapon) => StartCoroutine(Equip(weapon));
+    public void EquipWeapon(WeaponType weapon)
+    {
+        SO_WeaponPreset selectedWeapon = null;
+        switch (weapon)
+        {
+            case WeaponType.Melee:
+                selectedWeapon = melee;
+                break;
+
+            case WeaponType.Pistol:
+                selectedWeapon = pistol;
+                break;
+
+            case WeaponType.Rifle:
+                selectedWeapon = rifle;
+                break;
+
+            case WeaponType.Shotgun:
+                selectedWeapon = shotgun;
+                break;
+
+            case WeaponType.Heavy:
+                selectedWeapon = heavy;
+                break;
+
+            case WeaponType.Tool:
+                selectedWeapon = tool;
+                break;
+        }
+        if (selectedWeapon == null) return;
+        EquipWeapon(selectedWeapon);
+    }
     public void DropAllWeapons()
     {
         DropEquippedWeapon();

@@ -26,6 +26,6 @@ public class NPC_Healthbar : MonoBehaviour
     private void Update()
     {
         if(_anim) _anim.SetFloat("fill", _character.HealthController.CurrentHealth / _character.HealthController.MaximumHealth);
-        textField.text = string.Format("{0} ({1})", _character.preset.character_name, _character.NPC.stateMachine.currentStateName);
+        textField.text = string.Format("{0} ({1})", _character.preset.character_name, _character.NPC.stateMachine.NPCStatus.ToString());
     }
 }

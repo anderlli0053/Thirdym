@@ -3838,8 +3838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d087eee7867f9c4492aad1b366c2687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStateName: 
-  currentState: {fileID: 0}
+  NPCStatus: 0
+  NPC: {fileID: 7339744613345601289}
 --- !u!195 &195661160007103772
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5382,6 +5382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4179463568221042}
+  - component: {fileID: 3000523603698652612}
   m_Layer: 9
   m_Name: Right_Hand
   m_TagString: Untagged
@@ -5403,6 +5404,18 @@ Transform:
   m_Father: {fileID: 4060526253006372}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3000523603698652612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944358073285496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3fceab60e998448971369904cf4230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1966782665458936
 GameObject:
   m_ObjectHideFlags: 0

@@ -120,7 +120,7 @@ public class CharacterArms : MonoBehaviour {
             RightHandToDefaultPosition();
         }
     }
-    void RightHandLookAt(Vector3 position)
+    public void RightHandLookAt(Vector3 position)
     {
         _character.baseBody.rightHand.LookAt(position);
         _character.baseBody.rightHand.Rotate(-90, -90, 0);
