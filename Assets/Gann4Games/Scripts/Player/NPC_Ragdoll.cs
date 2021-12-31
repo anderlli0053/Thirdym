@@ -9,9 +9,11 @@ namespace Gann4Games.Thirdym.NPC
 {
     public class NPC_Ragdoll : MonoBehaviour
     {
-        [HideInInspector] public Vector3 targetPoint;
+        public static NPC_Ragdoll instance;
 
-        public StateMachine stateMachine;
+        public Vector3 targetPoint;
+
+        public NPC_StateMachine stateMachine;
         public CharacterCustomization character;
         public Vector3 pointToLookAt;
 
@@ -24,7 +26,7 @@ namespace Gann4Games.Thirdym.NPC
         [SerializeField] CharacterCustomization target;
 
         List<CharacterCustomization> charactersOnScene = new List<CharacterCustomization>();
-        List<CharacterCustomization> CharactersOnScene()
+        List<CharacterCustomization> GetCharactersOnScene()
         { 
             CharacterCustomization[] characterArray = FindObjectsOfType<CharacterCustomization>();
             List<CharacterCustomization> characterList = new List<CharacterCustomization>();
@@ -40,12 +42,19 @@ namespace Gann4Games.Thirdym.NPC
 
         public void Awake()
         {
+            instance = this;
+
             character = GetComponent<CharacterCustomization>();
-
+            stateMachine = GetComponent<NPC_StateMachine>();
+            stateMachine.NPC = this;
             character.HealthController.OnDamageDealed += OnDamageDealed;
-
-            charactersOnScene = CharactersOnScene();
         }
+        private void Start()
+        {
+            charactersOnScene = GetCharactersOnScene();
+        }
+
+        public static void UpdateCharactersOnSceneList() => instance.charactersOnScene = instance.GetCharactersOnScene();
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()
@@ -183,15 +192,8 @@ namespace Gann4Games.Thirdym.NPC
                 }
             }
             Transform[] ragdollTransforms = GeneralTools.GetTransformsOfArray(ragdollList.ToArray());
-
-            try
-            {
-                return GeneralTools.GetClosestTransform(transform.position, ragdollTransforms).GetComponent<CharacterCustomization>();
-            }
-            catch (System.Exception)
-            {
-                return null;
-            }
+            CharacterCustomization closestRagdoll = GeneralTools.GetClosestTransform(transform.position, ragdollTransforms).GetComponent<CharacterCustomization>();
+            return closestRagdoll;
         }
         public CharacterCustomization GetClosestDeadRagdoll(string[] tagList)
         {
@@ -206,14 +208,7 @@ namespace Gann4Games.Thirdym.NPC
             }
             Transform[] ragdollTransforms = GeneralTools.GetTransformsOfArray(ragdollList.ToArray());
 
-            try
-            {
-                return GeneralTools.GetClosestTransform(transform.position, ragdollTransforms).GetComponent<CharacterCustomization>();
-            }
-            catch (System.Exception)
-            {
-                return null;
-            }
+            return GeneralTools.GetClosestTransform(transform.position, ragdollTransforms).GetComponent<CharacterCustomization>();
         }
 
         /// <summary>
@@ -233,6 +228,12 @@ namespace Gann4Games.Thirdym.NPC
         public bool HasActiveTarget => target != null;
         public bool HasArrived => navmeshAgent.remainingDistance <= navmeshAgent.stoppingDistance;
         public PickupableWeapon[] FindGuns() => FindObjectsOfType<PickupableWeapon>();
+        public PickupableWeapon GetClosestWeapon()
+        {
+            PickupableWeapon[] weapons = FindObjectsOfType<PickupableWeapon>();
+            Transform[] weaponsTransform = GeneralTools.GetTransformsOfArray(weapons);
+            return GeneralTools.GetClosestTransform(transform.position, weaponsTransform).GetComponent<PickupableWeapon>();
+        }
         public PickupableWeapon FindDefibrilator()
         {
             PickupableWeapon[] guns = GameObject.FindObjectsOfType<PickupableWeapon>();

@@ -12,6 +12,7 @@ namespace Gann4Games.Thirdym.NPC
             Alert,
             Attacking,
             LookingForWeapons,
+            Runaway,
             Dead,
         }
         public NPCState NPCStatus;
@@ -34,12 +35,24 @@ namespace Gann4Games.Thirdym.NPC
              * Once the enemy is identified, the attack state will begin.
              *      Once the enemy is beaten, the idle state will begin.
              *      
-             * [Idle] <> [Alert]
-             *   ^           v
-             *   |_____ [Attacking]
+             * [Idle] _____           
+             *   ^         v
+             *   |_____ [Alert] ______ 
+             *   |         v          |
+             *   |_____ [Attacking]   |
+             *   |                    v
+             *   |_____ [LookingForWeapons]
+             *   |         v
+             *   |_____ [Runaway]
+             *   
+             *   
+             *   Any >> Dead >> Idle
              */
+            if (NPC.character.HealthController.IsDead && NPCStatus != NPCState.Dead) 
+                // [Any] >> Dead
+                NPCStatus = NPCState.Dead;
 
-            switch(NPCStatus)
+            switch (NPCStatus)
             {
                 case NPCState.Idle:
                     if (_timer.GeTimeOut != 3) _timer.SetTimeOut(3);
@@ -99,6 +112,13 @@ namespace Gann4Games.Thirdym.NPC
                     break;
 
                 case NPCState.Attacking:
+                    if(!_closestEnemy)
+                    {
+                        // [Attacking] >> Idle
+                        NPCStatus = NPCState.Idle;
+                        break;
+                    }
+
                     if (NPC.IsOnSight(_closestEnemy.transform.position))
                     {
                         NPC.character.Animator.SetBool("WeaponAiming", true);
@@ -121,40 +141,75 @@ namespace Gann4Games.Thirdym.NPC
                 case NPCState.LookingForWeapons:
                     // Alert >> [LookingForWeapons]
                     
-                    EquipAWeapon();
-
-                    // Idle << [LookingForWeapons]
-                    NPCStatus = NPCState.Idle;
+                    EquipAnyWeapon();
                     break;
+                
+                case NPCState.Runaway:  // Running away only happens when the NPC doesn't have any weapon, even in its inventory. This isually happens after death.
+                    // LookingForWeapons >> [Runaway]
+
+                    NPC.SelfBalance();
+                    NPC.RagdollBody2Nav();
+                    NPC.RagdollWalk2Nav();
+                    NPC.HeadLookAtNav();
+                    NPC.GoTo(_closestWeapon.transform.position, 0);
+
+                    if(Vector3.Distance(transform.position, _closestWeapon.transform.position) < 0.5f)
+                    {
+                        EquipAnyWeapon();
+                    }
+
+                    if (NPC.character.EquipmentController.currentWeapon)
+                        // Idle << [Runaway]
+                        NPCStatus = NPCState.Idle;
+
+                    break;
+
+                case NPCState.Dead:
+                    if (!NPC.character.HealthController.IsDead)
+                        // [Dead] >> Idle
+                        NPCStatus = NPCState.Idle;
             }
         }
-        void EquipAWeapon()
+        void EquipAnyWeapon()
         {
             if (NPC.character.EquipmentController.HasWeapon(Enums.WeaponType.Pistol))
             {
                 NPC.character.EquipmentController.EquipWeapon(Enums.WeaponType.Pistol);
+                // Idle << [LookingForWeapons]
+                NPCStatus = NPCState.Idle;
                 return;
             }
             if (NPC.character.EquipmentController.HasWeapon(Enums.WeaponType.Rifle))
             {
                 NPC.character.EquipmentController.EquipWeapon(Enums.WeaponType.Shotgun);
+                // Idle << [LookingForWeapons]
+                NPCStatus = NPCState.Idle;
                 return;
             }
             if (NPC.character.EquipmentController.HasWeapon(Enums.WeaponType.Shotgun))
             {
                 NPC.character.EquipmentController.EquipWeapon(Enums.WeaponType.Shotgun);
+                // Idle << [LookingForWeapons]
+                NPCStatus = NPCState.Idle;
                 return;
             }
             if (NPC.character.EquipmentController.HasWeapon(Enums.WeaponType.Heavy))
             {
                 NPC.character.EquipmentController.EquipWeapon(Enums.WeaponType.Heavy);
+                // Idle << [LookingForWeapons]
+                NPCStatus = NPCState.Idle;
                 return;
             }
             if (NPC.character.EquipmentController.HasWeapon(Enums.WeaponType.Melee))
             {
                 NPC.character.EquipmentController.EquipWeapon(Enums.WeaponType.Melee);
+                // Idle << [LookingForWeapons]
+                NPCStatus = NPCState.Idle;
                 return;
             }
+            
+            // [LookingForGuns] >> Runaway
+            NPCStatus = NPCState.Runaway;
         }
     }
 }

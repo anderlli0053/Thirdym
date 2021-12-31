@@ -56,9 +56,24 @@ public class CharacterHealthSystem : MonoBehaviour {
         if (!_character.isNPC) MainHUDHandler.instance.healthbar.maxValue = _maxHealth;
     }
 
+    /// <summary>
+    /// Returns true if the health is higher than required. This can be a value over-increasing by self healing, defibrilators, or hacking, who knows.
+    /// </summary>
     bool IsOverHealed => _health >= _maxHealth;
+
+    /// <summary>
+    /// Returns true if the health is higher or equals to the injury level configured.
+    /// </summary>
     public bool IsFullyAlive => _health >= _injuryLevel;
+
+    /// <summary>
+    /// Returns true if the health is lower or equals than the injury level configured.
+    /// </summary>
     public bool IsInjuried => _health <= _injuryLevel;
+
+    /// <summary>
+    /// Returns true if the health is less or equals to zero.
+    /// </summary>
     public bool IsDead => _health <= 0;
     
     private void Update()

@@ -3803,7 +3803,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4515920605287836}
-  - component: {fileID: 940297883153399254}
   - component: {fileID: 195661160007103772}
   m_Layer: 0
   m_Name: NavmeshAgent
@@ -3826,20 +3825,6 @@ Transform:
   m_Father: {fileID: 4547484015405860}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &940297883153399254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631060183993018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d087eee7867f9c4492aad1b366c2687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPCStatus: 0
-  NPC: {fileID: 7339744613345601289}
 --- !u!195 &195661160007103772
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4272,6 +4257,7 @@ GameObject:
   - component: {fileID: 4767574830358030}
   - component: {fileID: 116872202793667348}
   - component: {fileID: 7339744613345601289}
+  - component: {fileID: 7895035464829839035}
   - component: {fileID: 114878597408337190}
   - component: {fileID: 114912258299896946}
   - component: {fileID: 114326362518174878}
@@ -4335,12 +4321,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {x: 0, y: 0, z: 0}
-  stateMachine: {fileID: 940297883153399254}
+  stateMachine: {fileID: 7895035464829839035}
   character: {fileID: 114266830533150404}
   pointToLookAt: {x: 0, y: 0, z: 0}
   facerTransform: {fileID: 4681177875611186}
   navmeshAgent: {fileID: 195661160007103772}
   target: {fileID: 0}
+--- !u!114 &7895035464829839035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727890713172640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d087eee7867f9c4492aad1b366c2687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCStatus: 0
+  NPC: {fileID: 7339744613345601289}
 --- !u!114 &114878597408337190
 MonoBehaviour:
   m_ObjectHideFlags: 0
