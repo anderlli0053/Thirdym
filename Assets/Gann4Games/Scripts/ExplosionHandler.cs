@@ -12,7 +12,7 @@ namespace Gann4Games.Thirdym.Core
         public bool explodeOnStart;
         public bool explodeOnImpact;
 
-        private void Start()
+        private void OnEnable()
         {
             if(explodeOnStart)
                 Explode();

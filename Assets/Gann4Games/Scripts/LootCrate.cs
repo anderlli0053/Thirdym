@@ -2,10 +2,9 @@
 using UnityEngine;
 using Gann4Games.Thirdym.Events;
 
-[RequireComponent(typeof(BreakableObject))]
 [RequireComponent(typeof(CollisionEvents))]
 [RequireComponent(typeof(AudioSource))]
-public class LootCrate : MonoBehaviour {
+public class LootCrate : BreakableObject {
     [System.Serializable]
     public class ObjectToSpawn
     {
@@ -17,12 +16,35 @@ public class LootCrate : MonoBehaviour {
     [SerializeField] List<ObjectToSpawn> lootContent;
 
     Rigidbody[] _rigidbodies;
-    BreakableObject _breakableObject;
-    private void Awake()
+
+    public override void Initialize()
     {
-        _breakableObject = GetComponent<BreakableObject>();
+        base.Initialize();
+        ApplyCrateMass();
     }
-    private void Start()
+
+    public override void OnDeath()
+    {
+        base.OnDeath();
+        SpawnLoot();
+    }
+
+    void SpawnLoot()
+    {
+        for (int i = 0; i < lootContent.Count; i++)
+        {
+            if (lootContent[i].item == null)
+            {
+                Debug.LogWarning($"Gann! Crate '{name}' has empty fields, you should check that.");
+                continue;
+            }
+
+            for (int amount = 0; amount < lootContent[i].count; amount++)
+                Instantiate(lootContent[i].item, transform.position, transform.rotation);
+        }
+    }
+
+    void ApplyCrateMass()
     {
         for (int index = 0; index < lootContent.Count; index++)
         {
@@ -32,30 +54,6 @@ public class LootCrate : MonoBehaviour {
                 for (int rbodies = 0; rbodies < _rigidbodies.Length; rbodies++)
                     GetComponent<Rigidbody>().mass += _rigidbodies[rbodies].mass;
             }
-        }
-    }
-    private void OnEnable()
-    {
-        _breakableObject.OnDeath += BreakCrate;
-    }
-    private void OnDisable()
-    {
-        _breakableObject.OnDeath -= BreakCrate;
-    }
-    public void BreakCrate(object sender, BreakableObject.BreakableObjectArgs args)
-    {
-        Instantiate(args.brokenModel, transform.position, transform.rotation);
-        SpawnLoot();
-        Destroy(gameObject);
-    }
-    void SpawnLoot()
-    {
-        for (int i = 0; i < lootContent.Count; i++)
-        {
-            if (lootContent[i].item == null) continue;
-
-            for (int amount = 0; amount < lootContent[i].count; amount++)
-                Instantiate(lootContent[i].item, transform.position, transform.rotation);
         }
     }
 }

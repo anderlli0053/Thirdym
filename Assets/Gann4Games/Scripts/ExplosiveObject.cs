@@ -1,34 +1,41 @@
 using UnityEngine;
 using Gann4Games.Thirdym.Core;
 using Gann4Games.Thirdym.Events;
+using Gann4Games.Thirdym.Interfaces;
 
-[RequireComponent(typeof(BreakableObject))]
 [RequireComponent(typeof(ExplosionHandler))]
-public class ExplosiveObject : MonoBehaviour
+[RequireComponent(typeof(CollisionEvents))]
+public class ExplosiveObject : BreakableObject
 {
-    [Tooltip("The object that will be replaced by the broken model. Usually is the object the script is attached to.")]
-    public GameObject defaultObject;
-
-    BreakableObject _breakableObject;
     ExplosionHandler _explosionHandler;
+    CollisionEvents _collisionEvents;
     private void Awake()
     {
-        _explosionHandler = GetComponent<ExplosionHandler>();
-
-        _breakableObject = GetComponent<BreakableObject>();
-        _breakableObject.health = _explosionHandler.explosiveData.health;
-
+        if (TryGetComponent(out ExplosionHandler explosion)) _explosionHandler = explosion;
+        if (TryGetComponent(out CollisionEvents collision)) _collisionEvents = collision;
     }
-    private void OnEnable() => _breakableObject.OnDeath += StartExplosion;
-    private void OnDisable() => _breakableObject.OnDeath -= StartExplosion;
-    public void StartExplosion(object sender, BreakableObject.BreakableObjectArgs args)
+
+    public override void Initialize() => startHealth = _explosionHandler.explosiveData.health;
+
+    public override void OnDeath()
     {
+        base.OnDeath();
         _explosionHandler.Explode();
-        
-        defaultObject.SetActive(false);
-
-        Instantiate(args.brokenModel, transform.position, transform.rotation);
-
-        Destroy(gameObject);
     }
+
+    private void OnEnable()
+    {
+        _collisionEvents.OnCollideHard += CollideHard;
+        _collisionEvents.OnCollideMedium += CollideMedium;
+        _collisionEvents.OnCollideSoft += CollideSoft;
+    }
+    private void OnDisable()
+    {
+        _collisionEvents.OnCollideHard -= CollideHard;
+        _collisionEvents.OnCollideMedium -= CollideMedium;
+        _collisionEvents.OnCollideSoft -= CollideSoft;
+    }
+    void CollideHard(object sender, CollisionEvents.CollisionArgs args) => DealDamage(25, DamageType.Collision, Vector3.zero);
+    void CollideMedium(object sender, CollisionEvents.CollisionArgs args) => DealDamage(10, DamageType.Collision, Vector3.zero);
+    void CollideSoft(object sender, CollisionEvents.CollisionArgs args) => DealDamage(1, DamageType.Collision, Vector3.zero);
 }

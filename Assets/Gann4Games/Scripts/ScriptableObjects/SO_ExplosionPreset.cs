@@ -10,6 +10,5 @@ namespace Gann4Games.Thirdym.ScriptableObjects
         public float explosionDamage = 250;
         public float explosionForce = 200;
         public Vector3 explosionOriginOffset;
-        public GameObject brokenObject;
     }
 }

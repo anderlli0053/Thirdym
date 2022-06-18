@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4905897839549510}
   - component: {fileID: 114043497755972720}
-  - component: {fileID: 3946016122843035166}
   - component: {fileID: 2655557092595795872}
   - component: {fileID: 1216479377536423497}
   - component: {fileID: 65012032154440008}
@@ -35,6 +34,7 @@ Transform:
   m_LocalPosition: {x: 230.95, y: 1.3155, z: 111.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 396349205700475506}
   - {fileID: 7203216456104022625}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,25 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e66c2c16ae5130945a147cd51a44cebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxCollideHard: {fileID: 8300000, guid: 4d75020553cf4c84484fbe816332781b, type: 3}
-  sfxCollideMedium: {fileID: 8300000, guid: 55658734f008b8245bfb7479745b8269, type: 3}
-  sfxCollideSoft: {fileID: 8300000, guid: d76c26ef19c0e41479a915db6d5948b3, type: 3}
+  brokenEffect: {fileID: 2204087139430650987}
+  defaultObject: {fileID: 8710127843588815992}
+  startHealth: 100
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   lootContent: []
---- !u!114 &3946016122843035166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667545356189034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1173222999368c409215b8beee1d2f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brokenEffect: {fileID: 3833176094615552446, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
-    type: 3}
-  health: 50
 --- !u!114 &2655557092595795872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,5 +3245,91 @@ Transform:
   - {fileID: 140718537426471617}
   - {fileID: 140718537274871411}
   m_Father: {fileID: 4905897839549510}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3144727268573648341
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4905897839549510}
+    m_Modifications:
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3833176094615552446, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_Name
+      value: LootCrate_broken
+      objectReference: {fileID: 0}
+    - target: {fileID: 3833176094615552446, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dc16ac4ffe5c2a640addc41651c8ec9a, type: 3}
+--- !u!4 &396349205700475506 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3324867407848796071, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3144727268573648341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2204087139430650987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3833176094615552446, guid: dc16ac4ffe5c2a640addc41651c8ec9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3144727268573648341}
+  m_PrefabAsset: {fileID: 0}
