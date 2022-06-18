@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
+using Gann4Games.Thirdym;
 
-namespace Gann4Games.Thirdym
+namespace Thirdym
 {
     public class NotifyUpdates : MonoBehaviour
     {

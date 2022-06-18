@@ -5,34 +5,32 @@ namespace Gann4Games.Thirdym.Core
 {
     public class FlyCameraZone : MonoBehaviour 
     {
-
-        PlayerCameraController playerCam;
-        SmoothFollowTarget target;
-        public bool cameraActive;
+        SmoothFollowTarget _smoothFollowTarget;
+        Collider _collider;
         private void Start()
         {
-            target = GetComponentInChildren<SmoothFollowTarget>();
-            if (GetComponent<Collider>().isTrigger == false)
-                GetComponent<Collider>().isTrigger = true;
+            _smoothFollowTarget = GetComponentInChildren<SmoothFollowTarget>();
+            if (TryGetComponent(out _collider))
+            {
+                if (_collider.isTrigger) return;
+                Debug.LogWarning($"Camera zone '{name}' is not set as trigger!");
+            }
         }
         private void OnTriggerEnter(Collider other)
         {
-            if(other.GetComponent<PlayerCameraController>())
-            {
-                playerCam = other.GetComponent<PlayerCameraController>();
-                playerCam.flyConfig.followTarget = target.transform;
-                playerCam.camMode = CameraMode.FlyCam;
-                target.Target = playerCam.transform;
-                cameraActive = true;
-            }
+            PlayerCameraController playerCamera = other.GetComponent<PlayerCameraController>();
+            if (!playerCamera) return;
+
+            playerCamera.flyConfig.followTarget = _smoothFollowTarget.transform;
+            playerCamera.camMode = CameraMode.FlyCam;
+            _smoothFollowTarget.Target = playerCamera.transform;
         }
         private void OnTriggerExit(Collider other)
         {
-            if(other.GetComponent<PlayerCameraController>())
-            {
-                playerCam.camMode = CameraMode.Player;
-                cameraActive = false;
-            }
+            PlayerCameraController playerCamera = other.GetComponent<PlayerCameraController>();
+            if (!playerCamera) return;
+
+            playerCamera.camMode = CameraMode.Player;
         }
 
 #if UNITY_EDITOR
