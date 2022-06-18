@@ -1,24 +1,26 @@
 using UnityEngine;
 using UnityEngine.Events;
-using Gann4Games;
 
-public class NotifyUpdates : MonoBehaviour
+namespace Gann4Games.Thirdym
 {
-    [SerializeField] UnityEvent onUpdateFound;
-
-    ThirdymAPI _gameAPI = new ThirdymAPI();
-
-    private void Start() 
+    public class NotifyUpdates : MonoBehaviour
     {
-        StartCoroutine(_gameAPI.InitializeRequest());
-        _gameAPI.OnRequestFinished += CheckForUpdates;
-    }
+        [SerializeField] UnityEvent onUpdateFound;
 
-    void CheckForUpdates(object sender, System.EventArgs args)
-    {
-        if (_gameAPI.IsUpToDate) return;
+        readonly ThirdymAPI _gameAPI = new ThirdymAPI();
 
-        NotificationHandler.Notify($"Update available! (v{_gameAPI.LastVersion})");
-        onUpdateFound.Invoke();
+        private void Start() 
+        {
+            StartCoroutine(_gameAPI.InitializeRequest());
+            _gameAPI.OnRequestFinished += CheckForUpdates;
+        }
+
+        void CheckForUpdates(object sender, System.EventArgs args)
+        {
+            if (_gameAPI.IsUpToDate) return;
+
+            NotificationHandler.Notify($"Update available! (v{_gameAPI.LastVersion})");
+            onUpdateFound.Invoke();
+        }
     }
 }

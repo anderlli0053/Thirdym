@@ -3,8 +3,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Gann4Games
+namespace Gann4Games.Thirdym
 {
+    /// <summary>
+    /// General game information and data.
+    /// </summary>
     public class ThirdymAPI
     {
 
@@ -25,11 +28,7 @@ namespace Gann4Games
         string _json;
         GameCloudData _gameCloudData;
 
-        public ThirdymAPI()
-        {
-            Debug.Log("API Initialized...");
-            OnRequestFinished += JsonToClass;
-        }
+        public ThirdymAPI() => OnRequestFinished += JsonToClass;
 
         /// <summary>
         /// Sends the json string data into `_gameCloudData` field.
