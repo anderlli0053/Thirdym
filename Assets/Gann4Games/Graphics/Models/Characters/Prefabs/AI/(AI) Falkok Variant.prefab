@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1321755652843816, guid: 56dc863f2a0ac314ca5b82a8a178bbb4, type: 3}
       propertyPath: m_Name
-      value: (AI) Falkok
+      value: (AI) Falkok Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1321755652843816, guid: 56dc863f2a0ac314ca5b82a8a178bbb4, type: 3}
       propertyPath: m_IsActive
@@ -403,6 +403,12 @@ PrefabInstance:
       propertyPath: yourSuit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114613070510246162, guid: 56dc863f2a0ac314ca5b82a8a178bbb4,
+        type: 3}
+      propertyPath: rifle
+      value: 
+      objectReference: {fileID: 11400000, guid: ef02a90066c126048b8fdb31bf3cea58,
+        type: 2}
     - target: {fileID: 114613070510246162, guid: 56dc863f2a0ac314ca5b82a8a178bbb4,
         type: 3}
       propertyPath: HavePistol

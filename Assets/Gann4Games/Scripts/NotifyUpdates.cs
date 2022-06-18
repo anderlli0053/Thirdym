@@ -1,38 +1,24 @@
 using UnityEngine;
 using UnityEngine.Events;
-using Gann4Games.Thirdym.Gann4Web;
+using Gann4Games;
+
 public class NotifyUpdates : MonoBehaviour
 {
     [SerializeField] UnityEvent onUpdateFound;
-    [SerializeField] UnityEvent onServerDown;
 
-    Gann4Web _gameVersionHandler;
-    string _lastVersion;
+    ThirdymAPI _gameAPI = new ThirdymAPI();
+
     private void Start() 
     {
-        _gameVersionHandler = new Gann4Web();
-        switch(_gameVersionHandler.IsServerDown)
-        {
-            case false:
-                UpdateCheck();
-                break;
-            case true:
-                ServerDown();
-                break;
-        }
+        StartCoroutine(_gameAPI.InitializeRequest());
+        _gameAPI.OnRequestFinished += CheckForUpdates;
     }
-    void UpdateCheck()
+
+    void CheckForUpdates(object sender, System.EventArgs args)
     {
-        _lastVersion = _gameVersionHandler.GetLastVersion();
-        if (Application.version != _lastVersion)
-        {
-            NotificationHandler.Notify($"Update available! (v{_lastVersion})");
-            onUpdateFound.Invoke();
-        }
-    }
-    void ServerDown()
-    {
-        NotificationHandler.Notify($"Couldn't connect with http://gann4life.ga.");
-        onServerDown.Invoke();
+        if (_gameAPI.IsUpToDate) return;
+
+        NotificationHandler.Notify($"Update available! (v{_gameAPI.LastVersion})");
+        onUpdateFound.Invoke();
     }
 }

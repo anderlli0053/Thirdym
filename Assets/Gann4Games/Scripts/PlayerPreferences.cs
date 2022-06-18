@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Newtonsoft.Json;
 using System.IO;
 using Gann4Games.Thirdym.ScriptableObjects;
 
@@ -53,20 +52,20 @@ public class PlayerPreferences : MonoBehaviour
     }
     void WriteJson(object data, string path, string filename)
     {
-        File.WriteAllText(path + "\\" + filename, JsonConvert.SerializeObject(data, Formatting.Indented));
+        File.WriteAllText(path + "\\" + filename, JsonUtility.ToJson(data, true));
     }
     void LoadJsonPreferences()
     {
         json_structure.choosen_suit = choosen_suit;
-        
+
         if (!File.Exists(json_path + "\\" + json_filename)) WriteJson(json_structure, json_path, json_filename);
-        else json_structure = JsonConvert.DeserializeObject<PlayerPreferencesJson>(File.ReadAllText(json_path + "\\" + json_filename));
+        else json_structure = JsonUtility.FromJson<PlayerPreferencesJson>(File.ReadAllText(json_path + "\\" + json_filename));
 
         if (json_structure.choosen_suit >= suit_count) json_structure.choosen_suit = suit_count - 1;
         WriteJson(json_structure, json_path, json_filename);
     }
     public PlayerPreferencesJson GetJsonData()
     {
-        return JsonConvert.DeserializeObject<PlayerPreferencesJson>(File.ReadAllText(json_path + "\\" + json_filename));
+        return JsonUtility.FromJson<PlayerPreferencesJson>(File.ReadAllText(json_path + "\\" + json_filename));
     }
 }

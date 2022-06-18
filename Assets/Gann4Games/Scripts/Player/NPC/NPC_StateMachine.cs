@@ -168,6 +168,7 @@ namespace Gann4Games.Thirdym.NPC
                     if (!NPC.character.HealthController.IsDead)
                         // [Dead] >> Idle
                         NPCStatus = NPCState.Idle;
+                    break;
             }
         }
         void EquipAnyWeapon()
