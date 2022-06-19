@@ -7,8 +7,4 @@
 </div>
 
 ## Requirements
-* Unity 2021.1.16f1
-
----
-
-See trello board [here](https://trello.com/b/bjT15xyi/thirdym-project).
+* Unity 2021.1.25f1
