@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
   weaponName: C-01r
-  weaponDamage: 0
+  weaponDamage: 10
   weaponType: 2
   weaponBullet: {fileID: 11400000, guid: 321461957f572b44ab4ee64901c13000, type: 2}
   fireSoundEffects:
@@ -37,10 +37,11 @@ MonoBehaviour:
   useLeftShoulder: 1
   useLeftElbow: 1
   bulletFireSource: {x: 0.37, y: 0, z: 0.11}
-  bulletFireTime: 1
+  bulletFireTime: 0.1
   bulletSpawnCount: 1
-  bulletSpreadAngle: 0
+  bulletSpreadAngle: 1
   bulletDespawnTime: 3
+  useCameraAim: 1
   useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
   weaponName: unnamed_weapon
-  weaponDamage: 25
+  weaponDamage: 0
   weaponType: 0
   weaponBullet: {fileID: 0}
   fireSoundEffects:

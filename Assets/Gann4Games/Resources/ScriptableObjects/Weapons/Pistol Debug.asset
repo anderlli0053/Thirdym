@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponIcon: {fileID: 0}
   weaponName: DEBUG_WEAPON
-  weaponDamage: 0
+  weaponDamage: -10
   weaponType: 1
   weaponBullet: {fileID: 11400000, guid: 321461957f572b44ab4ee64901c13000, type: 2}
   fireSoundEffects:
@@ -43,6 +43,7 @@ MonoBehaviour:
   bulletSpawnCount: 1
   bulletSpreadAngle: 0
   bulletDespawnTime: 3
+  useCameraAim: 1
   useFireRecoil: 1
   useRicochet: 1
   ricochetMinAngle: 0.75

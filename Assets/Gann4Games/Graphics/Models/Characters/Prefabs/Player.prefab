@@ -394,7 +394,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 0
-  bloodRotationOffset: {x: 90, y: 0, z: 0}
 --- !u!114 &114620188033277380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,7 +842,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1143777058142172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,7 +1128,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 1
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114310764821617908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,7 +1396,6 @@ MonoBehaviour:
   y: 1
   z: 0
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114964558075105032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,7 +1532,6 @@ MonoBehaviour:
   y: 0
   z: 1
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1227637012718004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1801,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!135 &135694514535989358
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1924,7 +1918,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!135 &135078032592795746
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2206,7 +2199,6 @@ MonoBehaviour:
   y: 1
   z: 0
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1443828970497052
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,7 +2320,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 0
-  bloodRotationOffset: {x: -90, y: 0, z: 0}
 --- !u!114 &114451422669142004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,12 +2725,12 @@ MonoBehaviour:
   tpConfig:
     startOffset: {x: 0, y: 0, z: 0}
     start_pos_lerp: 0
-    sensitivity: {x: 5, y: 5}
+    sensitivity: {x: 1, y: 1}
     offset: {x: 0.2, y: 0.4, z: -1.5}
     offset_aiming: {x: 0.5, y: 0.4, z: -0.75}
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    pos_lerp: 0.3
+    pos_lerp: 0.5
     rot_lerp: 1
     aim_pos_lerp: 1
   flyConfig:
@@ -3378,7 +3369,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 0
-  bloodRotationOffset: {x: -90, y: 0, z: 0}
 --- !u!114 &114117781417962276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3565,7 +3555,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 0
-  bloodRotationOffset: {x: -90, y: 0, z: 0}
 --- !u!114 &114550416678143980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3702,7 +3691,6 @@ MonoBehaviour:
   y: 0
   z: 1
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1564810561583440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,7 +4033,6 @@ MonoBehaviour:
   y: 0
   z: 1
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1637500973694994
 GameObject:
   m_ObjectHideFlags: 0
@@ -4381,7 +4368,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114611167053698562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5101,7 +5087,6 @@ MonoBehaviour:
   y: 0
   z: 0
   invert: 0
-  bloodRotationOffset: {x: -90, y: 0, z: 0}
 --- !u!114 &114189682660987162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5762,7 +5747,6 @@ MonoBehaviour:
   y: 0
   z: 1
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1952606899380050
 GameObject:
   m_ObjectHideFlags: 0
@@ -6038,7 +6022,6 @@ MonoBehaviour:
   y: 1
   z: 0
   invert: 0
-  bloodRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114265295567557248
 MonoBehaviour:
   m_ObjectHideFlags: 0

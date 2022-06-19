@@ -22,7 +22,7 @@ MonoBehaviour:
   maximumHealth: 400
   injuryLevel: 100
   regeneration_rate: 500
-  bladeDamage: 10
+  bladeDamage: 50
   blood_splat: {fileID: 1362980632775236, guid: a6e1bb3d294ccf448aa50f1a6b029969,
     type: 3}
   blood_bleed: {fileID: 1882992891793642, guid: 61d2bf4c658bb804a85a6e3357a2e70a,
