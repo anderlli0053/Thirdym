@@ -111,7 +111,7 @@ namespace Gann4Games.Thirdym.NPC
         public void RagdollWalkTowards(Vector3 toPoint, float stopDistance = .5f)
         {
             //Direction to move feet
-            Vector3 feetDirection = transform.InverseTransformDirection(transform.position - toPoint);
+            Vector3 feetDirection = transform.InverseTransformDirection(transform.position - toPoint).normalized;
 
             // Stop feet movement at desired distance
             if (Vector3.Distance(transform.position, transform.position + feetDirection) < stopDistance) feetDirection = Vector3.zero;
@@ -119,8 +119,7 @@ namespace Gann4Games.Thirdym.NPC
             //Set feet movement on its Y position
             character.Animator.SetFloat("Y", Mathf.Lerp(character.Animator.GetFloat("Y"), -feetDirection.z, Time.deltaTime));
             //Set feet movement on its X position
-            character.Animator.SetFloat("X", Mathf.Lerp(character.Animator.GetFloat("X"),
-                -feetDirection.x, Time.deltaTime));
+            character.Animator.SetFloat("X", Mathf.Lerp(character.Animator.GetFloat("X"), -feetDirection.x, Time.deltaTime));
         }
         public void RagdollBodyLookAt(Vector3 point2face)
         {
