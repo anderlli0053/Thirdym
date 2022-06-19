@@ -22,11 +22,11 @@ namespace Gann4Games.Thirdym.Events
         {
             float collisionForce = collision.relativeVelocity.magnitude;
             if (collisionForce > collisionHardMagnitude)
-                OnCollideHard?.Invoke(this, new CollisionArgs { collisionMagnitude = 0 });
+                OnCollideHard?.Invoke(this, new CollisionArgs { collisionMagnitude = collisionForce });
             else if (collisionForce > collisionMediumMagnitude)
-                OnCollideMedium?.Invoke(this, new CollisionArgs { collisionMagnitude = 0 });
+                OnCollideMedium?.Invoke(this, new CollisionArgs { collisionMagnitude = collisionForce });
             else if (collisionForce > collisionSoftMagnitude)
-                OnCollideSoft?.Invoke(this, new CollisionArgs { collisionMagnitude = 0 });
+                OnCollideSoft?.Invoke(this, new CollisionArgs { collisionMagnitude = collisionForce });
         }
     }
 }

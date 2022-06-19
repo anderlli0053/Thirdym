@@ -9,13 +9,16 @@ public class ExplosiveObject : BreakableObject
 {
     ExplosionHandler _explosionHandler;
     CollisionEvents _collisionEvents;
-    private void Awake()
+
+    private void Awake() => Initialize();
+
+    public override void Initialize()
     {
+        base.Initialize();
         if (TryGetComponent(out ExplosionHandler explosion)) _explosionHandler = explosion;
         if (TryGetComponent(out CollisionEvents collision)) _collisionEvents = collision;
+        SetHealth(_explosionHandler.explosiveData.health);
     }
-
-    public override void Initialize() => startHealth = _explosionHandler.explosiveData.health;
 
     public override void OnDeath()
     {
