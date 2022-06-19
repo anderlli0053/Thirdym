@@ -7,4 +7,4 @@
 </div>
 
 ## Requirements
-* Unity 2021.1.16f1
+* Unity 2021.1.25f1
